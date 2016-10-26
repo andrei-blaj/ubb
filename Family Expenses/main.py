@@ -52,24 +52,24 @@ def main():
 
     print("   Welcome!\n   Please choose the type of user interface:")
     print("   1. Command based.")
-    print("   2. Menu based.")
-    menuType = raw_input("~: ")
+    print("   2. UI based.")
+    UIType = raw_input("~: ")
 
-    while menuType not in ['1', '2']:
+    while UIType not in ['1', '2']:
         os.system('clear')
         print("   Invalid input.")
         print("   1. Command based.")
-        print("   2. Menu based.")
-        menuType = raw_input("~: ")
+        print("   2. UI based.")
+        UIType = raw_input("~: ")
 
-    if menuType == '1':
+    if UIType == '1':
         commandBased(categoryList, cmdList, undo_steps)
     else:
-        menuBased(categoryList, cmdList, undo_steps) # to be implemented
+        UIBased(categoryList, cmdList, undo_steps) # to be implemented
 
 def commandBased(categoryList, cmdList, undo_steps):
     os.system('clear')
-    userHelp(cmdList)               # Printing the menu
+    userHelp(cmdList)               # Printing the UI
 
     while True:
 
@@ -109,13 +109,13 @@ def commandBased(categoryList, cmdList, undo_steps):
         else:
             print("   '" + userInput + "' not recognized. \"~:help\"")
 
-def menuBasedHelp():
+def UIBasedHelp():
     print("   Available commmands:")
     cmdList = buildCmdList()
     for i in cmdList:
         print("   ~:" + getCommand(i))
 
-def menuAdd(categoryList):
+def UIAdd(categoryList):
     while True:
         s = raw_input("Please enter a sum: ")
         try:
@@ -133,7 +133,7 @@ def menuAdd(categoryList):
 
     return s, category
 
-def menuInsert(categoryList):
+def UIInsert(categoryList):
     while True:
         try:
             day = int(input("Please enter a day: "))
@@ -161,16 +161,16 @@ def menuInsert(categoryList):
 
     return day, s, category
 
-def menuRemove(categoryList):
-    menuType = '0'
-    while menuType not in ['1', '2', '3']:
+def UIRemove(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2', '3']:
         os.system('clear')
         print("   1. Remove a day.")
         print("   2. Remove multiple days (<start day> to <end day>).")
         print("   3. Remove category.")
-        menuType = raw_input("~: ")
+        UIType = raw_input("~: ")
 
-    if menuType == '1':
+    if UIType == '1':
         while True:
             day = raw_input("Please enter a day: ")
             try:
@@ -184,7 +184,7 @@ def menuRemove(categoryList):
 
         return str(day)
 
-    elif menuType == '2':
+    elif UIType == '2':
         while True:
             start_day = raw_input("Please enter the start day: ")
             try:
@@ -219,20 +219,20 @@ def menuRemove(categoryList):
 
         return str(category)
 
-def menuList(categoryList):
-    menuType = '0'
-    while menuType not in ['1', '2', '3']:
+def UIList(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2', '3']:
         os.system('clear')
         print("   1. List all.")
         print("   2. List by category.")
         print("   3. List by category less, greater or equal to a value.")
-        menuType = raw_input("~: ")
+        UIType = raw_input("~: ")
 
     os.system('clear')
 
-    if menuType == '1':
+    if UIType == '1':
         return " "
-    elif menuType == '2':
+    elif UIType == '2':
         while True:
             category = raw_input("Please enter a category: ")
             os.system('clear')
@@ -270,7 +270,7 @@ def menuList(categoryList):
 
         return str(category) + " " + str(symbol) + " " + str(value)
 
-def menuSum(categoryList):
+def UISum(categoryList):
     while True:
         category = raw_input("Please enter a category: ")
         if category not in categoryList:
@@ -279,24 +279,24 @@ def menuSum(categoryList):
             break;
     return str(category)
 
-def menuMax():
+def UIMax():
     while True:
         t = raw_input("Please enter 'day': ")
         os.system('clear')
         if t == "day":
             return t
 
-def menuFilter(categoryList):
-    menuType = '0'
-    while menuType not in ['1', '2']:
+def UIFilter(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2']:
         os.system('clear')
         print("   1. Filter by category.")
         print("   2. Filter by category less, greater or equal to a value.")
-        menuType = raw_input("~: ")
+        UIType = raw_input("~: ")
 
     os.system('clear')
 
-    if menuType == '1':
+    if UIType == '1':
         while True:
             category = raw_input("Please enter a category: ")
             os.system('clear')
@@ -335,17 +335,17 @@ def menuFilter(categoryList):
 
         return str(category) + " " + str(symbol) + " " + str(value)
 
-def menuSort(categoryList):
-    menuType = '0'
-    while menuType not in ['1', '2']:
+def UISort(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2']:
         os.system('clear')
         print("   1. Sort by day.")
         print("   2. Sort by category.")
-        menuType = raw_input("~: ")
+        UIType = raw_input("~: ")
 
     os.system('clear')
 
-    if menuType == '1':
+    if UIType == '1':
         while True:
             day = raw_input("Please enter 'day': ")
             if day != "day":
@@ -359,10 +359,10 @@ def menuSort(categoryList):
             else:
                 return str(category)
 
-def menuBased(categoryList, cmdList, undo_steps):
+def UIBased(categoryList, cmdList, undo_steps):
     os.system('clear') # CLEAR SCREEN
 
-    menuBasedHelp()
+    UIBasedHelp()
 
     while True:
 
@@ -379,30 +379,30 @@ def menuBased(categoryList, cmdList, undo_steps):
         if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
             return
         elif userCommand == "add":
-            sum, category = menuAdd(categoryList)
+            sum, category = UIAdd(categoryList)
             userInput = str(userCommand) + " " + str(sum) + " " + str(category)
             add(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "insert":
-            day, sum, category = menuInsert(categoryList)
+            day, sum, category = UIInsert(categoryList)
             userInput = str(userCommand) + " " + str(day) + " " + str(sum) + " " + str(category)
             insert(userInput, categoryList, undo_steps, 1, step_count)
         elif userCommand == "remove":
-            userInput = str(userCommand) + " " + str(menuRemove(categoryList))
+            userInput = str(userCommand) + " " + str(UIRemove(categoryList))
             remove(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "list":
-            userInput = str(userCommand) + " " + str(menuList(categoryList))
+            userInput = str(userCommand) + " " + str(UIList(categoryList))
             list(userInput, categoryList)
         elif userCommand == "sum":
-            userInput = str(userCommand) + " " + menuSum(categoryList)
+            userInput = str(userCommand) + " " + UISum(categoryList)
             suma(userInput, categoryList)
         elif userCommand == "max":
-            userInput = str(userCommand) + " " + menuMax()
+            userInput = str(userCommand) + " " + UIMax()
             maxi(userInput, categoryList)
         elif userCommand == "sort":
-            userInput = str(userCommand) + " " + str(menuSort(categoryList))
+            userInput = str(userCommand) + " " + str(UISort(categoryList))
             sort(userInput, categoryList)
         elif userCommand == "filter":
-            userInput = str(userCommand) + " " + str(menuFilter(categoryList))
+            userInput = str(userCommand) + " " + str(UIFilter(categoryList))
             filter(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "undo":
             undo(userInput, categoryList, undo_steps, step_count)
