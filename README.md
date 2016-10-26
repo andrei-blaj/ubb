@@ -1,2 +1,2 @@
 # ubb
-Programming projects given to me as homework
+Programming projects AKA homework
