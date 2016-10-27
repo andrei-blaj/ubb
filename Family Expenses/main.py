@@ -421,29 +421,354 @@ def commandBased(categoryList, cmdList, undo_steps):
         if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
             return
         elif userCommand == "add":
-            add(userInput, categoryList, undo_steps, step_count)
+            print add(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "insert":
-            insert(userInput, categoryList, undo_steps, 1, step_count)
+            print insert(userInput, categoryList, undo_steps, 1, step_count)
         elif userCommand == "remove":
-            remove(userInput, categoryList, undo_steps, step_count)
+            print remove(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "list":
-            list(userInput, categoryList)
+            printList = list(userInput, categoryList)
+            printFunc(printList)
         elif userCommand == "sum":
-            suma(userInput, categoryList)
+            print suma(userInput, categoryList)
         elif userCommand == "max":
-            maxi(userInput, categoryList)
+            print maxi(userInput, categoryList)
         elif userCommand == "sort":
-            sort(userInput, categoryList)
+            printList = sort(userInput, categoryList)
+            printFunc(printList)
         elif userCommand == "filter":
-            filter(userInput, categoryList, undo_steps, step_count)
+            print filter(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "undo":
-            undo(userInput, categoryList, undo_steps, step_count)
+            print undo(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "help":
             userHelp(cmdList)
         elif userCommand == "clear":
             os.system('clear')
         else:
             print("   '" + userInput + "' not recognized. \"~:help\"")
+
+def add(userInput, categoryList, undo_steps, step_count):
+    categ, sum, remainder = getCategAndValue(userInput)  # getting the category and the sum from the user input
+    day = time.strftime("%d")
+
+    try:  # In case that the user has entered an invalid number that may contain
+        sum = int(sum)  # strings and other characters other than digits and or '-', '+', etc.
+        if len(remainder) > 0 or sum < 0 or categ not in categoryList:  # In case the user has entered additional characters after the valid syntax
+            return "   Invalid syntax, check sum or category"
+
+    except ValueError:  # the program doesn't crash
+        return "   Invalid sum or syntax"
+
+    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
+    categoryDictionary[categ] += sum  # updating the sum of the selected category
+    fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
+
+    stepCountUpdate(undo_steps, sum, categ, day, step_count) #updating the undo list
+
+    return "   Added successfully!"
+
+def insert(userInput, categoryList, undo_steps, undo, step_count):
+
+    day, categ, sum, remainder = getDayCategAndValue(userInput)
+
+    try:
+        day = int(day)  # Verifing that the user input is correct
+        if day > 30 or day < 1 or len(remainder) > 0:  # Imposing that the day must be a number between 1 and 30 ( [1, 30] )
+            return "   Invalid syntax"
+    except ValueError:
+        return "   Invalid day value or syntax" # day
+
+    try:
+        sum = int(sum)  # sum
+        if undo == 1 and sum < 0 or categ not in categoryList:
+            return "   Invalid syntax"
+    except ValueError:
+        return "   Invalid sum value"
+
+    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
+    categoryDictionary[categ] += sum  # updating the sum of the selected category
+    fileUpdate(day, categoryDictionary)  # updating the file for this day with the new information
+
+    if undo:
+        stepCountUpdate(undo_steps, sum, categ, day, step_count)
+        return "   Inserted successfully!"
+
+def remove(userInput, categoryList, undo_steps, step_count):
+    dayOrCateg = getRemainder(userInput)
+
+    if " to " in dayOrCateg:
+        # this means that we treat the case in which 'remove' is followed by <startDay> to <endDay>
+
+        startDay, endDay, remainder = removeTo(dayOrCateg)
+
+        if len(remainder) > 0:        # In case the user has entered additional characters after the valid syntax
+            return "   Invalid syntax"
+
+        try:
+            startDay = int(startDay)  # Imposing that the start day must be a number between 1 and 30 ( [1, 30] )
+            if startDay > 30 or startDay < 1:
+                return "   Cannot complete query, the <start day> must be between 1 and 30"
+        except ValueError:
+            return "   Invalid start day"
+
+        try:
+            endDay = int(endDay)      # Imposing that the end day must be a number between 1 and 30 ( [1, 30] )
+            if endDay > 30 or endDay < 1:
+                return "   Cannot complete query, the <end day> must be between 1 and 30"
+
+        except ValueError:
+            return "   Invalid end day"
+
+        removeExpenses(startDay, endDay, undo_steps, step_count, categoryList)
+        return "   Successfully removed!"
+
+    else:
+
+        text, remainder = removeDayOrCateg(dayOrCateg)
+
+        if len(remainder) > 0:       # In case the user has entered additional characters after the valid syntax
+            return "Invalid syntax"
+
+        try:
+            day = int(text)          # Imposing that the start day must be a number between 1 and 30 ( [1, 30] )
+            if day > 30 or day < 1:
+                return "Cannot compleate query, the <day> must be between 1 and 30"
+            # remove all the expenses for this day
+            removeExpenses(day, day, undo_steps, step_count, categoryList)
+            return "   Successfully removed!"
+        except ValueError:
+            if text in categoryList:
+                removeExpensesByCategory(text, undo_steps, step_count, categoryList)
+                return "   Successfully removed!"
+                # remove all the expenses for a certain category for the whole month
+            else:
+                return "Invalid syntax"
+
+def list(userInput, categoryList):
+
+    remainderAfterCommand = getRemainder(userInput)
+
+    if len(remainderAfterCommand) == 0:
+        '''
+            This means that the user has entered the simple <list> command
+        '''
+        printList = listOfExpenses("", 1, "", -1, categoryList)
+
+    else:
+        category = getCommand(remainderAfterCommand)
+        remainderAfterCategory = getRemainder(remainderAfterCommand)
+
+        if len(remainderAfterCategory) == 0:
+            '''
+                This means that the user has entered the <list> <category> command
+                Thus I will be working with the <category> variable
+            '''
+            if category not in categoryList:
+                printList.append("Invalid category")
+                return printList
+
+            printList = listOfExpenses(category, 2, "", -1, categoryList)
+
+        else:
+            symbol = getCommand(remainderAfterCategory)
+            remainderAftersymbol = getRemainder(remainderAfterCategory)
+
+            if symbol in ['>', '<', '='] and len(remainderAftersymbol) > 0:
+                '''
+                    This means that the user has entered a valid <, = or >
+                '''
+                value = getCommand(remainderAftersymbol)
+                remainderAfterValue = getRemainder(remainderAftersymbol)
+
+                if len(remainderAfterValue) == 0:
+                    '''
+                        This means that the user has entered corectly the <list> <categry> <symbol> <value> command
+                        Thus I will be working with the <category>, <symbol> and <value> variables
+                    '''
+                    try:
+                        value = int(value)
+                    except ValueError:
+                        printList.append("   Invalid syntax (<value> must be an integer number)")
+                        return printList
+
+                    printList = listOfExpenses(category, 3, symbol, value, categoryList)
+
+                else:
+                    printList.append("   Invalid syntax")
+                    return printList
+
+            else:
+                printList.append("   Invalid syntax")
+                return printList
+
+    return printList
+
+def suma(userInput, categoryList):
+    '''
+        Write the total expense for a certain category
+    '''
+    remainderAfterCommand = getRemainder(userInput)
+    category = getCommand(remainderAfterCommand)
+
+    remainder = getRemainder(remainderAfterCommand)
+
+    if category not in categoryList or len(remainder) > 0:
+        return "   Invalid syntax"
+
+    sumForCategory = getSum(category, categoryList)
+
+    return "   The sum for " + category + " is " + str(sumForCategory) + " RON"
+
+def maxi(userInput, categoryList):
+    '''
+        write the day with the maximum expenses.
+        max <day>
+    '''
+
+    remainderAfterCommand = getRemainder(userInput)
+    day = getCommand(remainderAfterCommand)
+
+    remainder = getRemainder(remainderAfterCommand)
+
+    if len(remainder) > 0 or day != "day":
+        return "   Syntax error"
+
+    maximumExp, dayOfMax = maximumExpenses(categoryList)
+
+    return "   The maximum expense (" + str(maximumExp) + " RON) occurred on day " + str(dayOfMax)
+
+def sort(userInput, categoryList):
+    '''
+        write the total daily expenses in ascending order by amount of money spent
+
+        The idea might be to create a dictionary that holds the DAYS as KEYS and the entire EXPENSES for that
+        day as VALUES
+    '''
+
+    printList = []
+
+    remainderAfterCommand = getRemainder(userInput)
+    instruction = getCommand(remainderAfterCommand)
+
+    remainder = getRemainder(remainderAfterCommand)
+
+    if len(remainder) > 0 or (instruction != "day" and instruction not in categoryList):
+        printList.append("   Invalid syntax")
+        return printList
+
+    if instruction == "day":
+        '''
+            Things to be done in case the user enters "sort day"
+        '''
+        entireExpenses = buildListOfExpenses("", 1, categoryList)
+
+        #############################################################################
+        #                                                                           #
+        sortedExpenses = sorted(entireExpenses.items(), key = operator.itemgetter(1))
+        #                                                                           #
+        #############################################################################
+
+        printList.append("   Sorting by day...")
+
+        for t in sortedExpenses:
+            printList.append("   Day {0}: {1} RON".format(t[0], t[1]))
+
+    else:
+        '''
+            Things to be done in case the user enters "sort <category>"
+        '''
+
+        entireExpenses = buildListOfExpenses(instruction, 0, categoryList)
+
+        #############################################################################
+        #                                                                           #
+        sortedExpenses = sorted(entireExpenses.items(), key = operator.itemgetter(1))
+        #                                                                           #
+        #############################################################################
+
+        printList.append("   Sorting by " + instruction + "...")
+
+        for t in sortedExpenses:
+            printList.append("   Expenses for " + instruction + " on day {0}: {1} RON".format(t[0], t[1]))
+
+        return printList
+
+def filter(userInput, categoryList, undo_steps, step_count):
+    '''
+        filter <category> = keep only expenses in a specific category.
+    '''
+
+    remainderAfterCommand = getRemainder(userInput)
+    category = getCommand(remainderAfterCommand)
+
+    remainderAfterCategory = getRemainder(remainderAfterCommand)
+
+    if category not in categoryList:
+        return "   Invalid syntax"
+
+    if len(remainderAfterCategory) == 0:
+        '''
+            This means that the user has entered only a category so we will delete everything from the
+            files apart from the specified category
+        '''
+        deleteAllExcept(category, "", 0, undo_steps, step_count, categoryList)
+        return "   Data was filtered successfully!"
+
+    else:
+        '''
+            The remaining case is the one with "<", ">" or "=" and then the <category>
+        '''
+        symbol = getCommand(remainderAfterCategory)
+        remainderAftersymbol = getRemainder(remainderAfterCategory)
+
+        value = getCommand(remainderAftersymbol)
+        remainder = getRemainder(remainderAftersymbol)
+
+        if symbol not in ["<", ">", "="] or len(remainder) > 0:
+            return "   Invalid syntax"
+
+        try:
+            value = int(value)
+            deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryList)
+            return "   Data was filtered successfully!"
+
+        except ValueError:
+            return "   Invalid value"
+
+def undo(userInput, categoryList, undo_steps, step_count):
+
+    if len(undo_steps) == 0:
+        return "   Cannot complete operation. Nothing to undo."
+
+    '''
+    add -<sum> <category> [DONE]
+    insert <day> -<sum> <category> [DONE]
+
+    for the REMOVE commands:
+        remove <day> => go through each category from the <day>.txt file and insert into the undo_steps
+                        list "insert <day> value category" value & category are from the file [DONE]
+        remove <start day> to <end day> => for loop through all the files from start day to end day and
+                        insert into the undo_steps list "insert <day> value category" [DONE]
+        remove <category> => loop through all the files and insert into undo_steps for each category
+                        "insert <day> value category" [DONE]
+
+    for the FILTER command:
+        filter <category> => loop through all the files and insert into undo_steps for each category
+                        "insert <day> value category" that is different from the inserted category
+
+        filter <category> <symbol> <value> => loop through all the files and insert into undo_steps for each category
+                        "insert <day> value category" that is different from the inserted category
+                        and for the inserted category:
+                            if the <symbol> is "=" then we have to insert those that are less and more than the <value>
+                            if the <symbol> is "<" then we have to insert those that are >= <value>
+                            if the <symbol> is ">" then we have to insert those that are <= <value>
+    '''
+
+    undoSteps(userInput, categoryList, undo_steps, step_count)
+
+    return "   Undone!"
+
+###########################################################################################################
 
 def getCommand(s): # This function returns the COMMAND (add, insert, ...) inserted by the user.
     l = len(s)  # length of the user input
@@ -594,7 +919,7 @@ def removeExpenses(a, b, undo_steps, step_count, categoryList):
         aux_dict = initializeDictionary(i, categoryList)
         for key in aux_dict:
             if aux_dict[key] != 0:
-                undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[key]) + " " + str(key)])
+                undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[key]) + " " + str(key)]) # updating the undo list
 
         fileUpdate(i, default_dict)
 
@@ -608,12 +933,21 @@ def removeExpensesByCategory(categ, undo_steps, step_count, categoryList):
         aux_dict = initializeDictionary(i, categoryList)
 
         if aux_dict[categ] != 0:
-            undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[categ]) + " " + str(categ)])
+            undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[categ]) + " " + str(categ)]) # updating the undo list
 
         aux_dict[categ] = 0
         fileUpdate(i, aux_dict)
 
-def printExpenses(category, t, symbol, val, categoryList):
+def updateExpensesList(dataList, emptyList, category, categ, t, symbol, value, ok, i, val):
+    if t == 1 or (t == 2 and category == categ) or (symbol == '>' and value > val) or (symbol == '<' and value < val) or (symbol == '=' and value == val):
+        if ok:
+            dataList.append("   DAY " + str(i))
+            emptyList = False
+            ok = 0
+        dataList.append("     " + categ + " " + str(value) + " RON")
+    return ok, emptyList
+
+def listOfExpenses(category, t, symbol, val, categoryList):
     '''
         This function iterates through all of the files and prints all the expenses if there are any
         in this format:
@@ -626,9 +960,11 @@ def printExpenses(category, t, symbol, val, categoryList):
                and the type of the operation, the symbol and the value for the 3rd operation
     '''
     emptyList = True
+    dataList = []
     for i in range(1, 31):
         ok = 1
         auxBool = True
+
         f = open("%s.txt" % i, "r")
         for line in f:
             categ, value, auxBool = getCategoryAndValueFromFile(line, categoryList, auxBool)
@@ -636,25 +972,21 @@ def printExpenses(category, t, symbol, val, categoryList):
                 In case that the categories containing the sum 0 want to be printed then
                 the next if statement should look like this:
                     if value >= 0 and t != 3:
-
             '''
             if value > 0 and t != 3:
-                if t == 1 or (t == 2 and category == categ) or (t == 3 and category == categ):
-                    if ok:
-                        print("   DAY " + str(i))
-                        emptyList = False
-                        ok = 0
-                    print("     " + categ + " " + str(value) + " RON")
+                ok, emptyList = updateExpensesList(dataList, emptyList, category, categ, t, symbol, value, ok, i, val)
+
             elif value >= 0 and t == 3 and category == categ:
-                if t == 3:
-                    if (symbol == '>' and value > val) or (symbol == '<' and value < val) or (symbol == '=' and value == val):
-                        if ok:
-                            print("   DAY " + str(i))
-                            emptyList = False
-                            ok = 0
-                        print("     " + categ + " " + str(value) + " RON")
+                '''
+                    in case that we do not want to print the categories with the value 0, the if statement should be:
+                    'elif value > 0 and t == 3 and category == categ:'
+                '''
+                ok, emptyList = updateExpensesList(dataList, emptyList, category, categ, t, symbol, value, ok, i, val)
+
     if emptyList:
-        print("   No results!")
+        dataList.append("   No results!")
+
+    return dataList
 
 def getSum(category, categoryList):
     '''
@@ -684,7 +1016,8 @@ def updateMax(maxExp, auxExp, i, day):
 
 def maximumExpenses(categoryList):
     '''
-        This function iterates thorugh all of the files, check the expenses and memorizes the day with the most expenses
+        This function iterates thorugh all of the files, checks the expenses and memorizes the day with the most expenses
+        It returns the the maximum expense + the day of the maximum expense
     '''
     maxExp, day = 0, 0
 
@@ -702,11 +1035,11 @@ def getSumForDay(dict):
 
     return sum
 
-def sortByDayOrCateg(categ, op, categoryList):
+def buildListOfExpenses(categ, op, categoryList):
     '''
         This function allows for the iteration from 1 to 30
-        For each day, the program calculates the expenses for that day and stores it into a list
-        Or calculates the expenses for each day for a specific category
+        OP1. For each day, the program calculates the expenses for that day and stores it into a list
+        OP2. Calculates the expenses for each day for a specific category
         This list is sorted at the end of the function and returned
         output: The sorted list of values
     '''
@@ -733,7 +1066,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryLis
         input: the category that we would like to filter
 
             This function will filter all of the categories leaving the category from the parameters
-        intact if and only if it the condition regarding the symbol is fulfilled
+        intact if and only if the condition regarding the symbol is fulfilled
         input: the category, symbol and value
 
     '''
@@ -743,7 +1076,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryLis
         for key in dictForDayI:
             if key != category or (symbol == ">" and dictForDayI[key] <= value) or (symbol == "<" and dictForDayI[key] >= value) or (symbol == "=" and dictForDayI[key] != value):
                 if dictForDayI[key] != 0:
-                    undo_steps.append([step_count, "insert " + str(i) + " " + str(dictForDayI[key]) + " " + str(key)])
+                    undo_steps.append([step_count, "insert " + str(i) + " " + str(dictForDayI[key]) + " " + str(key)]) # updating the undo list
                 dictForDayI[key] = "0"
 
         fileUpdate(i, dictForDayI)
@@ -760,335 +1093,11 @@ def stepCountUpdate(undo_steps, sum, categ, day, step_count):
     '''
     undo_steps.append([step_count, "insert " + str(day) + " " + str(-sum) + " " + str(categ)])
 
-def add(userInput, categoryList, undo_steps, step_count):
-    categ, sum, remainder = getCategAndValue(userInput)  # getting the category and the sum from the user input
-    day = time.strftime("%d")
-
-    try:  # In case that the user has entered an invalid number that may contain
-        sum = int(sum)  # strings and other characters other than digits and or '-', '+', etc.
-        if len(remainder) > 0 or sum < 0 or categ not in categoryList:  # In case the user has entered additional characters after the valid syntax
-            print("   Invalid syntax, check sum or category")
-            return
-
-    except ValueError:  # the program doesn't crash
-        print("   Invalid sum or syntax")
-        return
-
-    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
-    categoryDictionary[categ] += sum  # updating the sum of the selected category
-    fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
-
-    stepCountUpdate(undo_steps, sum, categ, day, step_count)
-
-    print("   Added successfully!")
-
-def insert(userInput, categoryList, undo_steps, undo, step_count):
-
-    day, categ, sum, remainder = getDayCategAndValue(userInput)
-
-    try:
-        day = int(day)  # Verifing that the user input is correct
-        if day > 30 or day < 1 or len(remainder) > 0:  # Imposing that the day must be a number between 1 and 30 ( [1, 30] )
-            print("   Invalid syntax")
-            return
-
-    except ValueError:
-        print("   Invalid day value or syntax")  # day
-        return
-
-    try:
-        sum = int(sum)  # sum
-        if undo == 1 and sum < 0 or categ not in categoryList:
-            print("   Invalid syntax")
-            return
-    except ValueError:
-        print("   Invalid sum value")
-        return
-
-    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
-    categoryDictionary[categ] += sum  # updating the sum of the selected category
-    fileUpdate(day, categoryDictionary)  # updating the file for this day with the new information
-
-    if undo:
-        stepCountUpdate(undo_steps, sum, categ, day, step_count)
-        print("   Inserted successfully!")
-
-def remove(userInput, categoryList, undo_steps, step_count):
-    dayOrCateg = getRemainder(userInput)
-
-    if " to " in dayOrCateg:
-        # this means that we treat the case in which 'remove' is followed by <startDay> to <endDay>
-
-        startDay, endDay, remainder = removeTo(dayOrCateg)
-
-        if len(remainder) > 0:        # In case the user has entered additional characters after the valid syntax
-            print("   Invalid syntax")
-            return
-
-        try:
-            startDay = int(startDay)  # Imposing that the start day must be a number between 1 and 30 ( [1, 30] )
-            if startDay > 30 or startDay < 1:
-                print("   Cannot complete query, the <start day> must be between 1 and 30")
-                return
-        except ValueError:
-            print("   Invalid start day")
-            return
-
-        try:
-            endDay = int(endDay)      # Imposing that the end day must be a number between 1 and 30 ( [1, 30] )
-            if endDay > 30 or endDay < 1:
-                print("   Cannot complete query, the <end day> must be between 1 and 30")
-                return
-        except ValueError:
-            print("   Invalid end day")
-            return
-
-        removeExpenses(startDay, endDay, undo_steps, step_count, categoryList)
-        print("   Successfully removed!")
-
-    else:
-
-        text, remainder = removeDayOrCateg(dayOrCateg)
-
-        if len(remainder) > 0:       # In case the user has entered additional characters after the valid syntax
-            print("Invalid syntax")
-            return
-
-        try:
-            day = int(text)          # Imposing that the start day must be a number between 1 and 30 ( [1, 30] )
-            if day > 30 or day < 1:
-                print("Cannot compleate query, the <day> must be between 1 and 30")
-                return
-            # remove all the expenses for this day
-            removeExpenses(day, day, undo_steps, step_count, categoryList)
-            print("   Successfully removed!")
-        except ValueError:
-            if text in categoryList:
-                removeExpensesByCategory(text, undo_steps, step_count, categoryList)
-                print("   Successfully removed!")
-                # remove all the expenses for a certain category for the whole month
-            else:
-                print("Invalid syntax")
-
-def list(userInput, categoryList):
-    remainderAfterCommand = getRemainder(userInput)
-
-    if len(remainderAfterCommand) == 0:
-        '''
-            This means that the user has entered the simple <list> command
-        '''
-        printExpenses("", 1, "", -1, categoryList)
-        return
-
-    else:
-        category = getCommand(remainderAfterCommand)
-        remainderAfterCategory = getRemainder(remainderAfterCommand)
-        if len(remainderAfterCategory) == 0:
-            '''
-                This means that the user has entered the <list> <category> command
-                Thus I will be working with the <category> variable
-            '''
-            if category not in categoryList:
-                print("Invalid category")
-                return
-
-            printExpenses(category, 2, "", -1, categoryList)
-
-        else:
-            symbol = getCommand(remainderAfterCategory)
-            remainderAftersymbol = getRemainder(remainderAfterCategory)
-
-            if symbol in ['>', '<', '='] and len(remainderAftersymbol) > 0:
-                '''
-                    This means that the user has entered a valid <, = or >
-                '''
-                value = getCommand(remainderAftersymbol)
-                remainderAfterValue = getRemainder(remainderAftersymbol)
-
-                if len(remainderAfterValue) == 0:
-                    '''
-                        This means that the user has entered corectly the <list> <categry> <symbol> <value> command
-                        Thus I will be working with the <category>, <symbol> and <value> variables
-                    '''
-
-                    try:
-                        value = int(value)
-                    except ValueError:
-                        print("   Invalid syntax (<value> must be an integer number)")
-                        return
-
-                    printExpenses(category, 3, symbol, value, categoryList)
-
-                else:
-                    print("   Invalid syntax")
-
-            else:
-                print("   Invalid syntax")
-
-def suma(userInput, categoryList):
-    '''
-        Write the total expense for a certain category
-    '''
-
-    remainderAfterCommand = getRemainder(userInput)
-    category = getCommand(remainderAfterCommand)
-
-    remainder = getRemainder(remainderAfterCommand)
-
-    if category not in categoryList or len(remainder) > 0:
-        print("   Invalid syntax")
-        return
-
-    sumForCategory = getSum(category, categoryList)
-
-    print("   The sum for " + category + " is " + str(sumForCategory) + " RON")
-
-def maxi(userInput, categoryList):
-    '''
-        write the day with the maximum expenses.
-        max <day>
-    '''
-
-    remainderAfterCommand = getRemainder(userInput)
-    day = getCommand(remainderAfterCommand)
-
-    remainder = getRemainder(remainderAfterCommand)
-
-    if len(remainder) > 0 or day != "day":
-        print("   Syntax error")
-        return
-
-    maximumExp, dayOfMax = maximumExpenses(categoryList)
-
-    print("   The maximum expense (" + str(maximumExp) + " RON) occurred on day " + str(dayOfMax))
-
-def sort(userInput, categoryList):
-    '''
-        write the total daily expenses in ascending order by amount of money spent
-
-        The idea might be to create a dictionary that holds the DAYS as KEYS and the entire EXPENSES for that
-        day as VALUES
-    '''
-
-    remainderAfterCommand = getRemainder(userInput)
-    instruction = getCommand(remainderAfterCommand)
-
-    remainder = getRemainder(remainderAfterCommand)
-
-    if len(remainder) > 0 or (instruction != "day" and instruction not in categoryList):
-        print("   Invalid syntax")
-        return
-
-    if instruction == "day":
-        '''
-            Things to be done in case the user enters "sort day"
-        '''
-        entireExpenses = sortByDayOrCateg("", 1, categoryList)
-
-        #############################################################################
-        #                                                                           #
-        sortedExpenses = sorted(entireExpenses.items(), key = operator.itemgetter(1))
-        #                                                                           #
-        #############################################################################
-
-        print("   Sorting by day...")
-
-        for t in sortedExpenses:
-            print("   Day {0}: {1} RON".format(t[0], t[1]))
-
-    else:
-        '''
-            Things to be done in case the user enters "sort <category>"
-        '''
-
-        entireExpenses = sortByDayOrCateg(instruction, 0, categoryList)
-
-        #############################################################################
-        #                                                                           #
-        sortedExpenses = sorted(entireExpenses.items(), key = operator.itemgetter(1))
-        #                                                                           #
-        #############################################################################
-
-        print("   Sorting by " + instruction + "...")
-
-        for t in sortedExpenses:
-            print("   Expenses for " + instruction + " on day {0}: {1} RON".format(t[0], t[1]))
-
-def filter(userInput, categoryList, undo_steps, step_count):
-    '''
-        filter <category> = keep only expenses in a specific category.
-    '''
-
-    remainderAfterCommand = getRemainder(userInput)
-    category = getCommand(remainderAfterCommand)
-
-    remainderAfterCategory = getRemainder(remainderAfterCommand)
-
-    if category not in categoryList:
-        print("   Invalid syntax")
-        return
-
-    if len(remainderAfterCategory) == 0:
-        '''
-            This means that the user has entered only a category so we will delete everything from the
-            files apart from the specified category
-        '''
-        deleteAllExcept(category, "", 0, undo_steps, step_count, categoryList)
-        print("   Data was filtered successfully!")
-
-    else:
-        '''
-            The remaining case is the one with "<", ">" or "=" and then the <category>
-        '''
-        symbol = getCommand(remainderAfterCategory)
-        remainderAftersymbol = getRemainder(remainderAfterCategory)
-
-        value = getCommand(remainderAftersymbol)
-        remainder = getRemainder(remainderAftersymbol)
-
-        if symbol not in ["<", ">", "="] or len(remainder) > 0:
-            print("   Invalid syntax")
-            return
-
-        try:
-            value = int(value)
-            deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryList)
-            print("   Data was filtered successfully!")
-
-        except ValueError:
-            print("   Invalid value")
-            return
-
-def undo(userInput, categoryList, undo_steps, step_count):
-
-    if len(undo_steps) == 0:
-        print("   Cannot complete operation. Nothing to undo.")
-        return
-
-    '''
-                add -<sum> <category> [DONE]
-                insert <day> -<sum> <category> [DONE]
-
-                for the REMOVE commands:
-                    remove <day> => go through each category from the <day>.txt file and insert into the undo_steps
-                                    list "insert <day> value category" value & category are from the file [DONE]
-                    remove <start day> to <end day> => for loop through all the files from start day to end day and
-                                    insert into the undo_steps list "insert <day> value category" [DONE]
-                    remove <category> => loop through all the files and insert into undo_steps for each category
-                                    "insert <day> value category" [DONE]
-
-                for the FILTER command:
-                    filter <category> => loop through all the files and insert into undo_steps for each category
-                                    "insert <day> value category" that is different from the inserted category
-
-                    filter <category> <symbol> <value> => loop through all the files and insert into undo_steps for each category
-                                    "insert <day> value category" that is different from the inserted category
-                                    and for the inserted category:
-                                        if the <symbol> is "=" then we have to insert those that are less and more than the <value>
-                                        if the <symbol> is "<" then we have to insert those that are >= <value>
-                                        if the <symbol> is ">" then we have to insert those that are <= <value>
-    '''
-
+def printFunc(printList):
+    for i in printList:
+        print i
+
+def undoSteps(userInput, categoryList, undo_steps, step_count):
     current_step = int(undo_steps[len(undo_steps) - 1][0])
     userInput = str(undo_steps[len(undo_steps) - 1][1])
 
@@ -1103,8 +1112,6 @@ def undo(userInput, categoryList, undo_steps, step_count):
         userInput = str(undo_steps[len(undo_steps) - 1][1])
         insert(userInput, categoryList, undo_steps, 0, step_count)
         undo_steps.pop()
-
-    print("   Undone!")
 
 if __name__ == '__main__':
     main()
