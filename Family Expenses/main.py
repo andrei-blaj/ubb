@@ -68,7 +68,7 @@ def main():
     else:
         UIBased(categoryList, cmdList, undo_steps) # to be implemented
 
-###########################################################################################################
+#UIBASED###################################################################################################
 
 def UIBased(categoryList, cmdList, undo_steps):
     os.system('clear') # CLEAR SCREEN
@@ -293,7 +293,115 @@ def UISort(categoryList):
         category = UIgetCategory("Please enter a category: ", categoryList)
         return str(category)
 
-###########################################################################################################
+#FILES#####################################################################################################
+
+def checkIntegrityOfTheFiles(categoryList):
+    '''
+        This function checks whether or not the files containing the data do in fact exist.
+        If not, they are created and initialized with a set of empty data:
+            <category> 0
+        *category is part of categoryList*
+        If the files are mutated from their default state (this refers to the categories not the values)
+        or some files are deleted during the execution, the program automatically creates the missing files.
+    '''
+    ok = True # we assume that all the files are ok
+
+    for i in range(1, 31):
+        if os.path.isfile("%s.txt" % i) == False:
+            initializeFile(i)
+            ok = False
+            continue
+
+        dict, ok = getFileDict(i, categoryList, ok)
+
+        for category in categoryList:  # checking to see if all of the caterogies are present in the dict.
+            if category not in dict:
+                ok = False
+                break
+
+    if not ok:
+        print("   One or more files have been rewritten due to missing information")
+
+def initializeFile(i):
+    '''
+        This function initializes file 'i.txt' with the default categories and values
+    '''
+    f = open("%s.txt" % i, "w")
+    f.writelines("housekeeping 0\nfood 0\ntransport 0\nclothing 0\ninternet 0\nothers 0")
+    f.close()
+
+def getCategoryAndValueFromFile(s, categoryList, ok):
+    '''
+        This function is mainly used for extracting the category and value from a line in a file and returning them
+        The function also checks if all the data is valid such as if the category extracted from the file is in fact a
+        valid category or it the value is actually a number.
+    '''
+    k = 0
+
+    for i in s.split():
+        if k == 0:  # I only have to get the category and the value from the files
+            categ = i
+            k = 1
+            if categ not in categoryList:
+                ok = False
+        else: # There is no need for try: ... except ...: because of "checkIntegrityOfTheFiles"
+            value = i
+
+    try:
+        value = int(value)
+    except ValueError:
+        ok = False
+
+    return categ, value, ok
+
+def getFileDict(day, categoryList, ok):
+    '''
+        This function returns the dictionary containing the <categories> and the <values> specific to the day <day>
+        from the text file 'day.txt'
+    '''
+    auxDictionary = {}
+
+    f = open("%s.txt" % day, "r+")
+
+    for line in f:
+        categ, value, ok = getCategoryAndValueFromFile(line, categoryList, ok) # going thorugh every line of the file
+        auxDictionary[categ] = value  # inserting the category and sum into an auxiliary dictionary
+
+    if not ok:
+        initializeFile(day)
+
+    f.close()
+
+    return auxDictionary, ok
+
+def fileUpdate(fileName, auxDictionary):
+    f = open("%s.txt" % fileName, "w")    # UPDATING THE DICTIONARY AFTER THE COMMAND WAS EXECUTED
+    for key in auxDictionary:
+        f.write(key + " " + "{0}\n".format(auxDictionary[key]))
+    f.close()
+
+def initializeDictionary(day, categoryList):
+    '''
+        This function returns the dictionary containing the <categories> and the <values> specific to the day <day>
+        from the text file 'day.txt'
+    '''
+    ok = True
+    auxDictionary = {}
+
+    f = open("%s.txt" % day, "r+")
+
+    for line in f:
+        categ, value, ok = getCategoryAndValueFromFile(line, categoryList, ok) # going thorugh every line of the file
+        auxDictionary[categ] = value  # inserting the category and sum into an auxiliary dictionary
+
+    if not ok:
+        initializeFile(day)
+
+    f.close()
+
+    return auxDictionary
+
+#COMMANDBASED##############################################################################################
 
 def commandBased(categoryList, cmdList, undo_steps):
     os.system('clear')
@@ -336,51 +444,6 @@ def commandBased(categoryList, cmdList, undo_steps):
             os.system('clear')
         else:
             print("   '" + userInput + "' not recognized. \"~:help\"")
-
-def checkIntegrityOfTheFiles(categoryList):
-    '''
-        This function checks whether or not the files containing the data do in fact exist.
-        If not, they are created and initialized with a set of empty data:
-            <category> 0
-        *category is part of categoryList*
-        If the files are mutated from their default state (this refers to the categories not the values)
-        or some files are deleted during the execution, the program automatically creates the missing files.
-    '''
-    ok = True # we assume that all the files are ok
-
-    for i in range(1, 31):
-        if os.path.isfile("%s.txt" % i) == False or initializeDictionary(i) == {}:
-            initializeFile(i)
-            ok = False
-            continue
-
-        dict = initializeDictionary(i)
-
-        for category in categoryList:
-            if category not in dict:
-                initializeFile(i)
-                ok = False
-                break
-
-        if ok == True:
-            for categ in dict:
-                try:
-                    int(dict[categ])
-                except ValueError:
-                    initializeFile(i)
-                    ok = False
-                    break
-
-    if not ok:
-        print("   One or more files have been rewritten due to missing information")
-
-def initializeFile(i):
-    '''
-        This function initializes file 'i.txt' with the default categories and values
-    '''
-    f = open("%s.txt" % i, "w")
-    f.writelines("housekeeping 0\nfood 0\ntransport 0\nclothing 0\ninternet 0\nothers 0")
-    f.close()
 
 def getCommand(s): # This function returns the COMMAND (add, insert, ...) inserted by the user.
     l = len(s)  # length of the user input
@@ -458,46 +521,6 @@ def getRemainder(s):
 
     return remainder
 
-def getCategoryAndValueFromFile(s):
-    k = 0
-
-    for i in s.split():
-        if k == 0:          # I only have to get the category and the sum from the files
-            categ = i
-            k = 1
-        else: # There is no need for try: ... except ...: because of "checkIntegrityOfTheFiles"
-            value = i
-
-    try:
-        value = int(value)
-    except ValueError:
-        value = 0
-
-    return categ, value
-
-def initializeDictionary(day):
-    '''
-        This function returns the dictionary containing the <categories> and the <values> specific to the day <day>
-        from the text file 'day.txt'
-    '''
-    auxDictionary = {}
-
-    f = open("%s.txt" % day, "r+")
-
-    for line in f:
-        categ, value = getCategoryAndValueFromFile(line) # going thorugh every line of the file
-        auxDictionary[categ] = value  # inserting the category and sum into an auxiliary dictionary
-
-    f.close()
-
-    return auxDictionary
-
-def fileUpdate(fileName, auxDictionary):
-    f = open("%s.txt" % fileName, "w")    # UPDATING THE DICTIONARY AFTER THE COMMAND WAS EXECUTED
-    for key in auxDictionary:
-        f.write(key + " " + "{0}\n".format(auxDictionary[key]))
-    f.close()
-
 def buildCategList():
     '''
         This function is responsible for building the list of caterogies in case I need a list later on
@@ -559,28 +582,30 @@ def removeDayOrCateg(s):
 
     return text, remainder
 
-def removeExpenses(a, b, undo_steps, step_count):
+def removeExpenses(a, b, undo_steps, step_count, categoryList):
     '''
-        This function removes all the expenses for day in the interval [a, b] pass in by parameters (updates the files)
+            This function removes all the expenses for days in the interval [a, b] passed in by parameters (updates the files with the
+        default dictionary)
         input: a, b - start day and end day
     '''
     default_dict = {"housekeeping" : 0, "food" : 0, "transport" : 0, "clothing" : 0, "internet" : 0, "others" : 0}
 
     for i in range(a, b+1):
-        aux_dict = initializeDictionary(i)
+        aux_dict = initializeDictionary(i, categoryList)
         for key in aux_dict:
             if aux_dict[key] != 0:
                 undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[key]) + " " + str(key)])
 
         fileUpdate(i, default_dict)
 
-def removeExpensesByCategory(categ, undo_steps, step_count):
+def removeExpensesByCategory(categ, undo_steps, step_count, categoryList):
     '''
-        The function removes all the expenses for a certain category from day 1 to day 30 (updates all the files with the default dictionary)
+            The function removes all the expenses for a certain category from day 1 to day 30 (updates all the files with the
+        default dictionary)
         input: the category
     '''
     for i in range(1, 31):
-        aux_dict = initializeDictionary(i)
+        aux_dict = initializeDictionary(i, categoryList)
 
         if aux_dict[categ] != 0:
             undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[categ]) + " " + str(categ)])
@@ -588,7 +613,7 @@ def removeExpensesByCategory(categ, undo_steps, step_count):
         aux_dict[categ] = 0
         fileUpdate(i, aux_dict)
 
-def printExpenses(category, t, symbol, val):
+def printExpenses(category, t, symbol, val, categoryList):
     '''
         This function iterates through all of the files and prints all the expenses if there are any
         in this format:
@@ -603,9 +628,10 @@ def printExpenses(category, t, symbol, val):
     emptyList = True
     for i in range(1, 31):
         ok = 1
+        auxBool = True
         f = open("%s.txt" % i, "r")
         for line in f:
-            categ, value = getCategoryAndValueFromFile(line)
+            categ, value, auxBool = getCategoryAndValueFromFile(line, categoryList, auxBool)
             '''
                 In case that the categories containing the sum 0 want to be printed then
                 the next if statement should look like this:
@@ -630,13 +656,13 @@ def printExpenses(category, t, symbol, val):
     if emptyList:
         print("   No results!")
 
-def getSum(category):
+def getSum(category, categoryList):
     '''
         This function returns the sum of all the values corresponding to each day's category
     '''
     s = 0
     for i in range(1, 31):
-        auxDict = initializeDictionary(i)
+        auxDict = initializeDictionary(i, categoryList)
         s += auxDict[category]
     return s
 
@@ -656,14 +682,14 @@ def updateMax(maxExp, auxExp, i, day):
         return auxExp, i
     return maxExp, day
 
-def maximumExpenses():
+def maximumExpenses(categoryList):
     '''
         This function iterates thorugh all of the files, check the expenses and memorizes the day with the most expenses
     '''
     maxExp, day = 0, 0
 
     for i in range(1, 31):
-        auxExp = getExpensesForDay(initializeDictionary(i))
+        auxExp = getExpensesForDay(initializeDictionary(i, categoryList))
         maxExp, day = updateMax(maxExp, auxExp, i, day)
 
     return maxExp, day
@@ -676,7 +702,7 @@ def getSumForDay(dict):
 
     return sum
 
-def sortByDayOrCateg(categ, op):
+def sortByDayOrCateg(categ, op, categoryList):
     '''
         This function allows for the iteration from 1 to 30
         For each day, the program calculates the expenses for that day and stores it into a list
@@ -690,7 +716,7 @@ def sortByDayOrCateg(categ, op):
     for i in range(1, 31):
         sumOfValues = 0
 
-        dictForDay = initializeDictionary(i)
+        dictForDay = initializeDictionary(i, categoryList)
 
         if op == 1:
             sumOfValues = getSumForDay(dictForDay)
@@ -701,7 +727,7 @@ def sortByDayOrCateg(categ, op):
 
     return valuesDictionary
 
-def deleteAllExcept(category, symbol, value, undo_steps, step_count):
+def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryList):
     '''
         This function formats all the categories except the one that was passed through the parameter
         input: the category that we would like to filter
@@ -712,7 +738,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count):
 
     '''
     for i in range(1, 31):
-        dictForDayI = initializeDictionary(i)
+        dictForDayI = initializeDictionary(i, categoryList)
 
         for key in dictForDayI:
             if key != category or (symbol == ">" and dictForDayI[key] <= value) or (symbol == "<" and dictForDayI[key] >= value) or (symbol == "=" and dictForDayI[key] != value):
@@ -748,7 +774,7 @@ def add(userInput, categoryList, undo_steps, step_count):
         print("   Invalid sum or syntax")
         return
 
-    categoryDictionary = initializeDictionary(day)  # Today's date (day)
+    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
     categoryDictionary[categ] += sum  # updating the sum of the selected category
     fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
 
@@ -779,7 +805,7 @@ def insert(userInput, categoryList, undo_steps, undo, step_count):
         print("   Invalid sum value")
         return
 
-    categoryDictionary = initializeDictionary(day)  # Today's date (day)
+    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
     categoryDictionary[categ] += sum  # updating the sum of the selected category
     fileUpdate(day, categoryDictionary)  # updating the file for this day with the new information
 
@@ -817,7 +843,7 @@ def remove(userInput, categoryList, undo_steps, step_count):
             print("   Invalid end day")
             return
 
-        removeExpenses(startDay, endDay, undo_steps, step_count)
+        removeExpenses(startDay, endDay, undo_steps, step_count, categoryList)
         print("   Successfully removed!")
 
     else:
@@ -834,11 +860,11 @@ def remove(userInput, categoryList, undo_steps, step_count):
                 print("Cannot compleate query, the <day> must be between 1 and 30")
                 return
             # remove all the expenses for this day
-            removeExpenses(day, day, undo_steps, step_count)
+            removeExpenses(day, day, undo_steps, step_count, categoryList)
             print("   Successfully removed!")
         except ValueError:
             if text in categoryList:
-                removeExpensesByCategory(text, undo_steps, step_count)
+                removeExpensesByCategory(text, undo_steps, step_count, categoryList)
                 print("   Successfully removed!")
                 # remove all the expenses for a certain category for the whole month
             else:
@@ -851,7 +877,7 @@ def list(userInput, categoryList):
         '''
             This means that the user has entered the simple <list> command
         '''
-        printExpenses("", 1, "", -1)
+        printExpenses("", 1, "", -1, categoryList)
         return
 
     else:
@@ -866,7 +892,7 @@ def list(userInput, categoryList):
                 print("Invalid category")
                 return
 
-            printExpenses(category, 2, "", -1)
+            printExpenses(category, 2, "", -1, categoryList)
 
         else:
             symbol = getCommand(remainderAfterCategory)
@@ -891,7 +917,7 @@ def list(userInput, categoryList):
                         print("   Invalid syntax (<value> must be an integer number)")
                         return
 
-                    printExpenses(category, 3, symbol, value)
+                    printExpenses(category, 3, symbol, value, categoryList)
 
                 else:
                     print("   Invalid syntax")
@@ -913,7 +939,7 @@ def suma(userInput, categoryList):
         print("   Invalid syntax")
         return
 
-    sumForCategory = getSum(category)
+    sumForCategory = getSum(category, categoryList)
 
     print("   The sum for " + category + " is " + str(sumForCategory) + " RON")
 
@@ -932,7 +958,7 @@ def maxi(userInput, categoryList):
         print("   Syntax error")
         return
 
-    maximumExp, dayOfMax = maximumExpenses()
+    maximumExp, dayOfMax = maximumExpenses(categoryList)
 
     print("   The maximum expense (" + str(maximumExp) + " RON) occurred on day " + str(dayOfMax))
 
@@ -957,7 +983,7 @@ def sort(userInput, categoryList):
         '''
             Things to be done in case the user enters "sort day"
         '''
-        entireExpenses = sortByDayOrCateg("", 1)
+        entireExpenses = sortByDayOrCateg("", 1, categoryList)
 
         #############################################################################
         #                                                                           #
@@ -975,7 +1001,7 @@ def sort(userInput, categoryList):
             Things to be done in case the user enters "sort <category>"
         '''
 
-        entireExpenses = sortByDayOrCateg(instruction, 0)
+        entireExpenses = sortByDayOrCateg(instruction, 0, categoryList)
 
         #############################################################################
         #                                                                           #
@@ -1007,7 +1033,7 @@ def filter(userInput, categoryList, undo_steps, step_count):
             This means that the user has entered only a category so we will delete everything from the
             files apart from the specified category
         '''
-        deleteAllExcept(category, "", 0, undo_steps, step_count)
+        deleteAllExcept(category, "", 0, undo_steps, step_count, categoryList)
         print("   Data was filtered successfully!")
 
     else:
@@ -1026,7 +1052,7 @@ def filter(userInput, categoryList, undo_steps, step_count):
 
         try:
             value = int(value)
-            deleteAllExcept(category, symbol, value, undo_steps, step_count)
+            deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryList)
             print("   Data was filtered successfully!")
 
         except ValueError:
@@ -1080,4 +1106,5 @@ def undo(userInput, categoryList, undo_steps, step_count):
 
     print("   Undone!")
 
-main()
+if __name__ == '__main__':
+    main()
