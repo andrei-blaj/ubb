@@ -37,6 +37,7 @@
 '''
 
 import time
+import thread
 import os.path
 import os
 import operator
@@ -67,9 +68,236 @@ def main():
     else:
         UIBased(categoryList, cmdList, undo_steps) # to be implemented
 
+###########################################################################################################
+
+def UIBased(categoryList, cmdList, undo_steps):
+    os.system('clear') # CLEAR SCREEN
+
+    UIBasedHelp()
+
+    while True:
+
+        userInput = raw_input("Please enter a command: ") # Reading the user input
+
+        step_count = len(undo_steps)
+
+        os.system('clear') # CLEAR SCREEN
+        userCommand = getCommand(userInput)  # Extracting the COMMAND from the user input
+        remainderAfterCommand = getRemainder(userInput) # Extracting the remainder after the command
+
+        checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
+
+        if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
+            return
+        elif userCommand == "add":
+            sum, category = UIAdd(categoryList)
+            userInput = str(userCommand) + " " + str(sum) + " " + str(category)
+            add(userInput, categoryList, undo_steps, step_count)
+        elif userCommand == "insert":
+            day, sum, category = UIInsert(categoryList)
+            userInput = str(userCommand) + " " + str(day) + " " + str(sum) + " " + str(category)
+            insert(userInput, categoryList, undo_steps, 1, step_count)
+        elif userCommand == "remove":
+            userInput = str(userCommand) + " " + UIRemove(categoryList)
+            remove(userInput, categoryList, undo_steps, step_count)
+        elif userCommand == "list":
+            userInput = str(userCommand) + " " + UIList(categoryList)
+            list(userInput, categoryList)
+        elif userCommand == "sum":
+            userInput = str(userCommand) + " " + UISum(categoryList)
+            suma(userInput, categoryList)
+        elif userCommand == "max":
+            userInput = str(userCommand) + " " + UIMax()
+            maxi(userInput, categoryList)
+        elif userCommand == "sort":
+            userInput = str(userCommand) + " " + UISort(categoryList)
+            sort(userInput, categoryList)
+        elif userCommand == "filter":
+            userInput = str(userCommand) + " " + UIFilter(categoryList)
+            filter(userInput, categoryList, undo_steps, step_count)
+        elif userCommand == "undo":
+            undo(userInput, categoryList, undo_steps, step_count)
+        elif userCommand == "help":
+            userHelp(cmdList)
+        elif userCommand == "clear":
+            os.system('clear')
+        else:
+            print("   '" + userInput + "' not recognized. \"~:help\"")
+
+def UIBasedHelp():
+    print("   Available commmands:")
+    cmdList = buildCmdList()
+    for i in cmdList:
+        print("   ~:" + getCommand(i))
+
+def UIgetCategory(s, categoryList):
+    while True:
+        category = raw_input(s)
+        os.system('clear')
+        if category not in categoryList:
+            print("   Invalid category")
+        else:
+            return category
+
+def UIgetValue(s):
+    while True:
+        x = raw_input(s)
+        os.system('clear')
+        try:
+            x = int(x)
+            return x
+        except ValueError:
+            print("   Invalid number.")
+
+def UIgetDay(s):
+    while True:
+        try:
+            day = int(input(s))
+            os.system('clear')
+            if day < 1 or day > 30:
+                print("   Invalid number, day must be between 1 and 30.")
+                continue
+            return day
+        except ValueError:
+            print("   Invalid number.")
+
+def UIgetSymbol(s):
+    while True:
+        symbol = raw_input(s)
+        os.system('clear')
+        if symbol not in ['>', '<', '=']:
+            print("   Invalid symbol.")
+        else:
+            return symbol
+
+def UIgetDay(s):
+    while True:
+        t = raw_input(s)
+        os.system('clear')
+        if t == "day":
+            return t
+
+def UIAdd(categoryList):
+    s = UIgetValue("Please enter a sum: ")
+    category = UIgetCategory("Please enter a category: ", categoryList)
+
+    return s, category
+
+def UIInsert(categoryList):
+
+    day = UIgetDay("Please enter a day: ")
+    s = UIgetSum("Please enter a sum: ")
+    category = UIgetCategory("Please enter a category: ", categoryList)
+
+    return day, s, category
+
+def UIRemove(categoryList):
+    UIType = '0'
+
+    while UIType not in ['1', '2', '3']:
+        os.system('clear')
+        print("   1. Remove a day.")
+        print("   2. Remove multiple days (<start day> to <end day>).")
+        print("   3. Remove category.")
+        UIType = raw_input("~: ")
+
+    if UIType == '1':
+        day = UIgetDay("Please enter a day: ")
+
+        return str(day)
+
+    elif UIType == '2':
+        start_day = UIgetDay("Please enter the start day: ")
+        end_day = UIgetDay("Please enter the end day: ")
+
+        return str(start_day) + " to " + str(end_day)
+
+    else:
+        category = UIgetCategory("Please enter a category: ", categoryList)
+
+        return str(category)
+
+def UIList(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2', '3']:
+        os.system('clear')
+        print("   1. List all.")
+        print("   2. List by category.")
+        print("   3. List by category less, greater or equal to a value.")
+        UIType = raw_input("~: ")
+
+    os.system('clear')
+
+    if UIType == '1':
+        return " "
+
+    elif UIType == '2':
+        category = UIgetCategory("Please enter a category: ", categoryList)
+
+        return str(category)
+
+    else:
+        category = UIgetCategory("Please enter a category: ", categoryList)
+        symbol = UIgetSymbol("Please enter a symbol ('<', '>', '='): ")
+        value = UIgetValue("Please enter a value: ")
+
+        return str(category) + " " + str(symbol) + " " + str(value)
+
+def UISum(categoryList):
+    category = UIgetCategory("Please enter a category: ", categoryList)
+
+    return str(category)
+
+def UIMax():
+    t = UIgetDay("Please enter 'day': ")
+    return t
+
+def UIFilter(categoryList):
+    UIType = '0'
+    while UIType not in ['1', '2']:
+        os.system('clear')
+        print("   1. Filter by category.")
+        print("   2. Filter by category less, greater or equal to a value.")
+        UIType = raw_input("~: ")
+
+    os.system('clear')
+
+    if UIType == '1':
+        category = UIgetCategory("Please enter a category: ", categoryList)
+
+        return str(category)
+
+    else:
+        category = UIgetCategory("Please enter a category: ", categoryList)
+        symbol = UIgetSymbol("Please enter a symbol ('<', '>', '='): ")
+        value = UIgetValue("Please enter a value: ")
+
+        return str(category) + " " + str(symbol) + " " + str(value)
+
+def UISort(categoryList):
+    UIType = '0'
+
+    while UIType not in ['1', '2']:
+        os.system('clear')
+        print("   1. Sort by day.")
+        print("   2. Sort by category.")
+        UIType = raw_input("~: ")
+
+    os.system('clear')
+
+    if UIType == '1':
+        day = UIgetDay("Please enter 'day': ")
+        return str(day)
+
+    else:
+        category = UIgetCategory("Please enter a category: ", categoryList)
+        return str(category)
+
+###########################################################################################################
+
 def commandBased(categoryList, cmdList, undo_steps):
     os.system('clear')
-    userHelp(cmdList)               # Printing the UI
+    userHelp(cmdList)               # Printing the command list
 
     while True:
 
@@ -109,318 +337,6 @@ def commandBased(categoryList, cmdList, undo_steps):
         else:
             print("   '" + userInput + "' not recognized. \"~:help\"")
 
-def UIBasedHelp():
-    print("   Available commmands:")
-    cmdList = buildCmdList()
-    for i in cmdList:
-        print("   ~:" + getCommand(i))
-
-def UIAdd(categoryList):
-    while True:
-        s = raw_input("Please enter a sum: ")
-        try:
-            s = int(s)
-            break
-        except ValueError:
-            print("   Invalid number.")
-
-    while True:
-        category = raw_input("Please enter a category: ")
-        if category not in categoryList:
-            print("   Invalid category.")
-        else:
-            break;
-
-    return s, category
-
-def UIInsert(categoryList):
-    while True:
-        try:
-            day = int(input("Please enter a day: "))
-            if day < 1 or day > 30:
-                print("   Invalid number, day must be between 1 and 30.")
-                continue
-            break
-        except ValueError:
-            print("   Invalid number.")
-
-    while True:
-        s = raw_input("Please enter a sum: ")
-        try:
-            s = int(s)
-            break
-        except ValueError:
-            print("   Invalid number.")
-
-    while True:
-        category = raw_input("Please enter a category: ")
-        if category not in categoryList:
-            print("   Invalid category.")
-        else:
-            break;
-
-    return day, s, category
-
-def UIRemove(categoryList):
-    UIType = '0'
-    while UIType not in ['1', '2', '3']:
-        os.system('clear')
-        print("   1. Remove a day.")
-        print("   2. Remove multiple days (<start day> to <end day>).")
-        print("   3. Remove category.")
-        UIType = raw_input("~: ")
-
-    if UIType == '1':
-        while True:
-            day = raw_input("Please enter a day: ")
-            try:
-                day = int(day)
-                if day < 1 or day > 30:
-                    print("   Invalid number, day must be between 1 and 30.")
-                    continue
-                break
-            except ValueError:
-                print("   Invalid number.")
-
-        return str(day)
-
-    elif UIType == '2':
-        while True:
-            start_day = raw_input("Please enter the start day: ")
-            try:
-                start_day = int(start_day)
-                if start_day < 1 or start_day > 30:
-                    print("   Invalid number, day must be between 1 and 30.")
-                    continue
-                break
-            except ValueError:
-                print("   Invalid number.")
-
-        while True:
-            end_day = raw_input("Please enter the end day: ")
-            try:
-                end_day = int(end_day)
-                if end_day < 1 or end_day > 30:
-                    print("   Invalid number, day must be between 1 and 30.")
-                    continue
-                break
-            except ValueError:
-                print("   Invalid number.")
-
-        return str(start_day) + " to " + str(end_day)
-
-    else:
-        while True:
-            category = raw_input("Please enter a category: ")
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                break;
-
-        return str(category)
-
-def UIList(categoryList):
-    UIType = '0'
-    while UIType not in ['1', '2', '3']:
-        os.system('clear')
-        print("   1. List all.")
-        print("   2. List by category.")
-        print("   3. List by category less, greater or equal to a value.")
-        UIType = raw_input("~: ")
-
-    os.system('clear')
-
-    if UIType == '1':
-        return " "
-    elif UIType == '2':
-        while True:
-            category = raw_input("Please enter a category: ")
-            os.system('clear')
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                break;
-
-        return str(category)
-    else:
-        while True:
-            category = raw_input("Please enter a category: ")
-            os.system('clear')
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                break;
-
-        while True:
-            symbol = raw_input("Please enter a symbol ('<', '>', '='): ")
-            os.system('clear')
-            if symbol not in ['>', '<', '=']:
-                print("   Invalid symbol.")
-            else:
-                break;
-
-        while True:
-            value = raw_input("Please enter a value: ")
-            os.system('clear')
-            try:
-                value = int(value)
-                break
-            except ValueError:
-                print("   Invalid number.")
-
-        return str(category) + " " + str(symbol) + " " + str(value)
-
-def UISum(categoryList):
-    while True:
-        category = raw_input("Please enter a category: ")
-        if category not in categoryList:
-            print("   Invalid category.")
-        else:
-            break;
-    return str(category)
-
-def UIMax():
-    while True:
-        t = raw_input("Please enter 'day': ")
-        os.system('clear')
-        if t == "day":
-            return t
-
-def UIFilter(categoryList):
-    UIType = '0'
-    while UIType not in ['1', '2']:
-        os.system('clear')
-        print("   1. Filter by category.")
-        print("   2. Filter by category less, greater or equal to a value.")
-        UIType = raw_input("~: ")
-
-    os.system('clear')
-
-    if UIType == '1':
-        while True:
-            category = raw_input("Please enter a category: ")
-            os.system('clear')
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                break;
-
-        return str(category)
-
-    else:
-        while True:
-            category = raw_input("Please enter a category: ")
-            os.system('clear')
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                break;
-
-        while True:
-            symbol = raw_input("Please enter a symbol ('<', '>', '='): ")
-            os.system('clear')
-            if symbol not in ['>', '<', '=']:
-                print("   Invalid symbol.")
-            else:
-                break;
-
-        while True:
-            value = raw_input("Please enter a value: ")
-            os.system('clear')
-            try:
-                value = int(value)
-                break
-            except ValueError:
-                print("   Invalid number.")
-
-        return str(category) + " " + str(symbol) + " " + str(value)
-
-def UISort(categoryList):
-    UIType = '0'
-    while UIType not in ['1', '2']:
-        os.system('clear')
-        print("   1. Sort by day.")
-        print("   2. Sort by category.")
-        UIType = raw_input("~: ")
-
-    os.system('clear')
-
-    if UIType == '1':
-        while True:
-            day = raw_input("Please enter 'day': ")
-            if day != "day":
-                continue
-            return str(day)
-    else:
-        while True:
-            category = raw_input("Please enter a category: ")
-            if category not in categoryList:
-                print("   Invalid category.")
-            else:
-                return str(category)
-
-def UIBased(categoryList, cmdList, undo_steps):
-    os.system('clear') # CLEAR SCREEN
-
-    UIBasedHelp()
-
-    while True:
-
-        userInput = raw_input("Please enter a command: ") # Reading the user input
-
-        step_count = len(undo_steps)
-
-        os.system('clear') # CLEAR SCREEN
-        userCommand = getCommand(userInput)  # Extracting the COMMAND from the user input
-        remainderAfterCommand = getRemainder(userInput) # Extracting the remainder after the command
-
-        checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
-
-        if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
-            return
-        elif userCommand == "add":
-            sum, category = UIAdd(categoryList)
-            userInput = str(userCommand) + " " + str(sum) + " " + str(category)
-            add(userInput, categoryList, undo_steps, step_count)
-        elif userCommand == "insert":
-            day, sum, category = UIInsert(categoryList)
-            userInput = str(userCommand) + " " + str(day) + " " + str(sum) + " " + str(category)
-            insert(userInput, categoryList, undo_steps, 1, step_count)
-        elif userCommand == "remove":
-            userInput = str(userCommand) + " " + str(UIRemove(categoryList))
-            remove(userInput, categoryList, undo_steps, step_count)
-        elif userCommand == "list":
-            userInput = str(userCommand) + " " + str(UIList(categoryList))
-            list(userInput, categoryList)
-        elif userCommand == "sum":
-            userInput = str(userCommand) + " " + UISum(categoryList)
-            suma(userInput, categoryList)
-        elif userCommand == "max":
-            userInput = str(userCommand) + " " + UIMax()
-            maxi(userInput, categoryList)
-        elif userCommand == "sort":
-            userInput = str(userCommand) + " " + str(UISort(categoryList))
-            sort(userInput, categoryList)
-        elif userCommand == "filter":
-            userInput = str(userCommand) + " " + str(UIFilter(categoryList))
-            filter(userInput, categoryList, undo_steps, step_count)
-        elif userCommand == "undo":
-            undo(userInput, categoryList, undo_steps, step_count)
-        elif userCommand == "help":
-            userHelp(cmdList)
-        elif userCommand == "clear":
-            os.system('clear')
-        else:
-            print("   '" + userInput + "' not recognized. \"~:help\"")
-
-def initializeFile(i):
-    '''
-        This function initializes file 'i.txt' with the default categories and values
-    '''
-    f = open("%s.txt" % i, "w")
-    f.writelines("housekeeping 0\nfood 0\ntransport 0\nclothing 0\ninternet 0\nothers 0")
-    f.close()
-
 def checkIntegrityOfTheFiles(categoryList):
     '''
         This function checks whether or not the files containing the data do in fact exist.
@@ -458,6 +374,14 @@ def checkIntegrityOfTheFiles(categoryList):
     if not ok:
         print("   One or more files have been rewritten due to missing information")
 
+def initializeFile(i):
+    '''
+        This function initializes file 'i.txt' with the default categories and values
+    '''
+    f = open("%s.txt" % i, "w")
+    f.writelines("housekeeping 0\nfood 0\ntransport 0\nclothing 0\ninternet 0\nothers 0")
+    f.close()
+
 def getCommand(s): # This function returns the COMMAND (add, insert, ...) inserted by the user.
     l = len(s)  # length of the user input
     i = 0   # the starting position for iterating through the user input
@@ -486,7 +410,7 @@ def passText(s, i, l):
         i += 1                     # position of the next space, thus passing a group of characters other than (' ')
     return i                       # input: string, index, strlen
 
-def getCategAndSum(s):
+def getCategAndValue(s):
     CATEG = SUM = ""
     l = len(s)
     i = 0
@@ -503,7 +427,7 @@ def getCategAndSum(s):
 
     return CATEG, SUM, remainder
 
-def getDayCategAndSum(s):
+def getDayCategAndValue(s):
     day = categ = sum = ""
     l = len(s)
     i = 0
@@ -534,23 +458,35 @@ def getRemainder(s):
 
     return remainder
 
+def getCategoryAndValueFromFile(s):
+    k = 0
+
+    for i in s.split():
+        if k == 0:          # I only have to get the category and the sum from the files
+            categ = i
+            k = 1
+        else: # There is no need for try: ... except ...: because of "checkIntegrityOfTheFiles"
+            value = i
+
+    try:
+        value = int(value)
+    except ValueError:
+        value = 0
+
+    return categ, value
+
 def initializeDictionary(day):
     '''
         This function returns the dictionary containing the <categories> and the <values> specific to the day <day>
         from the text file 'day.txt'
     '''
     auxDictionary = {}
+
     f = open("%s.txt" % day, "r+")
 
-    for line in f:  # going thorugh every line of the file
-        k = 0
-        for i in line.split():  # Knowing the variables that are present in the file
-            if k == 0:          # I only have to get the category and the sum from the "database"
-                categ = i
-                k = 1
-            else: # There is no need for try: ... except ...: because of "checkIntegrityOfTheFiles"
-                sum = int(i)
-        auxDictionary[categ] = sum  # inserting the category and sum into an auxiliary dictionary
+    for line in f:
+        categ, value = getCategoryAndValueFromFile(line) # going thorugh every line of the file
+        auxDictionary[categ] = value  # inserting the category and sum into an auxiliary dictionary
 
     f.close()
 
@@ -669,14 +605,7 @@ def printExpenses(category, t, symbol, val):
         ok = 1
         f = open("%s.txt" % i, "r")
         for line in f:
-            k = 0
-            for j in line.split():
-                if k == 0:
-                    categ = j
-                    k += 1
-                else:
-                    value = int(j)
-                    break
+            categ, value = getCategoryAndValueFromFile(line)
             '''
                 In case that the categories containing the sum 0 want to be printed then
                 the next if statement should look like this:
@@ -806,7 +735,7 @@ def stepCountUpdate(undo_steps, sum, categ, day, step_count):
     undo_steps.append([step_count, "insert " + str(day) + " " + str(-sum) + " " + str(categ)])
 
 def add(userInput, categoryList, undo_steps, step_count):
-    categ, sum, remainder = getCategAndSum(userInput)  # getting the category and the sum from the user input
+    categ, sum, remainder = getCategAndValue(userInput)  # getting the category and the sum from the user input
     day = time.strftime("%d")
 
     try:  # In case that the user has entered an invalid number that may contain
@@ -829,7 +758,7 @@ def add(userInput, categoryList, undo_steps, step_count):
 
 def insert(userInput, categoryList, undo_steps, undo, step_count):
 
-    day, categ, sum, remainder = getDayCategAndSum(userInput)
+    day, categ, sum, remainder = getDayCategAndValue(userInput)
 
     try:
         day = int(day)  # Verifing that the user input is correct
