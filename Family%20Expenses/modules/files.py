@@ -1,4 +1,5 @@
-from main import *
+import cmd
+import os.path
 
 #FILES#####################################################################################################
 
@@ -15,7 +16,7 @@ def checkIntegrityOfTheFiles(categoryList):
 
     for i in range(1, 31):
         if os.path.isfile("%s.txt" % i) == False:
-            initializeFile(i)
+            cmd.initializeFile(i)
             ok = False
             continue
 
