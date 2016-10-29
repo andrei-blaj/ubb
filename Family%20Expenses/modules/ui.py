@@ -1,4 +1,6 @@
-from main import *
+import cmd
+import files
+import os
 
 #UIBASED###################################################################################################
 
@@ -14,43 +16,43 @@ def UIBased(categoryList, cmdList, undo_steps):
         step_count = len(undo_steps)
 
         os.system('clear') # CLEAR SCREEN
-        userCommand = getCommand(userInput)  # Extracting the COMMAND from the user input
-        remainderAfterCommand = getRemainder(userInput) # Extracting the remainder after the command
+        userCommand = cmd.getCommand(userInput)  # Extracting the COMMAND from the user input
+        remainderAfterCommand = cmd.getRemainder(userInput) # Extracting the remainder after the command
 
-        checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
+        files.checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
 
         if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
             return
         elif userCommand == "add":
             sum, category = UIAdd(categoryList)
             userInput = str(userCommand) + " " + str(sum) + " " + str(category)
-            add(userInput, categoryList, undo_steps, step_count)
+            cmd.add(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "insert":
             day, sum, category = UIInsert(categoryList)
             userInput = str(userCommand) + " " + str(day) + " " + str(sum) + " " + str(category)
-            insert(userInput, categoryList, undo_steps, 1, step_count)
+            cmd.insert(userInput, categoryList, undo_steps, 1, step_count)
         elif userCommand == "remove":
             userInput = str(userCommand) + " " + UIRemove(categoryList)
-            remove(userInput, categoryList, undo_steps, step_count)
+            cmd.remove(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "list":
             userInput = str(userCommand) + " " + UIList(categoryList)
-            list(userInput, categoryList)
+            cmd.list(userInput, categoryList)
         elif userCommand == "sum":
             userInput = str(userCommand) + " " + UISum(categoryList)
-            suma(userInput, categoryList)
+            cmd.suma(userInput, categoryList)
         elif userCommand == "max":
             userInput = str(userCommand) + " " + UIMax()
-            maxi(userInput, categoryList)
+            cmd.maxi(userInput, categoryList)
         elif userCommand == "sort":
             userInput = str(userCommand) + " " + UISort(categoryList)
-            sort(userInput, categoryList)
+            cmd.sort(userInput, categoryList)
         elif userCommand == "filter":
             userInput = str(userCommand) + " " + UIFilter(categoryList)
-            filter(userInput, categoryList, undo_steps, step_count)
+            cmd.filter(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "undo":
-            undo(userInput, categoryList, undo_steps, step_count)
+            cmd.undo(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "help":
-            userHelp(cmdList)
+            cmd.userHelp(cmdList)
         elif userCommand == "clear":
             os.system('clear')
         else:
@@ -58,9 +60,9 @@ def UIBased(categoryList, cmdList, undo_steps):
 
 def UIBasedHelp():
     print("   Available commmands:")
-    cmdList = buildCmdList()
+    cmdList = cmd.buildCmdList()
     for i in cmdList:
-        print("   ~:" + getCommand(i))
+        print("   ~:" + cmd.getCommand(i))
 
 def UIgetCategory(s, categoryList):
     while True:
