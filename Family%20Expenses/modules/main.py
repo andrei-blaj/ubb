@@ -21,7 +21,7 @@ def main():
         print(ex)
         exit(0)
 
-    print("   Welcome!\n   Please choose the type of user interface:")
+    print("   Welcome!\n   Please choose the type of program:")
     print("   1. Command based.")
     print("   2. UI based.")
     UIType = raw_input("~: ")
