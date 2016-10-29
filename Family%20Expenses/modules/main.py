@@ -1,9 +1,9 @@
 import os
 import operator
 
-from cmd import *
-from ui import *
-from tests import *
+import cmd
+import ui
+import tests
 
 def main():
 
@@ -11,11 +11,11 @@ def main():
 
     undo_steps = []
 
-    categoryList = buildCategList() # Default category list
-    cmdList = buildCmdList()        # Default command list
+    categoryList = cmd.buildCategList() # Default category list
+    cmdList = cmd.buildCmdList()        # Default command list
 
     try:
-        testEverything()
+        tests.testEverything()
         print("All tests passed!")
     except Exception as ex:
         print(ex)
@@ -34,9 +34,9 @@ def main():
         UIType = raw_input("~: ")
 
     if UIType == '1':
-        commandBased(categoryList, cmdList, undo_steps)
+        cmd.commandBased(categoryList, cmdList, undo_steps)
     else:
-        UIBased(categoryList, cmdList, undo_steps) # to be implemented
+        ui.UIBased(categoryList, cmdList, undo_steps) # to be implemented
 
 if __name__ == '__main__':
     main()
