@@ -26,31 +26,31 @@ def UIBased(categoryList, cmdList, undo_steps):
         elif userCommand == "add":
             sum, category = UIAdd(categoryList)
             userInput = str(userCommand) + " " + str(sum) + " " + str(category)
-            cmd.add(userInput, categoryList, undo_steps, step_count)
+            print cmd.add(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "insert":
             day, sum, category = UIInsert(categoryList)
             userInput = str(userCommand) + " " + str(day) + " " + str(sum) + " " + str(category)
-            cmd.insert(userInput, categoryList, undo_steps, 1, step_count)
+            print cmd.insert(userInput, categoryList, undo_steps, 1, step_count)
         elif userCommand == "remove":
             userInput = str(userCommand) + " " + UIRemove(categoryList)
-            cmd.remove(userInput, categoryList, undo_steps, step_count)
+            print cmd.remove(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "list":
             userInput = str(userCommand) + " " + UIList(categoryList)
-            cmd.list(userInput, categoryList)
+            cmd.printFunc(cmd.list(userInput, categoryList))
         elif userCommand == "sum":
             userInput = str(userCommand) + " " + UISum(categoryList)
-            cmd.suma(userInput, categoryList)
+            print cmd.suma(userInput, categoryList)
         elif userCommand == "max":
             userInput = str(userCommand) + " " + UIMax()
-            cmd.maxi(userInput, categoryList)
+            print cmd.maxi(userInput, categoryList)
         elif userCommand == "sort":
             userInput = str(userCommand) + " " + UISort(categoryList)
-            cmd.sort(userInput, categoryList)
+            cmd.printFunc(cmd.sort(userInput, categoryList))
         elif userCommand == "filter":
             userInput = str(userCommand) + " " + UIFilter(categoryList)
-            cmd.filter(userInput, categoryList, undo_steps, step_count)
+            print cmd.filter(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "undo":
-            cmd.undo(userInput, categoryList, undo_steps, step_count)
+            print cmd.undo(userInput, categoryList, undo_steps, step_count)
         elif userCommand == "help":
             cmd.userHelp(cmdList)
         elif userCommand == "clear":
