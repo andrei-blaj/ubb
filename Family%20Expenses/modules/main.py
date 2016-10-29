@@ -1,13 +1,9 @@
-import time
-import thread
-import os.path
 import os
 import operator
 
 from cmd import *
 from ui import *
 from tests import *
-from files import *
 
 def main():
 
@@ -17,14 +13,14 @@ def main():
 
     categoryList = buildCategList() # Default category list
     cmdList = buildCmdList()        # Default command list
-    '''
+
     try:
         testEverything()
         print("All tests passed!")
     except Exception as ex:
         print(ex)
         exit(0)
-    '''
+
     print("   Welcome!\n   Please choose the type of user interface:")
     print("   1. Command based.")
     print("   2. UI based.")
