@@ -1,4 +1,7 @@
-from main import *
+import time
+import operator
+import files
+import os
 
 #COMMANDBASED##############################################################################################
 
@@ -15,7 +18,7 @@ def commandBased(categoryList, cmdList, undo_steps):
         os.system('clear') # CLEAR SCREEN
         userCommand = getCommand(userInput)  # Extracting the COMMAND from the user input
 
-        checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
+        files.checkIntegrityOfTheFiles(categoryList) # Checking that the files are in good condition
 
         if userCommand == "exit":  # In case the user wants to terminate the program, this allows him to do so
             return
@@ -58,9 +61,9 @@ def add(userInput, categoryList, undo_steps, step_count):
     except ValueError:  # the program doesn't crash
         return "   Invalid sum or syntax"
 
-    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
+    categoryDictionary = files.initializeDictionary(day, categoryList)  # Today's date (day)
     categoryDictionary[categ] += sum  # updating the sum of the selected category
-    fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
+    files.fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
 
     stepCountUpdate(undo_steps, sum, categ, day, step_count) #updating the undo list
 
@@ -84,9 +87,9 @@ def insert(userInput, categoryList, undo_steps, undo, step_count):
     except ValueError:
         return "   Invalid sum value"
 
-    categoryDictionary = initializeDictionary(day, categoryList)  # Today's date (day)
+    categoryDictionary = files.initializeDictionary(day, categoryList)  # Today's date (day)
     categoryDictionary[categ] += sum  # updating the sum of the selected category
-    fileUpdate(day, categoryDictionary)  # updating the file for this day with the new information
+    files.fileUpdate(day, categoryDictionary)  # updating the file for this day with the new information
 
     if undo:
         stepCountUpdate(undo_steps, sum, categ, day, step_count)
@@ -491,12 +494,12 @@ def removeExpenses(a, b, undo_steps, step_count, categoryList):
     default_dict = {"housekeeping" : 0, "food" : 0, "transport" : 0, "clothing" : 0, "internet" : 0, "others" : 0}
 
     for i in range(a, b+1):
-        aux_dict = initializeDictionary(i, categoryList)
+        aux_dict = files.initializeDictionary(i, categoryList)
         for key in aux_dict:
             if aux_dict[key] != 0:
                 undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[key]) + " " + str(key)]) # updating the undo list
 
-        fileUpdate(i, default_dict)
+        files.fileUpdate(i, default_dict)
 
 def removeExpensesByCategory(categ, undo_steps, step_count, categoryList):
     '''
@@ -505,13 +508,13 @@ def removeExpensesByCategory(categ, undo_steps, step_count, categoryList):
         input: the category
     '''
     for i in range(1, 31):
-        aux_dict = initializeDictionary(i, categoryList)
+        aux_dict = files.initializeDictionary(i, categoryList)
 
         if aux_dict[categ] != 0:
             undo_steps.append([step_count, "insert " + str(i) + " " + str(aux_dict[categ]) + " " + str(categ)]) # updating the undo list
 
         aux_dict[categ] = 0
-        fileUpdate(i, aux_dict)
+        files.fileUpdate(i, aux_dict)
 
 def updateExpensesList(dataList, emptyList, category, categ, t, symbol, value, ok, i, val):
     if t == 1 or (t == 2 and category == categ) or (symbol == '>' and value > val) or (symbol == '<' and value < val) or (symbol == '=' and value == val):
@@ -542,7 +545,7 @@ def listOfExpenses(category, t, symbol, val, categoryList):
 
         f = open("%s.txt" % i, "r")
         for line in f:
-            categ, value, auxBool = getCategoryAndValueFromFile(line, categoryList, auxBool)
+            categ, value, auxBool = files.getCategoryAndValueFromFile(line, categoryList, auxBool)
             '''
                 In case that the categories containing the sum 0 want to be printed then
                 the next if statement should look like this:
@@ -569,7 +572,7 @@ def getSum(category, categoryList):
     '''
     s = 0
     for i in range(1, 31):
-        auxDict = initializeDictionary(i, categoryList)
+        auxDict = files.initializeDictionary(i, categoryList)
         s += auxDict[category]
     return s
 
@@ -597,7 +600,7 @@ def maximumExpenses(categoryList):
     maxExp, day = 0, 0
 
     for i in range(1, 31):
-        auxExp = getExpensesForDay(initializeDictionary(i, categoryList))
+        auxExp = getExpensesForDay(files.initializeDictionary(i, categoryList))
         maxExp, day = updateMax(maxExp, auxExp, i, day)
 
     return maxExp, day
@@ -624,7 +627,7 @@ def buildListOfExpenses(categ, op, categoryList):
     for i in range(1, 31):
         sumOfValues = 0
 
-        dictForDay = initializeDictionary(i, categoryList)
+        dictForDay = files.initializeDictionary(i, categoryList)
 
         if op == 1:
             sumOfValues = getSumForDay(dictForDay)
@@ -646,7 +649,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryLis
 
     '''
     for i in range(1, 31):
-        dictForDayI = initializeDictionary(i, categoryList)
+        dictForDayI = files.initializeDictionary(i, categoryList)
 
         for key in dictForDayI:
             if key != category or (symbol == ">" and dictForDayI[key] <= value) or (symbol == "<" and dictForDayI[key] >= value) or (symbol == "=" and dictForDayI[key] != value):
@@ -654,7 +657,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryLis
                     undo_steps.append([step_count, "insert " + str(i) + " " + str(dictForDayI[key]) + " " + str(key)]) # updating the undo list
                 dictForDayI[key] = "0"
 
-        fileUpdate(i, dictForDayI)
+        files.fileUpdate(i, dictForDayI)
 
 def userHelp(cmdList):
     print("   Available commands:")
