@@ -1,4 +1,5 @@
-from main import *
+import cmd
+import files
 
 #TESTS#####################################################################################################
 
@@ -8,67 +9,67 @@ def test_getCategoryAndValueFromFile():
         The function also checks if all the data is valid such as if the category extracted from the file is in fact a
         valid category or it the value is actually a number.
     '''
-    assert getCategoryAndValueFromFile("food 10", buildCategList(), 1) == ("food", 10, 1)
-    assert getCategoryAndValueFromFile("foodd 10", buildCategList(), 1) == ("foodd", 10, 0)
-    assert getCategoryAndValueFromFile("food 10a", buildCategList(), 1) == ("food", "10a", 0)
+    assert files.getCategoryAndValueFromFile("food 10", cmd.buildCategList(), 1) == ("food", 10, 1)
+    assert files.getCategoryAndValueFromFile("foodd 10", cmd.buildCategList(), 1) == ("foodd", 10, 0)
+    assert files.getCategoryAndValueFromFile("food 10a", cmd.buildCategList(), 1) == ("food", "10a", 0)
 
 def test_getCommand(): # This function returns the COMMAND (add, insert, ...) inserted by the user.
-    assert getCommand("add asdf ") == "add"
-    assert getCommand("insert fd a dfa ") == "insert"
-    assert getCommand("remove asdf as12 123 ") == "remove"
+    assert cmd.getCommand("add asdf ") == "add"
+    assert cmd.getCommand("insert fd a dfa ") == "insert"
+    assert cmd.getCommand("remove asdf as12 123 ") == "remove"
 
 def test_passSpaces():
-    assert passSpaces("  asd", 0, 5) == 2
-    assert passSpaces("   sd", 0, 5) == 3
-    assert passSpaces(" dasd", 0, 5) == 1
+    assert cmd.passSpaces("  asd", 0, 5) == 2
+    assert cmd.passSpaces("   sd", 0, 5) == 3
+    assert cmd.passSpaces(" dasd", 0, 5) == 1
 
 def test_getText():
-    assert getText("and ", 0, 4) == (3, "and")
+    assert cmd.getText("and ", 0, 4) == (3, "and")
 
 def test_getCategAndValue():
-    assert getCategAndValue("add 10 food asdf") == ("food", "10", "asdf")
-    assert getCategAndValue("add 10 others as") == ("others", "10", "as")
-    assert getCategAndValue("add 10 transport") == ("transport", "10", "")
+    assert cmd.getCategAndValue("add 10 food asdf") == ("food", "10", "asdf")
+    assert cmd.getCategAndValue("add 10 others as") == ("others", "10", "as")
+    assert cmd.getCategAndValue("add 10 transport") == ("transport", "10", "")
 
 def test_getDayCategAndValue():
-    assert getDayCategAndValue("insert 26 10 food asd") == ("26", "food", "10", "asd")
-    assert getDayCategAndValue("insert 27 10 others") == ("27", "others", "10", "")
-    assert getDayCategAndValue("insert 28 10 internet a") == ("28", "internet", "10", "a")
+    assert cmd.getDayCategAndValue("insert 26 10 food asd") == ("26", "food", "10", "asd")
+    assert cmd.getDayCategAndValue("insert 27 10 others") == ("27", "others", "10", "")
+    assert cmd.getDayCategAndValue("insert 28 10 internet a") == ("28", "internet", "10", "a")
 
 def test_getRemainder():
-    assert getRemainder("food asdf fd fdsasss") == "asdf fd fdsasss"
-    assert getRemainder("internet sasss") == "sasss"
-    assert getRemainder("food as d f ds a d fa") == "as d f ds a d fa"
+    assert cmd.getRemainder("food asdf fd fdsasss") == "asdf fd fdsasss"
+    assert cmd.getRemainder("internet sasss") == "sasss"
+    assert cmd.getRemainder("food as d f ds a d fa") == "as d f ds a d fa"
 
 def test_passText():
-    assert passText("add ", 0, 4) == 3
-    assert passText("asdf as", 0, 7) == 4
-    assert passText("as a", 0, 4) == 2
+    assert cmd.passText("add ", 0, 4) == 3
+    assert cmd.passText("asdf as", 0, 7) == 4
+    assert cmd.passText("as a", 0, 4) == 2
 
 def test_removeTo():
-    assert removeTo("10 to 15 asd") == ("10", "15", "asd")
-    assert removeTo("10 to 15") == ("10", "15", "")
-    assert removeTo("1 to 15 a") == ("1", "15", "a")
+    assert cmd.removeTo("10 to 15 asd") == ("10", "15", "asd")
+    assert cmd.removeTo("10 to 15") == ("10", "15", "")
+    assert cmd.removeTo("1 to 15 a") == ("1", "15", "a")
 
 def test_removeDayOrCateg():
-    assert removeDayOrCateg("transport asdf asd fd") == ("transport", "asdf asd fd")
-    assert removeDayOrCateg("internet a") == ("internet", "a")
-    assert removeDayOrCateg("food ") == ("food", "")
+    assert cmd.removeDayOrCateg("transport asdf asd fd") == ("transport", "asdf asd fd")
+    assert cmd.removeDayOrCateg("internet a") == ("internet", "a")
+    assert cmd.removeDayOrCateg("food ") == ("food", "")
 
 def test_getExpensesForDay():
-    assert getExpensesForDay({"a" : 5, "b" : 4}) == 9
-    assert getExpensesForDay({"a" : 1, "b" : 2}) == 3
-    assert getExpensesForDay({"a" : 3, "b" : 3}) == 6
+    assert cmd.getExpensesForDay({"a" : 5, "b" : 4}) == 9
+    assert cmd.getExpensesForDay({"a" : 1, "b" : 2}) == 3
+    assert cmd.getExpensesForDay({"a" : 3, "b" : 3}) == 6
 
 def test_updateMax():
-    assert updateMax(5, 7, 1, 2) == (7, 1)
-    assert updateMax(3, 3, 1, 2) == (3, 2)
-    assert updateMax(7, 5, 1, 2) == (7, 2)
+    assert cmd.updateMax(5, 7, 1, 2) == (7, 1)
+    assert cmd.updateMax(3, 3, 1, 2) == (3, 2)
+    assert cmd.updateMax(7, 5, 1, 2) == (7, 2)
 
 def test_getSumForDay():
-    assert getSumForDay({"a" : 5, "b" : 4}) == 9
-    assert getSumForDay({"a" : 1, "b" : 2}) == 3
-    assert getSumForDay({"a" : 3, "b" : 3}) == 6
+    assert cmd.getSumForDay({"a" : 5, "b" : 4}) == 9
+    assert cmd.getSumForDay({"a" : 1, "b" : 2}) == 3
+    assert cmd.getSumForDay({"a" : 3, "b" : 3}) == 6
 
 def testEverything():
 
