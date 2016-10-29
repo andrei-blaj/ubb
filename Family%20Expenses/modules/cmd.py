@@ -543,7 +543,7 @@ def listOfExpenses(category, t, symbol, val, categoryList):
         ok = 1
         auxBool = True
 
-        f = open("%s.txt" % i, "r")
+        f = open("data/%s.txt" % i, "r")
         for line in f:
             categ, value, auxBool = files.getCategoryAndValueFromFile(line, categoryList, auxBool)
             '''
