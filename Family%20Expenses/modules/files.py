@@ -11,12 +11,19 @@ def checkIntegrityOfTheFiles(categoryList):
         *category is part of categoryList*
         If the files are mutated from their default state (this refers to the categories not the values)
         or some files are deleted during the execution, the program automatically creates the missing files.
+
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
     '''
     ok = True # we assume that all the files are ok
 
+    if not os.path.exists("data"):
+        os.makedirs("data")
+
     for i in range(1, 31):
-        if os.path.isfile("%s.txt" % i) == False:
-            cmd.initializeFile(i)
+        if os.path.isfile("data/%s.txt" % i) == False:
+            initializeFile(i)
             ok = False
             continue
 
@@ -34,7 +41,7 @@ def initializeFile(i):
     '''
         This function initializes file 'i.txt' with the default categories and values
     '''
-    f = open("%s.txt" % i, "w")
+    f = open("data/%s.txt" % i, "w")
     f.writelines("housekeeping 0\nfood 0\ntransport 0\nclothing 0\ninternet 0\nothers 0")
     f.close()
 
@@ -69,7 +76,7 @@ def getFileDict(day, categoryList, ok):
     '''
     auxDictionary = {}
 
-    f = open("%s.txt" % day, "r+")
+    f = open("data/%s.txt" % day, "r+")
 
     for line in f:
         categ, value, ok = getCategoryAndValueFromFile(line, categoryList, ok) # going thorugh every line of the file
@@ -83,7 +90,7 @@ def getFileDict(day, categoryList, ok):
     return auxDictionary, ok
 
 def fileUpdate(fileName, auxDictionary):
-    f = open("%s.txt" % fileName, "w")    # UPDATING THE DICTIONARY AFTER THE COMMAND WAS EXECUTED
+    f = open("data/%s.txt" % fileName, "w")    # UPDATING THE DICTIONARY AFTER THE COMMAND WAS EXECUTED
     for key in auxDictionary:
         f.write(key + " " + "{0}\n".format(auxDictionary[key]))
     f.close()
@@ -96,7 +103,7 @@ def initializeDictionary(day, categoryList):
     ok = True
     auxDictionary = {}
 
-    f = open("%s.txt" % day, "r+")
+    f = open("data/%s.txt" % day, "r+")
 
     for line in f:
         categ, value, ok = getCategoryAndValueFromFile(line, categoryList, ok) # going thorugh every line of the file
