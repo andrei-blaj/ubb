@@ -1,2 +1,2 @@
-### UBB
-University programming projects, homework
+# UBB
+University programming projects & Homework
