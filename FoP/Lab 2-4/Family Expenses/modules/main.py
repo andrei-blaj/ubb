@@ -36,7 +36,7 @@ def main():
     if UIType == '1':
         cmd.commandBased(categoryList, cmdList, undo_steps)
     else:
-        ui.UIBased(categoryList, cmdList, undo_steps) # to be implemented
+        ui.UIBased(categoryList, cmdList, undo_steps)
 
 if __name__ == '__main__':
     main()
