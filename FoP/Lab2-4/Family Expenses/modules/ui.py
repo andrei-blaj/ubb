@@ -88,8 +88,8 @@ def UIgetDay(s):
         try:
             day = int(input(s))
             os.system('clear')
-            if day < 1 or day > 31:
-                print("   Invalid number, day must be between 1 and 31.")
+            if day < 1 or day > 30:
+                print("   Invalid number, day must be between 1 and 30.")
                 continue
             return day
         except ValueError:
