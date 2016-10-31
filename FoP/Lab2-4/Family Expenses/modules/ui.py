@@ -83,7 +83,7 @@ def UIgetValue(s):
         except ValueError:
             print("   Invalid number.")
 
-def UIgetDay(s):
+def UIgetDayValue(s):
     while True:
         try:
             day = int(input(s))
@@ -119,7 +119,7 @@ def UIAdd(categoryList):
 
 def UIInsert(categoryList):
 
-    day = UIgetDay("Please enter a day: ")
+    day = UIgetDayValue("Please enter a day: ")
     s = UIgetSum("Please enter a sum: ")
     category = UIgetCategory("Please enter a category: ", categoryList)
 
@@ -136,13 +136,13 @@ def UIRemove(categoryList):
         UIType = raw_input("~: ")
 
     if UIType == '1':
-        day = UIgetDay("Please enter a day: ")
+        day = UIgetDayValue("Please enter a day: ")
 
         return str(day)
 
     elif UIType == '2':
-        start_day = UIgetDay("Please enter the start day: ")
-        end_day = UIgetDay("Please enter the end day: ")
+        start_day = UIgetDayValue("Please enter the start day: ")
+        end_day = UIgetDayValue("Please enter the end day: ")
 
         return str(start_day) + " to " + str(end_day)
 
@@ -220,7 +220,7 @@ def UISort(categoryList):
     os.system('clear')
 
     if UIType == '1':
-        day = UIgetDay("Please enter 'day': ")
+        day = UIgetDayValue("Please enter 'day': ")
         return str(day)
 
     else:
