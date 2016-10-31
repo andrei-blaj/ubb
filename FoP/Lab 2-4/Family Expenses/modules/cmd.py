@@ -507,7 +507,7 @@ def removeExpensesByCategory(categ, undo_steps, step_count, categoryList):
         default dictionary)
         input: the category
     '''
-    for i in range(1, 31):
+    for i in range(1, 32):
         aux_dict = files.initializeDictionary(i, categoryList)
 
         if aux_dict[categ] != 0:
@@ -539,7 +539,7 @@ def listOfExpenses(category, t, symbol, val, categoryList):
     '''
     emptyList = True
     dataList = []
-    for i in range(1, 31):
+    for i in range(1, 32):
         ok = 1
         auxBool = True
 
@@ -571,7 +571,7 @@ def getSum(category, categoryList):
         This function returns the sum of all the values corresponding to each day's category
     '''
     s = 0
-    for i in range(1, 31):
+    for i in range(1, 32):
         auxDict = files.initializeDictionary(i, categoryList)
         s += auxDict[category]
     return s
@@ -599,7 +599,7 @@ def maximumExpenses(categoryList):
     '''
     maxExp, day = 0, 0
 
-    for i in range(1, 31):
+    for i in range(1, 32):
         auxExp = getExpensesForDay(files.initializeDictionary(i, categoryList))
         maxExp, day = updateMax(maxExp, auxExp, i, day)
 
@@ -624,7 +624,7 @@ def buildListOfExpenses(categ, op, categoryList):
 
     valuesDictionary = {}
 
-    for i in range(1, 31):
+    for i in range(1, 32):
         sumOfValues = 0
 
         dictForDay = files.initializeDictionary(i, categoryList)
@@ -648,7 +648,7 @@ def deleteAllExcept(category, symbol, value, undo_steps, step_count, categoryLis
         input: the category, symbol and value
 
     '''
-    for i in range(1, 31):
+    for i in range(1, 32):
         dictForDayI = files.initializeDictionary(i, categoryList)
 
         for key in dictForDayI:

@@ -21,7 +21,7 @@ def checkIntegrityOfTheFiles(categoryList):
     if not os.path.exists("data"):
         os.makedirs("data")
 
-    for i in range(1, 31):
+    for i in range(1, 32):
         if os.path.isfile("data/%s.txt" % i) == False:
             initializeFile(i)
             ok = False
