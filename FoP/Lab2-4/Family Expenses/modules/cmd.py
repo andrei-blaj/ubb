@@ -51,7 +51,7 @@ def commandBased(categoryList, cmdList, undo_steps):
 
 def add(userInput, categoryList, undo_steps, step_count):
     categ, sum, remainder = getCategAndValue(userInput)  # getting the category and the sum from the user input
-    day = time.strftime("%d")
+    day = int(time.strftime("%d"))
 
     try:  # In case that the user has entered an invalid number that may contain
         sum = int(sum)  # strings and other characters other than digits and or '-', '+', etc.
@@ -63,7 +63,7 @@ def add(userInput, categoryList, undo_steps, step_count):
 
     categoryDictionary = files.initializeDictionary(day, categoryList)  # Today's date (day)
     categoryDictionary[categ] += sum  # updating the sum of the selected category
-    files.fileUpdate(time.strftime("%d"), categoryDictionary)  # updating the file for this day with the new information
+    files.fileUpdate(int(time.strftime("%d")), categoryDictionary)  # updating the file for this day with the new information
 
     stepCountUpdate(undo_steps, sum, categ, day, step_count) #updating the undo list
 
