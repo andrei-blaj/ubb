@@ -150,6 +150,8 @@ def list(userInput, categoryList):
 
     remainderAfterCommand = getRemainder(userInput)
 
+    printList = []
+
     if len(remainderAfterCommand) == 0:
         '''
             This means that the user has entered the simple <list> command
@@ -166,7 +168,7 @@ def list(userInput, categoryList):
                 Thus I will be working with the <category> variable
             '''
             if category not in categoryList:
-                printList.append("Invalid category")
+                printList.append("   Invalid category")
                 return printList
 
             printList = listOfExpenses(category, 2, "", -1, categoryList)
