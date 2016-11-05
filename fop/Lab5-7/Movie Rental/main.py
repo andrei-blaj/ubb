@@ -29,11 +29,13 @@
     modified the data structure.
 
 """
-import os
-import os.path
+
+from init import *
 
 def main():
-    pass
+
+    movieList = initializeMovieList()
+    clientList = initializeClientList()
 
 if __name__ == '__main__':
     main()
