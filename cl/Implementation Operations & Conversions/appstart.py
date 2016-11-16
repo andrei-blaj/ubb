@@ -1,8 +1,8 @@
 import os
 from number import *
 
-a = Number("FF", 16)
-b = Number("1", 16)
+a = Number("9", 11)
+b = Number("5", 12)
 
 print a.add(b)
 

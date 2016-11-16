@@ -130,7 +130,7 @@ class Number:
 
     def add(self, b):
         if self.checkIfSameBaseWith(b) == False:
-            return "Bases do not match!\n"
+            return "Bases do not match!"
 
         A, B, C, l = self.initializeAdd(b)
 
@@ -143,11 +143,14 @@ class Number:
             """
             C, carry = Number.base16(A, B, C, base, carry, l)
 
-        else:
+        elif base > 1 and base < 11:
             """
                 This block of code treats the case in which the base is less or equal to 10
             """
             C, carry = Number.otherBase(A, B, C, base, carry, l)
+
+        else:
+            return -1
 
         if carry != '0':
             C.append(carry)
