@@ -47,13 +47,13 @@ Remarks:
 	 ...
 
 """
-from bookrepo import *
-from book import *
-from customerrepo import *
-from customer import *
-from rentalrepo import *
-from rental import *
-from menu import UI
+from bookrepo.bookrepo import *
+from book.book import *
+from customerrepo.customerrepo import *
+from customer.customer import *
+from rentalrepo.rentalrepo import *
+from rental.rental import *
+from menu.menu import UI
 
 bookController = bookRepository()
 customerController = customerRepository()

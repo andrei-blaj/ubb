@@ -1,4 +1,4 @@
-from customer import *
+from customer.customer import *
 
 class customerRepository:
 	def __init__(self):

@@ -1,4 +1,4 @@
-from book import *
+from book.book import *
 import copy
 
 class bookRepository:

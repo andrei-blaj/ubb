@@ -1,4 +1,4 @@
-from rental import *
+from rental.rental import *
 import copy
 
 class rentalRepository:

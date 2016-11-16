@@ -1,7 +1,7 @@
 import os
-from bookrepo import *
-from customerrepo import *
-from rentalrepo import *
+from bookrepo.bookrepo import *
+from customerrepo.customerrepo import *
+from rentalrepo.rentalrepo import *
 import datetime
 
 class UI:
@@ -310,7 +310,7 @@ class UI:
 
 			if self.isNotValid(userInput):
 				os.system('clear')
-				print("Command '%s' not recognized, enter '10' for help." % userInput)
+				print("Command '%s' not recognized" % userInput)
 				continue
 
 			if userInput == "1":
