@@ -98,4 +98,11 @@ class bookRepository:
 			if a in authorDict:
 				authorDict[a] += 1
 			else:
-				authorDict[a] = 0
+				authorDict[a] = 1
+		
+		return authorDict
+
+	def printBook(self, iD):
+		for obj in self._bookRepo:
+			if obj.returnBookId() == iD:
+				obj.printObj()

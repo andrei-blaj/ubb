@@ -35,7 +35,7 @@ class rentalRepository:
 			if year in reportDict:
 				reportDict[year] += 1
 			else:
-				reportDict[year] = 0
+				reportDict[year] = 1
 
 		return reportDict
 
@@ -47,4 +47,12 @@ class rentalRepository:
 		l = []
 		for obj in self._rentalRepo:
 			l.append(obj.returnCustomerId())
+		
+		return l
+
+	def getBookReport(self):
+		l = []
+		for obj in self._rentalRepo:
+			l.append(obj.returnBookId)
+
 		return l

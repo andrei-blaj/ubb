@@ -28,4 +28,4 @@ class book:
 		self.__pret = newBook[4]
 
 	def printObj(self):
-		print(str(self.__id) + " " + str(self.__titlu) + " " + str(self.__descriere) + " " + str(self.__autor) + " " + str(self.__pret))
+		print str(self.__id) + " " + str(self.__titlu) + " " + str(self.__descriere) + " " + str(self.__autor) + " " + str(self.__pret)

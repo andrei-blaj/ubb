@@ -197,7 +197,7 @@ class UI:
 		rentData = self.getRentData()
 		self._rentalController.add(rentData)
 
-		return "Rental successful!"
+		print "Rental successful!"
 
 	def getRentData(self):
 		customerId = self.userInput("Insert the customer id: ")
@@ -222,7 +222,6 @@ class UI:
 		numberOfDays = self.userInput("Insert the number of days you want to rent it for: ")
 
 		return [customerId, bookId, date, numberOfDays]
-
 
 	### RETURN ########################################################################################
 
@@ -278,8 +277,8 @@ class UI:
 		os.system('clear')
 
 		opType = ''
-			while opType not in ['1', '2', '3']:
-				opType = self.userInput("What would you like to filter?\n   1. Authors who have published more than 3 books\n   2. Customers who have rented books\n   3. Books that are rented\n ~: ")
+		while opType not in ['1', '2', '3']:
+			opType = self.userInput("What would you like to filter?\n   1. Authors who have published more than 3 books\n   2. Customers who have rented books\n   3. Books that are rented\n ~: ")
 			
 		if opType == '1':
 			authorDict = self._bookController.getAuthorReport()
@@ -288,16 +287,21 @@ class UI:
 			customerIdList = self._rentalController.getCustomerReport()
 			self.checkCustomers(customerIdList)
 		else:
-			pass
+			bookIdList = self._rentalController.getBookReport()
+			self.checkBooks(bookIdList)
 
 	def checkAuthors(self, d):
 		for i in d:
-			if i[0] > 3:
+			if d[i] > 3:
 				print(i)
 
 	def checkCustomers(self, l):
 		for i in l:
 			self._customerController.printCustomer(i)
+
+	def checkBooks(self, l):
+		for i in l:
+			self._bookController.printBook(i)
 
 	### REPORT ########################################################################################
 
@@ -329,6 +333,8 @@ class UI:
 		os.system('clear')
 			
 		while unicornsExist:
+
+			#self._rentalController.printAll()
 
 			self.printMenu()
 			userInput = self.userInput("Insert a command: ")
@@ -389,8 +395,7 @@ class UI:
 				"""
 					Filter books or customers
 				"""
-				#self.filter()
-				pass
+				self.filter()
 				
 			elif userInput == "9":
 				"""
