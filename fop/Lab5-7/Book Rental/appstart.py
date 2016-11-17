@@ -14,7 +14,9 @@ The application allows:
 
 * 2 Sort (eg sorted by name / price / title, ...).
 
-* 3 filters (eg search for authors who has published more than 3 books / searches for customers who has rented books ...)
+* 3 filters (eg search for authors who have published more than 3 books / 
+				searches for customers who have rented books ...)
+				search books that are rented
 
 * Report: Number of active customers sorted by year
 

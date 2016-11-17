@@ -274,6 +274,31 @@ class UI:
 
 	### FILTER ########################################################################################
 
+	def filter(self):
+		os.system('clear')
+
+		opType = ''
+			while opType not in ['1', '2', '3']:
+				opType = self.userInput("What would you like to filter?\n   1. Authors who have published more than 3 books\n   2. Customers who have rented books\n   3. Books that are rented\n ~: ")
+			
+		if opType == '1':
+			authorDict = self._bookController.getAuthorReport()
+			self.checkAuthors(authorDict)
+		elif opType == '2':
+			customerIdList = self._rentalController.getCustomerReport()
+			self.checkCustomers(customerIdList)
+		else:
+			pass
+
+	def checkAuthors(self, d):
+		for i in d:
+			if i[0] > 3:
+				print(i)
+
+	def checkCustomers(self, l):
+		for i in l:
+			self._customerController.printCustomer(i)
+
 	### REPORT ########################################################################################
 
 	def report(self):

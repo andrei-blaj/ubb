@@ -42,3 +42,9 @@ class rentalRepository:
 	def printAll(self):
 		for obj in self._rentalRepo:
 			obj.printObj()
+
+	def getCustomerReport(self):
+		l = []
+		for obj in self._rentalRepo:
+			l.append(obj.returnCustomerId())
+		return l

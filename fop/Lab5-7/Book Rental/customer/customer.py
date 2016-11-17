@@ -23,4 +23,4 @@ class customer:
 		self.__address = newCustomer[3]
 
 	def printObj(self):
-		print(str(self.__id) + " " + str(self.__name) + " " + str(self.__cnp) + " " + str(self.__address))
+		print str(self.__id) + " " + str(self.__name) + " " + str(self.__cnp) + " " + str(self.__address)

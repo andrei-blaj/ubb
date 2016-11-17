@@ -88,6 +88,9 @@ class customerRepository:
 		for obj in self._customerRepo:
 			obj.printObj()
 
-
+	def printCustomer(self, iD):
+		for obj in self._customerRepo:
+			if obj.returnCustomerId == iD:
+				obj.printObj()
 
 

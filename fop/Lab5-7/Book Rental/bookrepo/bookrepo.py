@@ -91,10 +91,11 @@ class bookRepository:
 		for obj in self._bookRepo:
 			obj.printObj()
 
-
-
-
-
-
-
-
+	def getAuthorReport(self):
+		authorDict = {}
+		for obj in self._bookRepo:
+			a = obj.returnBookAuthor()
+			if a in authorDict:
+				authorDict[a] += 1
+			else:
+				authorDict[a] = 0
