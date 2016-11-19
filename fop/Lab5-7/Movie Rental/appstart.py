@@ -29,45 +29,26 @@
     modified the data structure.
 """
 
-from movieRepo import movieRepository
-from clientRepo import clientRepository
-from rentalRepo import rentalRepository
+from movierepo.movieRepo import movieRepository
+from clientrepo.clientRepo import clientRepository
+from rentalrepo.rentalRepo import rentalRepository
 
-from movie import *
-from rental import *
-from client import *
+from movie.movie import *
+from rental.rental import *
+from client.client import *
 
-from menu import UI
+from menu.menu import UI
 
 import os
 
 testMovie()
 testRentalRepo()
 
-movieList = movieRepository()
-movieList.initializeMovieList()
-#movieList.add(movie("101", "New Movie", "Description", "Genre", False))
-#movieList.list()
-#movieList.remove(90)
-#movieList.list()
+movieController = movieRepository()
+clientController = clientRepository()
+rentalController = rentalRepository()
 
-clientList = clientRepository()
-clientList.initializeClientList()
-
-clientList.add(client("1", "Andrei"))
-clientList.add(client("2", "Andrei Blaj"))
-clientList.add(client("3", "Andrei Blaj Sorin"))
-#clientList.list()
-#clientList.remove(2)
-#clientList.list()
-#clientList.list()
-#clientList.update(0, "Andrei Bla")
-#clientList.list()
-
-rentalList = rentalRepository()
-rentalList.initializeRentalList()
-
-ui = UI(movieList, clientList, rentalList)
+ui = UI(movieController, clientController, rentalController)
 
 os.system('clear')
 ui.mainMenu()
