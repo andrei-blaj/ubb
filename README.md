@@ -3,7 +3,7 @@
 ### UNI (in a nutshell) ###
 - - - -
 
-### First Semester###
+#### First Semester ####
 
 - - - -
 
@@ -15,7 +15,7 @@
 
 - - - -
 
-### Second Semester###
+#### Second Semester ####
 
 - - - -
 
