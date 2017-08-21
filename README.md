@@ -1,9 +1,9 @@
 #### #ubb ####
 
-## UNI *(in a nutshell)* 👨🏼‍💻 ##
+# UNI *(in a nutshell)* 👨🏼‍💻 #
 - - - -
 
-#### *First Semester* ####
+### *First Semester* ###
 
 - - - -
 
