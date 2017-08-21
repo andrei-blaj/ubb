@@ -1,9 +1,9 @@
 #### #ubb ####
 
-## UNI (in a nutshell) ##
+## UNI *(in a nutshell)* 👨🏼‍💻 ##
 - - - -
 
-#### First Semester ####
+#### *First Semester* ####
 
 - - - -
 
@@ -11,11 +11,11 @@
 📌 [Computational Logic](https://github.com/andrei-blaj/ubb/tree/master/SEM%201/cl) <br />
 📌 [Computer System Architecture](https://github.com/andrei-blaj/ubb/tree/master/SEM%201/csa) <br />
 📌 [Fundamentals of Programming](https://github.com/andrei-blaj/ubb/tree/master/SEM%201/fop) <br />
-📌 [Mathematical Analysis]() <br />
+📌 [Mathematical Analysis](https://github.com/andrei-blaj/ubb) <br />
 
 - - - -
 
-### Second Semester ###
+### *Second Semester* ###
 
 - - - -
 
