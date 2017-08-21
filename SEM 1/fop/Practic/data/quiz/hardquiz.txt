@@ -1,0 +1,6 @@
+1;Which number is the largest;1;4;3;4;easy
+2;Which number is the smallest;-3;3;0;-3;easy
+3;Which number is prime;2;32;9;2;easy
+7;Which Apollo mission did not make it to the moon;11;13;17;13;hard
+8;A mole can be;animal;quantity;both;both;hard
+9;Name El Cid's house;Babieca;Abu;Santiago;Babieca;hard

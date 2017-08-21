@@ -1,0 +1,4 @@
+Pitbull,Lora,1 7 3,https://www.google.ro/#q=Pitbull&stick=H4sIAAAAAAAAAONgFuLUz9U3SCqxzClS4gAxM0wr0rX4_YvSE_Myi3ND8p2KUlNTAJxw0f8oAAAA
+Chiuaua,Azor,1 2 10,https://www.google.ro/#q=Bulldog+englez&stick=H4sIAAAAAAAAAONgFuLUz9U3SCqxzClSAjMNs41LCrX4_YvSE_Myi3ND8p2KUlNTAOjDRwcpAAAA
+Metis,Nina,6 2 1,https://www.google.ro/#q=doberman&stick=H4sIAAAAAAAAAONgFuLUz9U3SCqxzClSAjPNCgqNirT4_YvSE_Myi3ND8p2KUlNTABKI8rIpAAAA
+Fewqe,DAeqwe,12 6 4,www.google.com

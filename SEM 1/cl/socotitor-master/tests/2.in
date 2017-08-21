@@ -1,0 +1,73 @@
+> +   
+You chose to perform an addition.
+The base of the addition: 16
+Please enter a number (base 16): 54ab6f
+Please enter a number (base 16): cd097d
+54AB6F + CD097D = 121B4EC
+> +
+You chose to perform an addition.
+The base of the addition: 5     
+Please enter a number (base 5): 3401323
+Please enter a number (base 5): 444033
+3401323 + 444033 = 4400411
+> +
+You chose to perform an addition.
+The base of the addition: 16
+Please enter a number (base 16): abcde
+Please enter a number (base 16): d9037f
+ABCDE + D9037F = E3C05D
+> -
+You chose to perform a subtraction.
+The base of the subtraction: 8
+Please enter a number (base 8): 130046
+Please enter a number (base 8): 71257
+130046 - 71257 = 36567
+> -
+You chose to perform a subtraction.
+The base of the subtraction: 6
+Please enter a number (base 6): 210354
+Please enter a number (base 6): 44355
+210354 - 44355 = 121555
+> -
+You chose to perform a subtraction.
+The base of the subtraction: 16
+Please enter a number (base 16): 10b009
+Please enter a number (base 16): a5fcd
+10B009 - A5FCD = 6503C
+> *
+You chose to perform a multiplication.
+The base of the multiplication: 16
+Please enter a number (base 16): 32001b
+Please enter a number (base 16): 6
+32001B * 6 = 12C00A2
+> *
+You chose to perform a multiplication.
+The base of the multiplication: 5
+Please enter a number (base 5): 31203 
+Please enter a number (base 5): 3
+31203 * 3 = 144114
+> *
+You chose to perform a multiplication.
+The base of the multiplication: 8
+Please enter a number (base 8): 21563
+Please enter a number (base 8): 7
+21563 * 7 = 174045
+> *
+You chose to perform a multiplication.
+The base of the multiplication: 16
+Please enter a number (base 16): a23f4
+Please enter a number (base 16): b
+A23F4 * B = 6F8B7C
+> /
+You chose to perform a division.
+The base of the division: 16
+Please enter a number (base 16): 1fed0205
+Please enter a number (base 16): 9
+1FED0205 / 9 = 38C1CAB, remainder 2
+> /
+You chose to perform a division.
+The base of the division: 8
+Please enter a number (base 8): 765433
+Please enter a number (base 8): 4
+765433 / 4 = 175306, remainder 3
+

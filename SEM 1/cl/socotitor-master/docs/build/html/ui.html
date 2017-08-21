@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User Interface &mdash; Socotitor 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Socotitor 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Static" href="static.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-interface">
+<h1>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h1>
+<p>The interface title was generated using <strong>figlet</strong>, a command line ASCII art utility</p>
+<div class="highlight-python"><div class="highlight"><pre>        ____                  _   _ _
+       / ___|  ___   ___ ___ | |_(_) |_ ___  _ __
+       \___ \ / _ \ / __/ _ \| __| | __/ _ \| &#39;__|
+        ___) | (_) | (_| (_) | |_| | || (_) | |
+       |____/ \___/ \___\___/ \__|_|\__\___/|_|
+                   operations and conversions in arbitrary bases
+                                        author: Sergiu Puscas
+
+
++---------+------------------------------------------------------+
+| Command |                    Description                       |
++---------+------------------------------------------------------+
+|    +    | Perform an addition.                                 |
+|    -    | Perform a subtraction.                               |
+|    *    | Perform a multiplication.                            |
+|    /    | Perform an integer division.                         |
+|    ^    | Perform an exponentiation.                           |
+|    c    | Perform a conversion using the suggested method.     |
+|    e    | Evaluate an expression (dangerous).                  |
+|    t    | Run tests.                                           |
+|    h    | Display this prompt.                                 |
+|    x    | Exit the application.                                |
++---------+------------------------------------------------------+
+</pre></div>
+</div>
+<span class="target" id="module-ui.console"></span><dl class="class">
+<dt id="ui.console.Console">
+<em class="property">class </em><code class="descclassname">ui.console.</code><code class="descname">Console</code><a class="reference internal" href="_modules/ui/console.html#Console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.console.Console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implements the user interface and its methods.</p>
+<dl class="attribute">
+<dt id="ui.console.Console.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#ui.console.Console.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ui.console.Console.readBase">
+<code class="descname">readBase</code><span class="sig-paren">(</span><em>operation</em>, <em>message=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui/console.html#Console.readBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.console.Console.readBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method reads a base, validates input, and returns it.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">operation:</th><td class="field-body">the operation for which the base is requested.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">message (optional):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">the prompt that is displayed to the user, instead of the default one.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Prints:</dt>
+<dd>some message, if errors occur.</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body">the base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ui.console.Console.readExpression">
+<code class="descname">readExpression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui/console.html#Console.readExpression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.console.Console.readExpression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method reads an expression and returns it.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Expression:</th><td class="field-body">the object that models the given expression.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">God knows what:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ui.console.Console.readNumber">
+<code class="descname">readNumber</code><span class="sig-paren">(</span><em>base</em>, <em>message=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui/console.html#Console.readNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.console.Console.readNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method reads the representation of a number, validates input, and creates its associated Number object.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">base:</th><td class="field-body">the base of the number to be read.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">message (optional):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">the prompt that is displayed to the user, instead of the default one.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the number provided by the user.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ui.console.Console.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui/console.html#Console.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.console.Console.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method runs the main loop of the user interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="static.html" title="previous chapter">Static</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ui.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Sergiu Puscas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/ui.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

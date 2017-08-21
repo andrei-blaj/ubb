@@ -1,0 +1,60 @@
+Command line redirections
+-------------------------
+| - pipe; pass the standard output of the previous command as standard input of the next command
+> a.txt - redirect the standard output of the previous command to file a.txt
+2> a.err - redirect the standard error of the previous command in a.err
+> a.both 2>&1 - redirect both standard output and standard error to a.both
+>> a.txt - append standard output of previous command to a.txt
+< a.txt - use as standard input for the previous command the content of file a.txt
+
+cat > g <<BLAHBLAH
+sadf
+sadf
+sadf
+safd
+BLAHBLAH
+
+; - separate command on a line
+
+Command line truth values
+0 = true
+non 0 = false
+
+&& - logical and
+|| - logical or
+
+Shell Programming
+-----------------
+
+- Variables - no types
+            - A=5
+            - B="asdf"
+            - echo $A
+            - echo ${A}
+
+"..." - will allow substitution of variables and embedded commands
+'...' - wil not allow substitution
+
+A Shell script is a text file containing Shell code, and posibly, a special first line, teling the interpretor what to use to run that code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

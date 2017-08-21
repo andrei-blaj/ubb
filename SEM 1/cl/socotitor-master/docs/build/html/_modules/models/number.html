@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>models.number &mdash; Socotitor 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Socotitor 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for models.number</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: number</span>
+
+<span class="sd">:platform: Unix, Windows</span>
+<span class="sd">:synopsis: Module implements the Number class.</span>
+
+<span class="sd">.. moduleauthor:: Sergiu Puscas &lt;srg.pscs@gmail.com&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">models.exceptions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">static.settings</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+
+
+<div class="viewcode-block" id="Number"><a class="viewcode-back" href="../../number.html#models.number.Number">[docs]</a><span class="k">class</span> <span class="nc">Number</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Number class models an integer value represented in some base.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        :self.__base:   positive int -&gt; the base of the number</span>
+<span class="sd">        :self.__sign:   0 or 1       -&gt; the sign of the number (0 for positive, 1 for negative)</span>
+<span class="sd">        :self.__digits: list of ints -&gt; the digits of the number, in reverse order</span>
+<span class="sd">        :self.__size:   int          -&gt; the number of digits</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Number.__init__"><a class="viewcode-back" href="../../number.html#models.number.Number.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method implements the behavior of instantiating a Number object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :value (str): The symbol representation of the number (e.g. -123, 4AF).</span>
+<span class="sd">            :base  (int): The base in which the number is represented (2 thru 10, and 16).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :nothing:</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError:  if the base is not in the valid set (2:10, 16).</span>
+<span class="sd">            :TypeError:  if the value argument is not a string, or the base is not an integer.</span>
+<span class="sd">            :DigitError: if the digits in the value do not belong to the given base.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;The base must be a &lt;class &#39;int&#39;&gt;, not </span><span class="si">%r</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">base</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;The value must be a &lt;class &#39;str&#39;&gt;, not </span><span class="si">%r</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+        <span class="c"># convert to uppercase + remove whitespace</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">&#39; </span><span class="se">\n\r\t</span><span class="s">&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">base</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s">&#39;bases&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">(</span><span class="s">&quot;The base </span><span class="si">%i</span><span class="s"> is not defined.&quot;</span> <span class="o">%</span> <span class="n">base</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__base</span> <span class="o">=</span> <span class="n">base</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s">&#39;-0&#39;</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s">&#39;0&#39;</span>
+
+        <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;-&#39;</span><span class="p">:</span>     <span class="c"># if the minus sign is provided in the value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c"># then the number is negative</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>   <span class="c"># and the sign can be erased</span>
+
+        <span class="k">elif</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;+&#39;</span><span class="p">:</span>   <span class="c"># if the plus sign is provided in the value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># then the number is positive</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>   <span class="c"># and the sign can be erased</span>
+
+        <span class="k">else</span><span class="p">:</span>                   <span class="c"># if no sign is provided</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># then the number is positive</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">symbolToDigit</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">value</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__digits</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__digits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__digits</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">base</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DigitError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Number.__repr__"><a class="viewcode-back" href="../../number.html#models.number.Number.__repr__">[docs]</a>    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method defines the way in which a Number object represents itself.</span>
+
+<span class="sd">        The format for representing a number in some base is:</span>
+<span class="sd">            ``&lt;value&gt; + &#39;_&#39; + &lt;base&gt;``</span>
+
+<span class="sd">            Examples: ``5_10``, ``-1010110_2``, ``123_16``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :str: the representation of the number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getValue</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.getBase"><a class="viewcode-back" href="../../number.html#models.number.Number.getBase">[docs]</a>    <span class="k">def</span> <span class="nf">getBase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :int: the base of *self*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base</span></div>
+
+<div class="viewcode-block" id="Number.getSign"><a class="viewcode-back" href="../../number.html#models.number.Number.getSign">[docs]</a>    <span class="k">def</span> <span class="nf">getSign</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :int: the sign bit of *self*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span></div>
+
+<div class="viewcode-block" id="Number.setSign"><a class="viewcode-back" href="../../number.html#models.number.Number.setSign">[docs]</a>    <span class="k">def</span> <span class="nf">setSign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sign</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method changes the sign bit of the number.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :sign (int): the new sign bit.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :nothing:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">=</span> <span class="n">sign</span></div>
+
+<div class="viewcode-block" id="Number.getValue"><a class="viewcode-back" href="../../number.html#models.number.Number.getValue">[docs]</a>    <span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method builds the human-readable symbol representation of *self*, without specifying the base (e.g. ``123BFF``)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :str: the representation of *self*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()]</span> <span class="o">+</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Number.getDigits"><a class="viewcode-back" href="../../number.html#models.number.Number.getDigits">[docs]</a>    <span class="k">def</span> <span class="nf">getDigits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :list of int: a list containing the digits of *self* (each value belongs to **range(15)**).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__digits</span></div>
+
+<div class="viewcode-block" id="Number.getDigitAtPos"><a class="viewcode-back" href="../../number.html#models.number.Number.getDigitAtPos">[docs]</a>    <span class="k">def</span> <span class="nf">getDigitAtPos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :int:</span>
+<span class="sd">                * the digit of *self* at some position *i*</span>
+<span class="sd">                * 0, if *i* is not a valid position.</span>
+<span class="sd">         &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSize</span><span class="p">():</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.isPositive"><a class="viewcode-back" href="../../number.html#models.number.Number.isPositive">[docs]</a>    <span class="k">def</span> <span class="nf">isPositive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* is a positive number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.isNegative"><a class="viewcode-back" href="../../number.html#models.number.Number.isNegative">[docs]</a>    <span class="k">def</span> <span class="nf">isNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* is a negative number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sign</span> <span class="o">==</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Number.getSize"><a class="viewcode-back" href="../../number.html#models.number.Number.getSize">[docs]</a>    <span class="k">def</span> <span class="nf">getSize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :int: the number of digits of *self*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__size</span></div>
+
+<div class="viewcode-block" id="Number.__neg__"><a class="viewcode-back" href="../../number.html#models.number.Number.__neg__">[docs]</a>    <span class="k">def</span> <span class="nf">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements behaviour for negation (e.g. -someObject)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the symmetric of *self* with respect to integer addition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">negative</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">negative</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">negative</span>
+
+        <span class="n">negative</span><span class="o">.</span><span class="n">setSign</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">][</span><span class="n">negative</span><span class="o">.</span><span class="n">getSign</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="n">negative</span></div>
+
+<div class="viewcode-block" id="Number.__abs__"><a class="viewcode-back" href="../../number.html#models.number.Number.__abs__">[docs]</a>    <span class="k">def</span> <span class="nf">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements behaviour for absolute value (e.g ``abs(someObject)``)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the absolute value of *self*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="k">return</span> <span class="o">-</span><span class="bp">self</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Number.compare"><a class="viewcode-back" href="../../number.html#models.number.Number.compare">[docs]</a>    <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method compares two numbers in the same base.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :a (Number): the left term of the comparison.</span>
+<span class="sd">            :b (Number): the right term of the comparison.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :int:</span>
+<span class="sd">                * negative, if a &lt; b</span>
+<span class="sd">                * 0,        if a = b</span>
+<span class="sd">                * positive, if a &gt; b</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if a and b have different bases.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="c"># different signs</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">isPositive</span><span class="p">():</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isPositive</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="k">return</span> <span class="mi">1</span>
+
+        <span class="c"># same signs, different sizes</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="n">getSize</span><span class="p">():</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isPositive</span><span class="p">()</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">getSize</span><span class="p">():</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isPositive</span><span class="p">()</span> <span class="k">else</span> <span class="mi">1</span>
+
+        <span class="c"># same signs, same sizes, different digits</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>   <span class="c"># fixed bug: digits should be taken in reverse order</span>
+            <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="mi">1</span>
+
+        <span class="c"># same signs, same sizes, same digits (-&gt; equal)</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__lt__"><a class="viewcode-back" href="../../number.html#models.number.Number.__lt__">[docs]</a>    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;&lt;&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* &lt; *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__le__"><a class="viewcode-back" href="../../number.html#models.number.Number.__le__">[docs]</a>    <span class="k">def</span> <span class="nf">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;&lt;=&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* &lt;= *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__eq__"><a class="viewcode-back" href="../../number.html#models.number.Number.__eq__">[docs]</a>    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;==&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* == *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__ne__"><a class="viewcode-back" href="../../number.html#models.number.Number.__ne__">[docs]</a>    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;!=&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* != *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__ge__"><a class="viewcode-back" href="../../number.html#models.number.Number.__ge__">[docs]</a>    <span class="k">def</span> <span class="nf">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;&gt;=&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* &gt;= *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.__gt__"><a class="viewcode-back" href="../../number.html#models.number.Number.__gt__">[docs]</a>    <span class="k">def</span> <span class="nf">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;&gt;&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :bool: whether or not *self* &gt; *other*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Number.positiveAddition"><a class="viewcode-back" href="../../number.html#models.number.Number.positiveAddition">[docs]</a>    <span class="k">def</span> <span class="nf">positiveAddition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the addition algorithm for positive integers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :a (Number): the left term of the addition.</span>
+<span class="sd">            :b (Number): the right term of the addition.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of **a + b**.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if a and b are not written in the same base.</span>
+<span class="sd">            :SignError: if a is negative or b is negative.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">b</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()</span> <span class="ow">or</span> <span class="n">b</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">SignError</span><span class="p">(</span><span class="s">&quot;between </span><span class="si">%s</span><span class="s"> and </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getValue</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">getValue</span><span class="p">()))</span>
+
+        <span class="n">resultDigits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getSize</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">getSize</span><span class="p">())):</span>
+            <span class="n">currentDigit</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">getDigitAtPos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">getDigitAtPos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">carry</span>
+
+            <span class="n">carry</span> <span class="o">=</span> <span class="n">currentDigit</span> <span class="o">//</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span>
+            <span class="n">currentDigit</span> <span class="o">%=</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span>
+
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentDigit</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">carry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span><span class="p">)</span>
+
+        <span class="n">resultValue</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">resultDigits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="n">resultValue</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Number.positiveSubtraction"><a class="viewcode-back" href="../../number.html#models.number.Number.positiveSubtraction">[docs]</a>    <span class="k">def</span> <span class="nf">positiveSubtraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the subtraction algorithm for positive integers (a &gt; b).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :a (Number): the &#39;descazut&#39;.</span>
+<span class="sd">            :b (Number): the &#39;scazator&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of a - b.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError:       if a and b are not written in the same base.</span>
+<span class="sd">            :SignError:       if a is negative or b is negative.</span>
+<span class="sd">            :ComparisonError: if a &lt; b</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">b</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()</span> <span class="ow">or</span> <span class="n">b</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">SignError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ComparisonError</span><span class="p">()</span>
+
+        <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">resultDigits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">getSize</span><span class="p">()):</span>
+
+            <span class="n">currentDigit</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">getDigitAtPos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">carry</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="n">getSize</span><span class="p">():</span>
+                <span class="n">currentDigit</span> <span class="o">-=</span> <span class="n">b</span><span class="o">.</span><span class="n">getDigitAtPos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+            <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">currentDigit</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">carry</span><span class="p">:</span>
+                <span class="n">currentDigit</span> <span class="o">+=</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span>
+
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentDigit</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultDigits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">resultDigits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="n">resultValue</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">resultDigits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="n">resultValue</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Number.__add__"><a class="viewcode-back" href="../../number.html#models.number.Number.__add__">[docs]</a>    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;+&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of *self* + *other*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if *self* and *other* are not represented in the same base.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            If *self* and *other* have the same sign, then sameSignAddition() is applied.</span>
+<span class="sd">            Otherwise, sameSignSubtraction() is applied.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSign</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">getSign</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPositive</span><span class="p">():</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">positiveAddition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">positiveAddition</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPositive</span><span class="p">():</span>
+                    <span class="c"># greater positive + smaller negative = positive result</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">positiveSubtraction</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">positiveSubtraction</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># smaller positive + greater negative = negative result</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">positiveSubtraction</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPositive</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">positiveSubtraction</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Number.__sub__"><a class="viewcode-back" href="../../number.html#models.number.Number.__sub__">[docs]</a>    <span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;-&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of *self* - *other*.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            The idea is that ``a - b == a + (-b)``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="o">-</span><span class="n">other</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.__mul__"><a class="viewcode-back" href="../../number.html#models.number.Number.__mul__">[docs]</a>    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;\*&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of *self* \* *other*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if *self* and *other* are not represented in the same base.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="n">resultSize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">resultDigits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resultSize</span><span class="p">)]</span>
+        <span class="n">resultBase</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">getDigits</span><span class="p">()):</span>
+                <span class="n">resultDigits</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+
+        <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resultSize</span><span class="p">):</span>
+            <span class="n">resultDigits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">carry</span>
+
+            <span class="n">carry</span> <span class="o">=</span> <span class="n">resultDigits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">//</span> <span class="n">resultBase</span>
+            <span class="n">resultDigits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%=</span> <span class="n">resultBase</span>
+
+        <span class="k">if</span> <span class="n">carry</span><span class="p">:</span>
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultDigits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">resultDigits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">resultDigits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="n">resultValue</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">resultDigits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSign</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getSign</span><span class="p">():</span>
+            <span class="n">resultValue</span> <span class="o">=</span> <span class="s">&#39;-&#39;</span> <span class="o">+</span> <span class="n">resultValue</span>
+
+        <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="n">resultValue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Number.__floordiv__"><a class="viewcode-back" href="../../number.html#models.number.Number.__floordiv__">[docs]</a>    <span class="k">def</span> <span class="nf">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;//&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the quotient of *self* / *other*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError:         if *self* and *other* are not represented in the same base.</span>
+<span class="sd">            :ZeroDivisionError: if *other* is *0*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">integerDivision</span><span class="p">(</span><span class="n">other</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Number.__mod__"><a class="viewcode-back" href="../../number.html#models.number.Number.__mod__">[docs]</a>    <span class="k">def</span> <span class="nf">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior of the &#39;%&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the remainder of *self* / *other*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError:         if *self* and *other* are not represented in the same base.</span>
+<span class="sd">            :ZeroDivisionError: if *other* is 0.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">integerDivision</span><span class="p">(</span><span class="n">other</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Number.integerDivision"><a class="viewcode-back" href="../../number.html#models.number.Number.integerDivision">[docs]</a>    <span class="k">def</span> <span class="nf">integerDivision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the integer division algorithm.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :self  (Number): the &#39;deimpartit&#39;</span>
+<span class="sd">            :other (Number): the &#39;impartitor&#39;</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">            :(Number, Number): a tuple ``(quotient, remainder)`` representing the result of the integer division **self / other**.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError:         if *self* and *other* are not represented in the same base.</span>
+<span class="sd">            :ZeroDivisionError: if *other* is 0.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">other</span> <span class="o">==</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">getBase</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>     <span class="c"># some edge case</span>
+
+            <span class="n">quotient</span> <span class="o">=</span> <span class="n">Number</span><span class="p">([</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">getSign</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getSign</span><span class="p">()]</span> <span class="o">+</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+            <span class="n">remainder</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">)</span>
+
+        <span class="n">quotientDigits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rem</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+            <span class="n">rem</span> <span class="o">*=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;10&#39;</span><span class="p">,</span> <span class="n">rem</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+            <span class="n">rem</span> <span class="o">+=</span> <span class="n">Number</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">rem</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+
+            <span class="n">quotientDigits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rem</span><span class="p">):</span>
+                <span class="n">quotientDigits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">rem</span> <span class="o">-=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+        <span class="n">quotientDigits</span> <span class="o">=</span> <span class="n">quotientDigits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">quotientDigits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">quotientDigits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">quotientDigits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="n">quotientValue</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">quotientDigits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">quotient</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">quotientValue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+
+        <span class="c"># Sometimes, there is an off-by-one error in the case of negative numbers</span>
+        <span class="c"># This piece of code should fix that</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSign</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">getSign</span><span class="p">():</span>
+            <span class="n">quotient</span> <span class="o">=</span> <span class="o">-</span><span class="n">quotient</span>
+            <span class="n">quotient</span> <span class="o">-=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">quotient</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+
+        <span class="n">rem</span> <span class="o">=</span> <span class="bp">self</span> <span class="o">-</span> <span class="n">other</span> <span class="o">*</span> <span class="n">quotient</span>
+
+        <span class="k">if</span> <span class="n">rem</span> <span class="o">==</span> <span class="n">other</span><span class="p">:</span>
+            <span class="n">quotient</span> <span class="o">+=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">quotient</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+            <span class="n">rem</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="n">quotient</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">rem</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.exponentiation"><a class="viewcode-back" href="../../number.html#models.number.Number.exponentiation">[docs]</a>    <span class="k">def</span> <span class="nf">exponentiation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method computes the integer exponentiation *base* ^ *exponent*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :base     (Number): the base of the exponentiation</span>
+<span class="sd">            :exponent (Number): the exponent of the exponentiation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">            :Number: the result of the integer exponentiation *base* ^ *exponent*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if *base* and *exponent* are not represented in the same base.</span>
+<span class="sd">            :SignError: if the exponent is negative.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">!=</span> <span class="n">exponent</span><span class="o">.</span><span class="n">getBase</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">exponent</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">SignError</span><span class="p">(</span><span class="s">&quot;The exponent must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">exponent</span> <span class="o">==</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">()):</span>     <span class="c"># base**1 == base</span>
+            <span class="k">return</span> <span class="n">base</span>
+
+        <span class="n">two</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span> <span class="k">if</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;10&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">exponent</span> <span class="o">%</span> <span class="n">two</span> <span class="o">==</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">()):</span>
+            <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponentiation</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span> <span class="o">-</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">getBase</span><span class="p">()))</span>
+
+        <span class="n">half</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponentiation</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span> <span class="o">//</span> <span class="n">two</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">half</span> <span class="o">*</span> <span class="n">half</span></div>
+
+<div class="viewcode-block" id="Number.__pow__"><a class="viewcode-back" href="../../number.html#models.number.Number.__pow__">[docs]</a>    <span class="k">def</span> <span class="nf">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the behavior for the &#39;\*\*&#39; operator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the result of the exponentiation *self* ^ *exponent*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponentiation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exponent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.convertBySubstitution"><a class="viewcode-back" href="../../number.html#models.number.Number.convertBySubstitution">[docs]</a>    <span class="k">def</span> <span class="nf">convertBySubstitution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newBase</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the substitution method for converting a number into a **greater** base.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :newBase (int): the destination base of the conversion.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the representation of *self* in the base *newBase*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if the destination base is not greater than the current base.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">newBase</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">(</span><span class="s">&quot;Substitution method works best for converting to a greater base. Please use the successive division method instead.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">==</span> <span class="n">newBase</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="n">newBase</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">*</span> <span class="n">Number</span><span class="p">(</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()],</span> <span class="n">newBase</span><span class="p">)</span> <span class="o">+</span> <span class="n">Number</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">newBase</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">():</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="n">ans</span>
+
+        <span class="k">return</span> <span class="n">ans</span></div>
+
+<div class="viewcode-block" id="Number.convertBySuccessiveDivisions"><a class="viewcode-back" href="../../number.html#models.number.Number.convertBySuccessiveDivisions">[docs]</a>    <span class="k">def</span> <span class="nf">convertBySuccessiveDivisions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newBase</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method implements the successive division method for converting a number into a **lesser** base.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :newBase (int): the destination base of the conversion.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the representation of *self* in the base *newBase*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if the destination base is greater than the current base.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">newBase</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">(</span><span class="s">&quot;Successive division method works best for converting to a lesser base. Please use the substitution method instead.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">==</span> <span class="n">newBase</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="n">negative</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">divider</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">digitToSymbol</span><span class="p">[</span><span class="n">newBase</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+        <span class="n">resultSymbols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="bp">self</span> <span class="o">!=</span> <span class="n">Number</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()):</span>
+            <span class="n">resultSymbols</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="bp">self</span> <span class="o">%</span> <span class="n">divider</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+            <span class="bp">self</span> <span class="o">//=</span> <span class="n">divider</span>
+
+        <span class="n">resultValue</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">][</span><span class="n">negative</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">resultSymbols</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="n">resultValue</span><span class="p">,</span> <span class="n">newBase</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.convertWithIntermediateBase"><a class="viewcode-back" href="../../number.html#models.number.Number.convertWithIntermediateBase">[docs]</a>    <span class="k">def</span> <span class="nf">convertWithIntermediateBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newBase</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method converts **self** into **newBase** using 10 as an intermediate base.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :newBase (int): the destination base.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the representation of **self** in the base **newBase**.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :hopefully: nothing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">newBase</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Number.convert"><a class="viewcode-back" href="../../number.html#models.number.Number.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newBase</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method chooses the proper conversion method for converting **self** into **newBase**.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the representation of **self** in the base **newBase**.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rapidConversion</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>                    <span class="c"># first of all, try rapid conversions</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Suggested method: rapid conversions.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">newBase</span><span class="p">:</span>                            <span class="c"># if unable to do so,</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Suggested method: substitution.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertBySubstitution</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>          <span class="c"># apply either the substitution method (for conversion to a greater base)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Suggested method: successive divisions.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertBySuccessiveDivisions</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>   <span class="c"># or the successive divisions method (for conversions to a lesser base)</span></div>
+
+<div class="viewcode-block" id="Number.rapidConversion"><a class="viewcode-back" href="../../number.html#models.number.Number.rapidConversion">[docs]</a>    <span class="k">def</span> <span class="nf">rapidConversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newBase</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method converts **self** in the base **newBase** using the rapid conversion method.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :newBase (int): the destination base.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the representation of **self** in the base **newBase**.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :BaseError: if the bases do not allow for rapid conversions.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Rapid conversions can only be applied if the tuple ``(self.getBase(), newBase)`` belongs to ``[(2, 4), (2, 8), (2, 16), (3, 9) (4, 16)]`` and reverses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">leastBase</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">(),</span> <span class="n">newBase</span><span class="p">)</span>
+        <span class="n">greatestBase</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">(),</span> <span class="n">newBase</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">greatestBase</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">leastBase</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">leastBase</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">leastBase</span><span class="o">**</span><span class="mi">4</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">BaseError</span><span class="p">(</span><span class="s">&quot;Cannot apply rapid conversions between bases that are not a power of each other.&quot;</span><span class="p">)</span>
+
+        <span class="n">oldBase</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span>
+        <span class="n">groupSize</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="n">oldBase</span><span class="p">)))</span>
+        <span class="n">expectedSize</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">oldBase</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="n">newBase</span><span class="p">))</span>
+
+        <span class="n">resultSymbols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">groupSize</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">()),</span> <span class="n">groupSize</span><span class="p">)][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">groupNumber</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">())</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBase</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">newBase</span><span class="p">:</span>
+                <span class="n">groupNumber</span> <span class="o">=</span> <span class="n">groupNumber</span><span class="o">.</span><span class="n">convertBySubstitution</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">groupNumber</span> <span class="o">=</span> <span class="n">groupNumber</span><span class="o">.</span><span class="n">convertBySuccessiveDivisions</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>
+
+            <span class="n">groupValue</span> <span class="o">=</span> <span class="n">groupNumber</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">oldBase</span> <span class="o">&gt;</span> <span class="n">newBase</span><span class="p">:</span>
+                <span class="n">groupValue</span> <span class="o">=</span> <span class="s">&#39;0&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">expectedSize</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">groupValue</span><span class="p">))</span> <span class="o">+</span> <span class="n">groupValue</span>
+
+            <span class="n">resultSymbols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">groupValue</span><span class="p">)</span>
+
+        <span class="n">resultValue</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">isNegative</span><span class="p">()]</span> <span class="o">+</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">resultSymbols</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="n">resultValue</span><span class="p">,</span> <span class="n">newBase</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Sergiu Puscas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

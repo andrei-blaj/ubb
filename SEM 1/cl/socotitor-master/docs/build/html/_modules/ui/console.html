@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ui.console &mdash; Socotitor 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Socotitor 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ui.console</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">models.number</span> <span class="kn">import</span> <span class="n">Number</span>
+<span class="kn">from</span> <span class="nn">models.expression</span> <span class="kn">import</span> <span class="n">Expression</span>
+<span class="kn">from</span> <span class="nn">models.exceptions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">static.strings</span> <span class="kn">import</span> <span class="n">STRINGS</span>
+<span class="kn">from</span> <span class="nn">static.settings</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tests.test</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils.random</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="Console"><a class="viewcode-back" href="../../ui.html#ui.console.Console">[docs]</a><span class="k">class</span> <span class="nc">Console</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class implements the user interface and its methods.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Console.run"><a class="viewcode-back" href="../../ui.html#ui.console.Console.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method runs the main loop of the user interface.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;help&#39;</span><span class="p">])</span>
+
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;&gt; &#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;^&#39;</span><span class="p">]:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;You chose to perform </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;operationNamesWithPrefix&#39;</span><span class="p">][</span><span class="n">command</span><span class="p">])</span>
+
+                <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readBase</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                <span class="n">leftTerm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readNumber</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+                <span class="n">rightTerm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readNumber</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;+&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">leftTerm</span> <span class="o">+</span> <span class="n">rightTerm</span>
+                    <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;-&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">leftTerm</span> <span class="o">-</span> <span class="n">rightTerm</span>
+                    <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;*&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">leftTerm</span> <span class="o">*</span> <span class="n">rightTerm</span>
+                    <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">leftTerm</span> <span class="o">//</span> <span class="n">rightTerm</span><span class="p">,</span> <span class="n">leftTerm</span> <span class="o">%</span> <span class="n">rightTerm</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;^&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">leftTerm</span> <span class="o">**</span> <span class="n">rightTerm</span>
+
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="k">if</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s">&#39;showBase&#39;</span><span class="p">]:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%r</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%r</span><span class="s"> = &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">leftTerm</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">rightTerm</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>      <span class="c"># need to print two results in this case</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%r</span><span class="s">, remainder </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> = &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">leftTerm</span><span class="o">.</span><span class="n">getValue</span><span class="p">(),</span> <span class="n">command</span><span class="p">,</span> <span class="n">rightTerm</span><span class="o">.</span><span class="n">getValue</span><span class="p">()),</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>      <span class="c"># need to print two results in this case</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">, remainder </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getValue</span><span class="p">(),</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getValue</span><span class="p">()))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;c&#39;</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;You chose to perform </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;operationNamesWithPrefix&#39;</span><span class="p">][</span><span class="n">command</span><span class="p">])</span>
+
+                <span class="n">oldBase</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readBase</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&quot;Please enter the initial base: &quot;</span><span class="p">)</span>
+                <span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readNumber</span><span class="p">(</span><span class="n">oldBase</span><span class="p">)</span>
+                <span class="n">newBase</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readBase</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&quot;Please enter the new base: &quot;</span><span class="p">)</span>
+
+                <span class="n">result</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">newBase</span><span class="p">)</span>
+
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%r</span><span class="s"> = </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;e&#39;</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;You chose to perform </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;operationNamesWithPrefix&#39;</span><span class="p">][</span><span class="n">command</span><span class="p">])</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">expression</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readExpression</span><span class="p">()</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;The expression cannot be evaluated.</span><span class="se">\n</span><span class="s">Reason: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;t&#39;</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;You chose to run </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;operationNamesWithPrefix&#39;</span><span class="p">][</span><span class="n">command</span><span class="p">])</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">Test</span><span class="p">()</span><span class="o">.</span><span class="n">testEverything</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;h&#39;</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;help&#39;</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&#39;x&#39;</span><span class="p">:</span>
+                <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Command not recognized. Try &#39;h&#39; for help.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Console.readNumber"><a class="viewcode-back" href="../../ui.html#ui.console.Console.readNumber">[docs]</a>    <span class="k">def</span> <span class="nf">readNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method reads the representation of a number, validates input, and creates its associated Number object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :base: the base of the number to be read.</span>
+<span class="sd">            :message (optional): the prompt that is displayed to the user, instead of the default one.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Number: the number provided by the user.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Please enter a number (base </span><span class="si">%i</span><span class="s">): &quot;</span> <span class="o">%</span> <span class="n">base</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">assert</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s">&#39;-&#39;</span> <span class="ow">or</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">symbolsOfBase</span><span class="p">[</span><span class="n">base</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">assert</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">symbolsOfBase</span><span class="p">[</span><span class="n">base</span><span class="p">]</span>
+
+                <span class="n">number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Please enter a valid representation (e.g. </span><span class="si">%s</span><span class="s">)&quot;</span> <span class="o">%</span> <span class="n">randomNumber</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">number</span></div>
+
+<div class="viewcode-block" id="Console.readBase"><a class="viewcode-back" href="../../ui.html#ui.console.Console.readBase">[docs]</a>    <span class="k">def</span> <span class="nf">readBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method reads a base, validates input, and returns it.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            :operation: the operation for which the base is requested.</span>
+<span class="sd">            :message (optional): the prompt that is displayed to the user, instead of the default one.</span>
+
+<span class="sd">        Prints:</span>
+<span class="sd">            some message, if errors occur.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :int: the base.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">base</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;The base of the </span><span class="si">%s</span><span class="s">: &quot;</span> <span class="o">%</span> <span class="n">STRINGS</span><span class="p">[</span><span class="s">&#39;operationNamesWithoutPrefix&#39;</span><span class="p">][</span><span class="n">operation</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">base</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">base</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s">&#39;bases&#39;</span><span class="p">]</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;The base must be an integer.&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;The valid bases are: 2, 3, ..., 10, 16.&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">base</span></div>
+
+<div class="viewcode-block" id="Console.readExpression"><a class="viewcode-back" href="../../ui.html#ui.console.Console.readExpression">[docs]</a>    <span class="k">def</span> <span class="nf">readExpression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method reads an expression and returns it.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :Expression: the object that models the given expression.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :God knows what:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Expression</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Enter an arithmetical expression: &quot;</span><span class="p">))</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Sergiu Puscas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

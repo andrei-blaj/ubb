@@ -1,0 +1,16 @@
+﻿  Moc'ing lecture11_demo_custom_models.h...
+  Uic'ing lecture11_demo_custom_models.ui...
+  Rcc'ing lecture11_demo_custom_models.qrc...
+RCC : warning : No resources in 'E:\College\Courses\OOP\Lectures\11 - MVC\Lecture11_demo(2)\Lecture11_demo\Lecture11_demo_custom_models\lecture11_demo_custom_models.qrc'.
+  
+  Gene.cpp
+  moc_lecture11_demo_custom_models.cpp
+  GeneRepository.cpp
+  GenesTableModel.cpp
+  lecture11_demo_custom_models.cpp
+  main.cpp
+  PaginatedGenesTableModel.cpp
+  PictureDelegate.cpp
+  Generating Code...
+  qrc_lecture11_demo_custom_models.cpp
+  Lecture11_demo_custom_models.vcxproj -> E:\College\Courses\OOP\Lectures\11 - MVC\Lecture11_demo(2)\Lecture11_demo\x64\Debug\Lecture11_demo_custom_models.exe

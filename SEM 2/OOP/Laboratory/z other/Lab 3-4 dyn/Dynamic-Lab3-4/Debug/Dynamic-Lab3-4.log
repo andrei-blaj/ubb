@@ -1,0 +1,4 @@
+﻿  Repository.c
+c:\users\răzvan\desktop\lab 3-4 dyn\dynamic-lab3-4\repository.c(12): warning C4133: 'function': incompatible types - from 'TElement' to 'char *'
+  Dynamic-Lab3-4.vcxproj -> C:\Users\Răzvan\Desktop\Lab 3-4 dyn\Dynamic-Lab3-4\Debug\Dynamic-Lab3-4.exe
+  Dynamic-Lab3-4.vcxproj -> C:\Users\Răzvan\Desktop\Lab 3-4 dyn\Dynamic-Lab3-4\Debug\Dynamic-Lab3-4.pdb (Partial PDB)

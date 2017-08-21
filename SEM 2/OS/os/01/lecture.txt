@@ -1,0 +1,79 @@
+sed "s/\(.\)/\1\n/g" /etc/passwd | sort | uniq -c |sort -n -r | less
+
+Regular expressions
+-------------------
+. means any character
+\ causes the character following it to switch meaning, between special and normal
+[] enclose a list of optional characters to be matched
+^ means beginning of line, or negation of list
+$ means end of line
+\< means word beginning
+/> means word ending
+* previous expression 0 or more times
+\+ previous expression 1 or more times
+? previous expression 0 or 1 times
+() group a sequence of characters into an expression
+\{n,m\} previous expression at least n times and at most m times
+
+Commands executed
+-----------------
+ls
+man ls
+ls -l
+ls -F
+cd os/
+ls
+cd ..
+ls
+ls -F
+cd os
+pwd
+ls
+cd ..
+ls
+ls 2016
+mkdir 2017
+cp 2016/upload.sh 2017
+ls 2017
+cd 2017
+mkdir os/01
+mkdir -p os/01
+ls
+ls os
+find
+cd os/01
+man ssh
+ssh -p 222 rares@rares.cs.ubbcluj.ro
+ssh -p 221 rares@rares.cs.ubbcluj.ro
+ls /etc/passwd
+cat /etc/passwd
+cat /etc/passwd
+ls /bin
+ls /bin | wc -l
+ls /bin /usr/bin | wc -l
+cat /etc/passwd
+sed "s/\(.\)/\n\n/g" /etc/passwd
+sed "s/\(.\)/\1\n/g" /etc/passwd
+sed "s/\(.\)/\1\n/g" /etc/passwd | less
+sed "s/\(.\)/\1\n/g" /etc/passwd | sort
+sed "s/\(.\)/\1\n/g" /etc/passwd | sort | uniq -c
+sed "s/\(.\)/\1\n/g" /etc/passwd | sort | uniq -c |less
+sed "s/\(.\)/\1\n/g" /etc/passwd | sort | uniq -c |sort -n -r | less
+less /etc/passwd
+grep "." /etc/passwd
+grep "\." /etc/passwd
+grep "^l" /etc/passwd
+grep "^..:" /etc/passwd
+grep "^[aeiouAEIOU]" /etc/passwd
+grep "^[^aeiouAEIOU]" /etc/passwd
+grep "n$" /etc/passwd
+grep "h$" /etc/passwd
+grep "w\{3,\}" /etc/passwd
+grep "\([^aeiouAEIOU][aeiouAEIOU]\)\{2,\}" /etc/passwd
+grep "\([^aeiouAEIOU][aeiouAEIOU]\)\{3,\}" /etc/passwd
+grep "\([^aeiouAEIOU][aeiouAEIOU]\)\{4,\}" /etc/passwd
+grep "\([^aeiouAEIOU][aeiouAEIOU]\)\{3,\}" /etc/passwd
+cd 2017/os/01/
+ls
+vi lecture.txt
+vi lecture.txt

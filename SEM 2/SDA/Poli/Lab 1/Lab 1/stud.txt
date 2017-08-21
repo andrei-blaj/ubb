@@ -1,0 +1,6 @@
+5
+Pop Ana 21 10 9 8
+Costea Andrei 20 7 8 5
+Butnaru Dan 21 9 5 7
+Chis Maria 20 8 10 9
+Vlaicu Robert 21 10 9 5

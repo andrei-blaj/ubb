@@ -1,0 +1,40 @@
+Command line redirections
+-------------------------
+        - pipe; pass the standard output of the prevois command as standard input of the next command
+        - 0 -> standard input (where scanf or cin read from)
+        - 1 -> standard output (where printf or cout write to)
+        - 2 -> standard error ( 2> )
+        > a.txt - redirect the standard output of the previous command to file a.txt
+        2> a.err - redirect the standard error of the previous command in a.err
+        > a.both 2>&1 - redirect both standard output and standard error to a.both
+        >> a.txt - append standard output of previous command to a.txt
+        < a.txt - use as standard input for the previous command the content of file a.txt
+        
+        ; - separate command on a line
+
+Command line truth values
+-------------------------
+        0 = true
+        non 0 = false
+        && - logican and
+        || - logical or
+
+Shell programming
+-----------------
+
+- Varaibles - no types
+            - A=5
+            - B="asdf"
+            - echo $A
+            - echo ${A}cat (concatonates the value of A to 'cat')
+
+note: Be careful with the spaces
+      Shell is space sensitive 
+
+ "..." - will allow substitution of variables and embedded commands
+ '...' - will not allow substitution
+        
+ A Shell script is a text file containing Shell code and possibly a special first line, telling the interpretor how to use that code.
+
+        
+

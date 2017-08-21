@@ -1,0 +1,2 @@
+numar par
+de cuvinte

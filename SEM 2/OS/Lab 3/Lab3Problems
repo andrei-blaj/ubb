@@ -1,0 +1,30 @@
+1. 
+ls | grep "-" | head -3 $1
+
+2.
+ls | grep "^[^t] | wc -l
+
+3.
+ls -d | grep "^d" | wc -l
+
+4.
+ls -l | grep "^-....w"
+
+5.
+ls -l | grep "^-" | awk '{print $5}'
+
+6.
+cat passwd.fake | grep "\<Dan\>" | sed "s/:/ /" | awk '{ if($1%2==0){ print $0; } }'
+
+7.
+cat passwd.fake / sed "s/:/ /" | sed "s/:/ /" | sed "s/:/ /" | sed "s/:/ /" | sed "s/:/ /" | awk '{print $7}'
+
+8.
+cat passwd.fake | awk -F/ '{ print $4; }'
+
+9.
+cat passwd.fake | awk -F/ '{ print $4; }' | sort | uniq
+
+10.
+cat passwd.fake | wc -l
+

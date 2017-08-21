@@ -1,0 +1,1075 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Number Class &mdash; Socotitor 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Socotitor 0.1 documentation" href="index.html" />
+    <link rel="next" title="Custom Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Project Summary" href="project.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-models.number">
+<span id="the-number-class"></span><h1>The Number Class<a class="headerlink" href="#module-models.number" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-number"></span><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">platform:</th><td class="field-body">Unix, Windows</td>
+</tr>
+<tr class="field-even field"><th class="field-name">synopsis:</th><td class="field-body">Module implements the Number class.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>The format for representing a number in some base is:</dt>
+<dd><strong>&lt;value&gt; + &#8216;_&#8217; + &lt;base&gt;</strong></dd>
+</dl>
+<p>Examples: <strong>5_10</strong>, <strong>-1010110_2</strong>, <strong>123F_16</strong>.
+If not base is specified when defining a number, then base <strong>10</strong> is used by default.</p>
+<dl class="class">
+<dt id="models.number.Number">
+<em class="property">class </em><code class="descclassname">models.number.</code><code class="descname">Number</code><span class="sig-paren">(</span><em>value='0'</em>, <em>base=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Number class models an integer value represented in some base.</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">self.__base:</th><td class="field-body">positive int -&gt; the base of the number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">self.__sign:</th><td class="field-body">0 or 1       -&gt; the sign of the number (0 for positive, 1 for negative)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">self.__digits:</th><td class="field-body">list of ints -&gt; the digits of the number, in reverse order</td>
+</tr>
+<tr class="field-even field"><th class="field-name">self.__size:</th><td class="field-body">int          -&gt; the number of digits</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="models.number.Number.__abs__">
+<code class="descname">__abs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__abs__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__abs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements behaviour for absolute value (e.g <code class="docutils literal"><span class="pre">abs(someObject)</span></code>)</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the absolute value of <em>self</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__add__">
+<code class="descname">__add__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__add__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;+&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of <em>self</em> + <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>self</em> and <em>other</em> are not represented in the same base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Note:</dt>
+<dd>If <em>self</em> and <em>other</em> have the same sign, then sameSignAddition() is applied.
+Otherwise, sameSignSubtraction() is applied.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;==&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> == <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__floordiv__">
+<code class="descname">__floordiv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__floordiv__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__floordiv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;//&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the quotient of <em>self</em> / <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>self</em> and <em>other</em> are not represented in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ZeroDivisionError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if <em>other</em> is <em>0</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__ge__">
+<code class="descname">__ge__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__ge__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__ge__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;&gt;=&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> &gt;= <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__gt__">
+<code class="descname">__gt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__gt__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__gt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;&gt;&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> &gt; <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value='0'</em>, <em>base=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method implements the behavior of instantiating a Number object.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">value (str):</th><td class="field-body">The symbol representation of the number (e.g. -123, 4AF).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">base  (int):</th><td class="field-body">The base in which the number is represented (2 thru 10, and 16).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nothing:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if the base is not in the valid set (2:10, 16).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">TypeError:</th><td class="field-body">if the value argument is not a string, or the base is not an integer.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">DigitError:</th><td class="field-body">if the digits in the value do not belong to the given base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__le__">
+<code class="descname">__le__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__le__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__le__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;&lt;=&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> &lt;= <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__lt__">
+<code class="descname">__lt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__lt__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__lt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;&lt;&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> &lt; <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__mod__">
+<code class="descname">__mod__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__mod__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__mod__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;%&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the remainder of <em>self</em> / <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>self</em> and <em>other</em> are not represented in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ZeroDivisionError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if <em>other</em> is 0.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__mul__">
+<code class="descname">__mul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__mul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;*&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of <em>self</em> * <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>self</em> and <em>other</em> are not represented in the same base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__ne__">
+<code class="descname">__ne__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__ne__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;!=&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> != <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__neg__">
+<code class="descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__neg__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements behaviour for negation (e.g. -someObject)</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the symmetric of <em>self</em> with respect to integer addition.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__pow__">
+<code class="descname">__pow__</code><span class="sig-paren">(</span><em>exponent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__pow__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__pow__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior for the &#8216;**&#8217; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of the exponentiation <em>self</em> ^ <em>exponent</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method defines the way in which a Number object represents itself.</p>
+<dl class="docutils">
+<dt>The format for representing a number in some base is:</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">&lt;value&gt;</span> <span class="pre">+</span> <span class="pre">'_'</span> <span class="pre">+</span> <span class="pre">&lt;base&gt;</span></code></p>
+<p class="last">Examples: <code class="docutils literal"><span class="pre">5_10</span></code>, <code class="docutils literal"><span class="pre">-1010110_2</span></code>, <code class="docutils literal"><span class="pre">123_16</span></code>.</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">str:</th><td class="field-body">the representation of the number.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.__sub__">
+<code class="descname">__sub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.__sub__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the behavior of the &#8216;-&#8216; operator.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of <em>self</em> - <em>other</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Note:</dt>
+<dd>The idea is that <code class="docutils literal"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span> <span class="pre">==</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">(-b)</span></code>.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.number.Number.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#models.number.Number.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.compare">
+<code class="descname">compare</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.compare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method compares two numbers in the same base.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">a (Number):</th><td class="field-body">the left term of the comparison.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">b (Number):</th><td class="field-body">the right term of the comparison.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body"><ul class="first last simple">
+<li>negative, if a &lt; b</li>
+<li>0,        if a = b</li>
+<li>positive, if a &gt; b</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if a and b have different bases.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.convert">
+<code class="descname">convert</code><span class="sig-paren">(</span><em>newBase</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.convert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method chooses the proper conversion method for converting <strong>self</strong> into <strong>newBase</strong>.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the representation of <strong>self</strong> in the base <strong>newBase</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.convertBySubstitution">
+<code class="descname">convertBySubstitution</code><span class="sig-paren">(</span><em>newBase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.convertBySubstitution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.convertBySubstitution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the substitution method for converting a number into a <strong>greater</strong> base.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">newBase (int):</th><td class="field-body">the destination base of the conversion.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the representation of <em>self</em> in the base <em>newBase</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if the destination base is not greater than the current base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.convertBySuccessiveDivisions">
+<code class="descname">convertBySuccessiveDivisions</code><span class="sig-paren">(</span><em>newBase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.convertBySuccessiveDivisions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.convertBySuccessiveDivisions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the successive division method for converting a number into a <strong>lesser</strong> base.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">newBase (int):</th><td class="field-body">the destination base of the conversion.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the representation of <em>self</em> in the base <em>newBase</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if the destination base is greater than the current base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.convertWithIntermediateBase">
+<code class="descname">convertWithIntermediateBase</code><span class="sig-paren">(</span><em>newBase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.convertWithIntermediateBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.convertWithIntermediateBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method converts <strong>self</strong> into <strong>newBase</strong> using 10 as an intermediate base.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">newBase (int):</th><td class="field-body">the destination base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the representation of <strong>self</strong> in the base <strong>newBase</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">hopefully:</th><td class="field-body">nothing</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.exponentiation">
+<code class="descname">exponentiation</code><span class="sig-paren">(</span><em>base</em>, <em>exponent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.exponentiation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.exponentiation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method computes the integer exponentiation <em>base</em> ^ <em>exponent</em>.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">base     (Number):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">the base of the exponentiation</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">exponent (Number):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">the exponent of the exponentiation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of the integer exponentiation <em>base</em> ^ <em>exponent</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>base</em> and <em>exponent</em> are not represented in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SignError:</th><td class="field-body">if the exponent is negative.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getBase">
+<code class="descname">getBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body">the base of <em>self</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getDigitAtPos">
+<code class="descname">getDigitAtPos</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getDigitAtPos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getDigitAtPos" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body"><ul class="first last simple">
+<li>the digit of <em>self</em> at some position <em>i</em></li>
+<li>0, if <em>i</em> is not a valid position.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getDigits">
+<code class="descname">getDigits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getDigits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getDigits" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">list of int:</th><td class="field-body">a list containing the digits of <em>self</em> (each value belongs to <strong>range(15)</strong>).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getSign">
+<code class="descname">getSign</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getSign"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getSign" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body">the sign bit of <em>self</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getSize">
+<code class="descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getSize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">int:</th><td class="field-body">the number of digits of <em>self</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.getValue">
+<code class="descname">getValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.getValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method builds the human-readable symbol representation of <em>self</em>, without specifying the base (e.g. <code class="docutils literal"><span class="pre">123BFF</span></code>)</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">str:</th><td class="field-body">the representation of <em>self</em>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.integerDivision">
+<code class="descname">integerDivision</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.integerDivision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.integerDivision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the integer division algorithm.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">self  (Number):</th><td class="field-body">the &#8216;deimpartit&#8217;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">other (Number):</th><td class="field-body">the &#8216;impartitor&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">(Number, Number):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">a tuple <code class="docutils literal"><span class="pre">(quotient,</span> <span class="pre">remainder)</span></code> representing the result of the integer division <strong>self / other</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if <em>self</em> and <em>other</em> are not represented in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ZeroDivisionError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if <em>other</em> is 0.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.isNegative">
+<code class="descname">isNegative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.isNegative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.isNegative" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> is a negative number.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.isPositive">
+<code class="descname">isPositive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.isPositive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.isPositive" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bool:</th><td class="field-body">whether or not <em>self</em> is a positive number.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.positiveAddition">
+<code class="descname">positiveAddition</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.positiveAddition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.positiveAddition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the addition algorithm for positive integers.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">a (Number):</th><td class="field-body">the left term of the addition.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">b (Number):</th><td class="field-body">the right term of the addition.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of <strong>a + b</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if a and b are not written in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SignError:</th><td class="field-body">if a is negative or b is negative.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.positiveSubtraction">
+<code class="descname">positiveSubtraction</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.positiveSubtraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.positiveSubtraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method implements the subtraction algorithm for positive integers (a &gt; b).</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">a (Number):</th><td class="field-body">the &#8216;descazut&#8217;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">b (Number):</th><td class="field-body">the &#8216;scazator&#8217;.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the result of a - b.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if a and b are not written in the same base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SignError:</th><td class="field-body">if a is negative or b is negative.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ComparisonError:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">if a &lt; b</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.rapidConversion">
+<code class="descname">rapidConversion</code><span class="sig-paren">(</span><em>newBase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.rapidConversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.rapidConversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method converts <strong>self</strong> in the base <strong>newBase</strong> using the rapid conversion method.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">newBase (int):</th><td class="field-body">the destination base.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Number:</th><td class="field-body">the representation of <strong>self</strong> in the base <strong>newBase</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">BaseError:</th><td class="field-body">if the bases do not allow for rapid conversions.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Note:</dt>
+<dd>Rapid conversions can only be applied if the tuple <code class="docutils literal"><span class="pre">(self.getBase(),</span> <span class="pre">newBase)</span></code> belongs to <code class="docutils literal"><span class="pre">[(2,</span> <span class="pre">4),</span> <span class="pre">(2,</span> <span class="pre">8),</span> <span class="pre">(2,</span> <span class="pre">16),</span> <span class="pre">(3,</span> <span class="pre">9)</span> <span class="pre">(4,</span> <span class="pre">16)]</span></code> and reverses.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.number.Number.setSign">
+<code class="descname">setSign</code><span class="sig-paren">(</span><em>sign</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/number.html#Number.setSign"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#models.number.Number.setSign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method changes the sign bit of the number.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">sign (int):</th><td class="field-body">the new sign bit.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nothing:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="project.html" title="previous chapter">Project Summary</a></li>
+      <li>Next: <a href="exceptions.html" title="next chapter">Custom Exceptions</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/number.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Sergiu Puscas.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/number.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

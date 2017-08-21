@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Lab11Activity</class>
+ <widget class="QWidget" name="Lab11Activity">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>454</width>
+    <height>478</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>391</width>
+     <height>381</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>391</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="text">
+       <string>Sorted</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="text">
+       <string>Suffled</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <zorder>radioButton</zorder>
+  <zorder>radioButton_2</zorder>
+  <zorder>radioButton</zorder>
+  <zorder>textEdit</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

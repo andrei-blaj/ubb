@@ -1,0 +1,46 @@
+ c
+You chose to perform a conversion.
+Please enter the initial base: 16
+Please enter a number (base 16): bc13f
+Please enter the new base: 2
+Suggested method: rapid conversions.
+BC13F_16 = 10111100000100111111_2
+> 
+> c
+You chose to perform a conversion.
+Please enter the initial base: 16
+Please enter a number (base 16): ab650
+Please enter the new base: 8
+Suggested method: successive divisions.
+AB650_16 = 2533120_8
+> c
+You chose to perform a conversion.
+Please enter the initial base: 5
+Please enter a number (base 5): 3041
+Please enter the new base: 10
+Suggested method: substitution.
+3041_5 = 396_10
+> c
+You chose to perform a conversion.
+Please enter the initial base: 5
+Please enter a number (base 5): 1043
+Please enter the new base: 7
+Suggested method: substitution.
+1043_5 = 301_7
+> c
+You chose to perform a conversion.
+Please enter the initial base: 7048
+The valid bases are: 2, 3, ..., 10, 16.
+Please enter the initial base: 9
+Please enter a number (base 9): 7048
+Please enter the new base: 4
+Suggested method: successive divisions.
+7048_9 = 1100123_4
+> c
+You chose to perform a conversion.
+Please enter the initial base: 16
+Please enter a number (base 16): bc0d
+Please enter the new base: 6
+Suggested method: successive divisions.
+BC0D_16 = 1010513_6
+
