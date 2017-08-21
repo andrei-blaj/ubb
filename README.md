@@ -7,11 +7,11 @@
 
 - - - -
 
-📌 Algebra
-📌 Computational Logic
-📌 Computer System Architecture
-📌 Fundamentals of Programming
-📌 Mathematical Analysis
+📌 Algebra <br />
+📌 Computational Logic <br />
+📌 Computer System Architecture <br />
+📌 Fundamentals of Programming <br />
+📌 Mathematical Analysis <br />
 
 - - - -
 
@@ -19,11 +19,11 @@
 
 - - - -
 
-📌 Graph algorithms
-📌 Geometry
-📌 Object Oriented Programming
-📌 Operating Systems
-📌 Data Structures & Algorithms
-📌 Dynamical Systems
+📌 Data Structures & Algorithms <br />
+📌 Dynamical Systems <br />
+📌 Graph algorithms <br />
+📌 Geometry <br />
+📌 Object Oriented Programming <br />
+📌 Operating Systems <br />
 
 - - - -
