@@ -9,6 +9,8 @@
 	📌 [fp](https://github.com/andrei-blaj/ubb/tree/master/sem1/fop) <br />
 	📌 [analysis](https://github.com/andrei-blaj/ubb) <br />
 
+<br />
+
 * - [x] sem2 <br />
 	📌 [dsa](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
 	📌 [sd](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
@@ -16,6 +18,8 @@
 	📌 [geometry](https://github.com/andrei-blaj/ubb/tree/master/sem2/Geometrie) <br />
 	📌 [oop](https://github.com/andrei-blaj/ubb/tree/master/sem2/OOP) <br />
 	📌 [os](https://github.com/andrei-blaj/ubb/tree/master/sem2/OS) <br />
+
+<br />
 
 * - [ ] sem3 <br />
 	📌 [map](https://github.com/andrei-blaj/ubb/tree/master/sem3/map) <br />
