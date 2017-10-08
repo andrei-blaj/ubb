@@ -2,19 +2,27 @@
 
 ## UNI *(in a nutshell)* 👨🏼‍💻 ##
 
-### *First Semester* ###
+### *sem1* ###
 
-📌 [Algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
-📌 [Computational Logic](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
-📌 [Computer System Architecture](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
-📌 [Fundamentals of Programming](https://github.com/andrei-blaj/ubb/tree/master/sem1/fop) <br />
-📌 [Mathematical Analysis](https://github.com/andrei-blaj/ubb) <br />
+📌 [algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
+📌 [cl](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
+📌 [asc](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
+📌 [fp](https://github.com/andrei-blaj/ubb/tree/master/sem1/fop) <br />
+📌 [analysis](https://github.com/andrei-blaj/ubb) <br />
 
-### *Second Semester* ###
+### *sem2* ###
 
-📌 [Data Structures & Algorithms](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
-📌 [Dynamical Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
-📌 [Graph algorithms](https://github.com/andrei-blaj/ubb/tree/master/sem2/Algoritmica%20Grafelor) <br />
-📌 [Geometry](https://github.com/andrei-blaj/ubb/tree/master/sem2/Geometrie) <br />
-📌 [Object Oriented Programming](https://github.com/andrei-blaj/ubb/tree/master/sem2/OOP) <br />
-📌 [Operating Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/OS) <br />
+📌 [dsa](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
+📌 [sd](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
+📌 [graphs](https://github.com/andrei-blaj/ubb/tree/master/sem2/Algoritmica%20Grafelor) <br />
+📌 [geometry](https://github.com/andrei-blaj/ubb/tree/master/sem2/Geometrie) <br />
+📌 [oop](https://github.com/andrei-blaj/ubb/tree/master/sem2/OOP) <br />
+📌 [os](https://github.com/andrei-blaj/ubb/tree/master/sem2/OS) <br />
+
+### *sem3* ###
+
+📌 [map](https://github.com/andrei-blaj/ubb/tree/master/sem3/map) <br />
+📌 [plf](https://github.com/andrei-blaj/ubb/tree/master/sem3/plf) <br />
+📌 [db](https://github.com/andrei-blaj/ubb/tree/master/sem3/db) <br />
+📌 [networks](https://github.com/andrei-blaj/ubb/tree/master/sem3/networks) <br />
+📌 [probstat](https://github.com/andrei-blaj/ubb/tree/master/sem3/probstat) <br />
