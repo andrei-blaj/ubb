@@ -2,13 +2,12 @@
 
 ## UNI *(in a nutshell)* 👨🏼‍💻 ##
 
-- [x] sem1
-
-📌 [algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
-📌 [cl](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
-📌 [asc](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
-📌 [fp](https://github.com/andrei-blaj/ubb/tree/master/sem1/fop) <br />
-📌 [analysis](https://github.com/andrei-blaj/ubb) <br />
+* - [x] sem1
+	*📌 [algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
+	*📌 [cl](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
+	*📌 [asc](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
+	*📌 [fp](https://github.com/andrei-blaj/ubb/tree/master/sem1/fop) <br />
+	*📌 [analysis](https://github.com/andrei-blaj/ubb) <br />
 
 - [x] sem2
 
