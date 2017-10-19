@@ -7,6 +7,7 @@ import Model.Sphere;
 import Controller.Controller;
 import Repository.Repository;
 import Model.GeometricShape;
+import Repository.CustomException;
 
 public class View {
 
@@ -31,7 +32,7 @@ public class View {
             ctrl.add(shape5);
             ctrl.add(shape6);
 
-        } catch (Exception e) {
+        } catch (CustomException e) {
             System.out.print("error " + e + "\n");
         }
 

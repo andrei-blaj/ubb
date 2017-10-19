@@ -78,7 +78,7 @@ int main() {
         send(c, &len, sizeof(len), 0);
         
         for (uint16_t i = 0; i < (uint16_t) ntohs(len); i++) {
-            uint16_t elementToSend = htons(array1[i]);
+            uint16_t elementToSend = htons(rez[i]);
             send(c, &elementToSend, sizeof(elementToSend), 0);
         }
         
