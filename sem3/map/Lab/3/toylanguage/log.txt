@@ -1,0 +1,58 @@
+
+-----------------------------------------------
+Symbol table: 
+x --> 0
+
+Stack 
+print (x)
+if (x) {
+	x = 20
+else {
+	x = x + 1
+}
+
+
+
+list is empty
+
+
+
+-----------------------------------------------
+Symbol table: 
+x --> 0
+
+Stack 
+print (x)
+x = x + 1
+
+
+
+list is empty
+
+
+
+-----------------------------------------------
+Symbol table: 
+x --> 1
+
+Stack 
+print (x)
+
+
+
+list is empty
+
+
+
+-----------------------------------------------
+Symbol table: 
+x --> 1
+
+Stack 
+list is empty
+
+
+1
+
+
+

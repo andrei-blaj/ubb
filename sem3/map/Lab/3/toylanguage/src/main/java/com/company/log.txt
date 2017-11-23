@@ -1,0 +1,480 @@
+
+-----------------------------------------------
+Date: 09:13:28.575
+
+Symbol table: 
+file1 = 1725154839
+
+
+Stack: 
+OpenFile(file2, "/Users/blaj/UNI/sem3/map/Lab/3/toylanguage/src/main/java/com/company/file2.txt")
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 09:13:28.585
+
+Symbol table: 
+file2 = 1338668845
+file1 = 1725154839
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 09:13:28.585
+
+Symbol table: 
+file2 = 1338668845
+x = 6
+file1 = 1725154839
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 09:13:28.585
+
+Symbol table: 
+file2 = 1338668845
+x = 6
+y = 1
+file1 = 1725154839
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 09:13:28.585
+
+Symbol table: 
+file2 = 1338668845
+x = 6
+y = 1
+z = 7
+file1 = 1725154839
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 09:13:28.585
+
+Symbol table: 
+file2 = 1338668845
+x = 6
+y = 1
+z = 7
+file1 = 1725154839
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 17:01:27.346204
+
+Symbol table: 
+file1 = 748658608
+
+
+Stack: 
+OpenFile(file2, "/Users/blaj/UNI/sem3/map/Lab/3/toylanguage/src/main/java/com/company/file2.txt")
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 17:01:27.376019
+
+Symbol table: 
+file2 = 214074868
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 17:01:27.376770
+
+Symbol table: 
+file2 = 214074868
+x = 6
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 17:01:27.377545
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+file1 = 748658608
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 17:01:27.377915
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 17:01:27.378275
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 19:59:06.970880
+
+Symbol table: 
+file1 = 748658608
+
+
+Stack: 
+OpenFile(file2, "/Users/blaj/UNI/sem3/map/Lab/3/toylanguage/src/main/java/com/company/file2.txt")
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:06.981133
+
+Symbol table: 
+file2 = 214074868
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:06.981991
+
+Symbol table: 
+file2 = 214074868
+x = 6
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:06.982562
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+file1 = 748658608
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:06.982987
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:06.983329
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 19:59:23.990458
+
+Symbol table: 
+file1 = 748658608
+
+
+Stack: 
+OpenFile(file2, "/Users/blaj/UNI/sem3/map/Lab/3/toylanguage/src/main/java/com/company/file2.txt")
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:24.001052
+
+Symbol table: 
+file2 = 214074868
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:24.007525
+
+Symbol table: 
+file2 = 214074868
+x = 6
+file1 = 748658608
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:24.008170
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+file1 = 748658608
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:24.008786
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 19:59:24.009161
+
+Symbol table: 
+file2 = 214074868
+x = 6
+y = 1
+z = 7
+file1 = 748658608
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
