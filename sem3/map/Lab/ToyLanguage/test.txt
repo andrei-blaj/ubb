@@ -1,0 +1,45 @@
+Stack => |b=a+ 1 ;print(b)|a= 2 + 3 * 0 
+ Dictionary => {}
+ List => []
+Stack => |b=a+ 1 ;print(b)
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)|b=a+ 1 
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)
+ Dictionary => {a->2,b->3,}
+ List => []
+Stack => 
+ Dictionary => {a->2,b->3,}
+ List => [3]
+Stack => |b=a+ 1 ;print(b)|a= 2 + 3 * 0 
+ Dictionary => {}
+ List => []
+Stack => |b=a+ 1 ;print(b)
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)|b=a+ 1 
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)
+ Dictionary => {a->2,b->3,}
+ List => []
+Stack => 
+ Dictionary => {a->2,b->3,}
+ List => [3]
+Stack => |b=a+ 1 ;print(b)|a= 2 + 3 * 0 
+ Dictionary => {}
+ List => []
+Stack => |b=a+ 1 ;print(b)
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)|b=a+ 1 
+ Dictionary => {a->2,}
+ List => []
+Stack => |print(b)
+ Dictionary => {a->2,b->3,}
+ List => []
+Stack => 
+ Dictionary => {a->2,b->3,}
+ List => [3]

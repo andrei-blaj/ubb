@@ -1,0 +1,163 @@
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)|if( a) THEN v= 2 ELSE v= 3 ;print(v)|a= 2 - 2 
+ Dictionary => {}
+ List => []
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)|if( a) THEN v= 2 ELSE v= 3 ;print(v)
+ Dictionary => {a->4,}
+ List => []
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)|print(v)|if( a) THEN v= 2 ELSE v= 3 
+ Dictionary => {a->4,}
+ List => []
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)|print(v)|v= 2 
+ Dictionary => {a->4,}
+ List => []
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)|print(v)
+ Dictionary => {a->4,v->2,}
+ List => []
+Stack => |v= 2 ;print(v)|a= 2 + 3 * 0 ;b=a+ 1 ;print(b)
+ Dictionary => {a->4,v->2,}
+ List => [2]
+Stack => |v= 2 ;print(v)|b=a+ 1 ;print(b)|a= 2 + 3 * 0 
+ Dictionary => {a->4,v->2,}
+ List => [2]
+Stack => |v= 2 ;print(v)|b=a+ 1 ;print(b)
+ Dictionary => {a->2,v->2,}
+ List => [2]
+Stack => |v= 2 ;print(v)|print(b)|b=a+ 1 
+ Dictionary => {a->2,v->2,}
+ List => [2]
+Stack => |v= 2 ;print(v)|print(b)
+ Dictionary => {a->2,b->3,v->2,}
+ List => [2]
+Stack => |v= 2 ;print(v)
+ Dictionary => {a->2,b->3,v->2,}
+ List => [23]
+Stack => |print(v)|v= 2 
+ Dictionary => {a->2,b->3,v->2,}
+ List => [23]
+Stack => |print(v)
+ Dictionary => {a->2,b->3,v->2,}
+ List => [23]
+Stack => 
+ Dictionary => {a->2,b->3,v->2,}
+ List => [232]
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+if( a) THEN v= 2 ELSE v= 3 ;print(v)
+a= 2 - 2 
+
+SYMTABLE:
+OUT:
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+if( a) THEN v= 2 ELSE v= 3 ;print(v)
+
+SYMTABLE:
+a->4
+OUT:
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+print(v)
+if( a) THEN v= 2 ELSE v= 3 
+
+SYMTABLE:
+a->4
+OUT:
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+print(v)
+v= 2 
+
+SYMTABLE:
+a->4
+OUT:
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+print(v)
+
+SYMTABLE:
+a->4
+v->2
+OUT:
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+a= 2 - 2 ;if( a) THEN v= 2 ELSE v= 3 ;print(v)
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+if( a) THEN v= 2 ELSE v= 3 ;print(v)
+a= 2 - 2 
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+if( a) THEN v= 2 ELSE v= 3 ;print(v)
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+print(v)
+if( a) THEN v= 2 ELSE v= 3 
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+print(v)
+v= 2 
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+print(v)
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
+EXESTACK:
+
+SYMTABLE:
+a->4
+v->2
+OUT:2
+2
+
+FILETABLE:Model.ADT.MyFileTable@6e0be858
+
