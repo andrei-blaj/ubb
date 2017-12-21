@@ -2,12 +2,10 @@ package Controller;
 
 import Exceptions.MyExceptions;
 import Model.ADT.MyIStack;
-import Model.Expressions.ConstExp;
 import Model.Expressions.MyExpException;
 import Model.PrgState;
 import Model.Statements.IStatement;
 import Model.Statements.MyStmtException;
-import Model.Statements.closeRFile;
 import Repository.IRepository;
 
 import java.util.Collection;
@@ -40,7 +38,6 @@ public class Controller {
 
     Map<Integer,Integer> conservativeGarbageCollector(Collection<Integer> symTableValues, Map<Integer,Integer> heap) {
         return heap.entrySet().stream().filter(e -> symTableValues.contains(e.getKey())).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue));
-
     }
 
     public PrgState oneStep(PrgState state) throws MyExceptions{
@@ -69,7 +66,7 @@ public class Controller {
             System.out.println(e.toString());
         }
         finally {
-            prg.getFileTable().keySet().stream().forEach(v->new closeRFile(new ConstExp(v)).execute(prg));
+            prg.getFileTable().getValues().stream().forEach(v -> { try { v.getSecond().close(); } catch(Exception e) {} } );
             System.out.println(prg.toString());
         }
     }

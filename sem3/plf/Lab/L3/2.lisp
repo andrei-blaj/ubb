@@ -1,4 +1,6 @@
-;;;;Write a function to return the sum of all numerical atoms in a list, at any level.
+; Write a function that returns the sum of numeric atoms in a list, at any level
+
+// Need to solve it using map function
 
 (defun sum (array)
 	(cond

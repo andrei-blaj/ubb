@@ -2,7 +2,7 @@ package Model.ADT;
 
 import java.util.HashMap;
 import java.util.Set;
-
+import java.util.Collection;
 /**
  * Created by Andrei on 07.11.2017.
  */
@@ -14,4 +14,5 @@ public interface MyIFileTable<K,V>{
     HashMap<K, V> getDict();
     void remove(K key);
     Set<K> keySet();
+    Collection<V> getValues();
 }

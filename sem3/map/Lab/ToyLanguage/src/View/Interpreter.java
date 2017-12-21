@@ -169,7 +169,6 @@ public class Interpreter {
         MyIFileTable<Integer,Pair<String,BufferedReader>> fileTable7 = new MyFileTable<Integer,Pair<String,BufferedReader>>();
         MyIHeap<Integer,Integer> heap7 = new MyHeap<Integer,Integer>();
 
-
         IStatement ex7 = new CompStmt(
                 new AssignStmt("v",
                         new ConstExp(6)),
@@ -200,8 +199,8 @@ public class Interpreter {
         menu.addCommand(new RunExample("3", ex3.toString(), ctr3));
         menu.addCommand(new RunExample("4", ex4.toString(), ctr4));
         menu.addCommand(new RunExample("5", ex5.toString(), ctr5));
-//        menu.addCommand(new RunExample("6", ex6.toString(), ctr6));
-//        menu.addCommand(new RunExample("7", ex7.toString(), ctr7));
+        menu.addCommand(new RunExample("6", ex6.toString(), ctr6));
+        menu.addCommand(new RunExample("7", ex7.toString(), ctr7));
         menu.show();
 
     }

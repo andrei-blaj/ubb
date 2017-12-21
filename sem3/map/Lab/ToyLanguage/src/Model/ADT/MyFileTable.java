@@ -1,5 +1,6 @@
 package Model.ADT;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -25,6 +26,11 @@ public class MyFileTable<K,V> implements MyIFileTable<K,V> {
     @Override
     public Set<K> keySet() {
         return dict.keySet();
+    }
+
+    @Override
+    public Collection<V> getValues() {
+        return dict.values();
     }
 
 
