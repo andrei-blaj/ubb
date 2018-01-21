@@ -1,0 +1,40 @@
+exeStack:
+(v = 2;
+print(v))
+symTable:
+fileTable:
+heap:
+
+Next free location: 1
+stdout:
+
+exeStack:
+print(v)
+v = 2
+symTable:
+fileTable:
+heap:
+
+Next free location: 1
+stdout:
+
+exeStack:
+print(v)
+symTable:
+v -> 2
+fileTable:
+heap:
+
+Next free location: 1
+stdout:
+
+exeStack:
+symTable:
+v -> 2
+fileTable:
+heap:
+
+Next free location: 1
+stdout:
+2
+

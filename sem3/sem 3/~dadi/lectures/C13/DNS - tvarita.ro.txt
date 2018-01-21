@@ -1,0 +1,20 @@
+$TTL 3600
+@	IN	SOA	ns1.cloudns.net. support.cloudns.net. 2013051601 7200 1800 1209600 3600
+	3600	IN	NS	ns1.cloudns.net.
+	3600	IN	NS	ns2.cloudns.net.
+	3600	IN	NS	ns3.cloudns.net.
+	3600	IN	TXT	"google-site-verification=nJCOGb30vKgZWzPZBZcoh5AvHb77ghp2EJwpyGnun1Y"
+	3600	IN	NS	ns4.cloudns.net.
+	3600	IN	MX	1 ASPMX.L.GOOGLE.COM.
+	3600	IN	MX	5 ALT1.ASPMX.L.GOOGLE.COM.
+axten	3600	IN	A	78.96.44.61
+calendar	3600	IN	CNAME	ghs.googlehosted.com.
+cluj	3600	IN	CNAME	tvarita.dyndns.org.
+docs	3600	IN	CNAME	ghs.googlehosted.com.
+imap	3600	IN	CNAME	imap.gmail.com.
+main	3600	IN	CNAME	tvarita.dyndns.org.
+smtp	3600	IN	CNAME	ASPMX.L.GOOGLE.COM.
+webmail	3600	IN	CNAME	ghs.googlehosted.com.
+wifi	3600	IN	NS	ns.wifi.tvarita.ro.
+www	3600	IN	CNAME	ghs.google.com.
+zoli	3600	IN	A	82.78.92.78
