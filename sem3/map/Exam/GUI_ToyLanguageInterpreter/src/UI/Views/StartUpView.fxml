@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="267.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.StartUpController">
+   <children>
+      <Button fx:id="openInterpreterButton" blendMode="DARKEN" layoutY="311.0" mnemonicParsing="false" onAction="#onRunButtonPressed" prefHeight="45.0" prefWidth="266.0" text="Run" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="311.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitButton" blendMode="DARKEN" layoutY="355.0" mnemonicParsing="false" onAction="#onExitButtonPressed" prefHeight="45.0" prefWidth="266.0" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ListView fx:id="programsList" prefHeight="311.0" prefWidth="267.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

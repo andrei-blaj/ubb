@@ -1,0 +1,35 @@
+Theory Subjects – 24 January 2018
+
+
+
+Work Time: 50min
+
+Please copy the subjects and then close your laptops.
+
+
+
+
+
+1.(3p). Compare overriding vs. overloading in Java.
+
+
+
+2.(3p). Given the following collection
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8,9,10,11,12,14,15);
+
+Using Java functional style (Java streams),
+
+please write a program that is doing the following operations in the following order:
+
+a)keep only the numbers which are multiple of  5 or  multiple of 2;
+
+b)transform each remaining number into a string, that consists of a prefix "N", the number and the suffix "R"
+
+(eg. 5 is transformed into "N5R")
+
+c)concatenate all the strings
+
+
+
+3.(3p). What is a CountDownLatch in Java.

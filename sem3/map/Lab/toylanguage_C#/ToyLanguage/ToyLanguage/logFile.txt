@@ -1,0 +1,183 @@
+
+
+
+Symbol Table:
+
+
+
+File Table:
+
+
+
+Exe. Stack:
+
+OpenFile(fl, /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt)
+ReadFile(fl, x)
+if (x) {
+x = x + 2
+} else {
+x = -200
+}
+Print (x)
+CloseFile(fl)
+
+
+Output:
+
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+
+
+File Table:
+136949368 -> /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt
+
+
+Exe. Stack:
+
+ReadFile(fl, x)
+if (x) {
+x = x + 2
+} else {
+x = -200
+}
+Print (x)
+CloseFile(fl)
+
+
+Output:
+
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+x = 1
+
+
+File Table:
+136949368 -> /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt
+
+
+Exe. Stack:
+
+if (x) {
+x = x + 2
+} else {
+x = -200
+}
+Print (x)
+CloseFile(fl)
+
+
+Output:
+
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+x = 1
+
+
+File Table:
+136949368 -> /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt
+
+
+Exe. Stack:
+
+x = x + 2
+Print (x)
+CloseFile(fl)
+
+
+Output:
+
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+x = 3
+
+
+File Table:
+136949368 -> /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt
+
+
+Exe. Stack:
+
+Print (x)
+CloseFile(fl)
+
+
+Output:
+
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+x = 3
+
+
+File Table:
+136949368 -> /home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/varFile.txt
+
+
+Exe. Stack:
+
+CloseFile(fl)
+
+
+Output:
+
+3
+
+--------------------------------------------------
+
+
+
+
+Symbol Table:
+
+fl = 136949368
+x = 3
+
+
+File Table:
+
+
+
+Exe. Stack:
+
+
+
+Output:
+
+3
+
+--------------------------------------------------
+

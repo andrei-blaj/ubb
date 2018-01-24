@@ -1,0 +1,3762 @@
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+repeat {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1 
+} until(v == 3)
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = -1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+y = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+30
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+repeat {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1 
+} until(v == 3)
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = -1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+30
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+repeat {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1 
+} until(v == 3)
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = -1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+30
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+repeat {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1 
+} until(v == 3)
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+v = -1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+v = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v + 1
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+while (v == 3 == 0) {
+Fork(
+print (v)
+v = v - 1
+)
+v = v + 1
+}
+
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v)
+v = v - 1
+
+
+List: 
+0
+1
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+x = 1
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+v = v - 1
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+y = 2
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 4
+Symbol table: 
+v = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+z = 3
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+w = 4
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (v * 10)
+
+
+List: 
+0
+1
+2
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+v = 3
+w = 4
+x = 1
+y = 2
+z = 3
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+1
+2
+30
+
+
+

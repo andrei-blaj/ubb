@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.InterpreterController">
+   <children>
+      <Label alignment="CENTER" layoutX="5.0" layoutY="190.0" prefHeight="22.0" prefWidth="200.0" text="Stack" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="190.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="10.0" prefHeight="22.0" prefWidth="200.0" text="Symbol Table" AnchorPane.topAnchor="6.0" />
+      <Label alignment="CENTER" layoutX="203.0" layoutY="9.0" prefHeight="22.0" prefWidth="200.0" text="File Table" AnchorPane.topAnchor="6.0" />
+      <Label alignment="CENTER" layoutX="405.0" layoutY="6.0" prefHeight="22.0" prefWidth="200.0" text="Heap Table" AnchorPane.topAnchor="6.0" />
+      <Label alignment="CENTER" layoutX="210.0" layoutY="190.0" prefHeight="22.0" prefWidth="200.0" text="Output" AnchorPane.leftAnchor="200.0" />
+      <Button fx:id="runOneStepButton" blendMode="DARKEN" layoutX="405.0" layoutY="439.0" mnemonicParsing="false" onAction="#onRunOneStepButtonPressed" prefHeight="61.0" prefWidth="200.0" text="Run one step" AnchorPane.bottomAnchor="0.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitButton" blendMode="DARKEN" layoutY="437.0" mnemonicParsing="false" onAction="#onExitButtonPressed" prefHeight="61.0" prefWidth="200.0" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="runButton" blendMode="DARKEN" layoutX="203.0" layoutY="439.0" mnemonicParsing="false" onAction="#onRunButtonPressed" prefHeight="61.0" prefWidth="200.0" text="Run" AnchorPane.bottomAnchor="0.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <ListView fx:id="programs" blendMode="EXCLUSION" layoutX="405.0" layoutY="213.0" onMouseClicked="#setSelectedProgram" prefHeight="170.0" prefWidth="200.0" AnchorPane.topAnchor="215.0" />
+      <Label alignment="CENTER" layoutX="405.0" layoutY="191.0" prefHeight="22.0" prefWidth="200.0" text="Programs" />
+      <ListView fx:id="output" layoutX="210.0" layoutY="212.0" prefHeight="170.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="215.0" />
+      <ListView fx:id="executionStack" layoutX="5.0" layoutY="212.0" prefHeight="170.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="215.0" />
+      <ListView fx:id="symbolTableNames" layoutX="-1.0" layoutY="55.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <ListView fx:id="fileTableNames" layoutX="203.0" layoutY="55.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <ListView fx:id="heapTableAddresses" layoutX="405.0" layoutY="48.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="-1.0" layoutY="35.0" prefHeight="22.0" prefWidth="100.0" text="Name" AnchorPane.topAnchor="30.0" />
+      <ListView fx:id="symbolTableValues" layoutX="99.0" layoutY="55.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <ListView fx:id="fileTablePaths" layoutX="303.0" layoutY="55.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <ListView fx:id="heapTableValues" layoutX="505.0" layoutY="48.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="99.0" layoutY="35.0" prefHeight="22.0" prefWidth="100.0" text="Value" AnchorPane.topAnchor="30.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="203.0" layoutY="34.0" prefHeight="22.0" prefWidth="100.0" text="ID" AnchorPane.topAnchor="30.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="303.0" layoutY="34.0" prefHeight="22.0" prefWidth="100.0" text="Path" AnchorPane.topAnchor="30.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="405.0" layoutY="28.0" prefHeight="22.0" prefWidth="100.0" text="Address" AnchorPane.topAnchor="30.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="505.0" layoutY="28.0" prefHeight="22.0" prefWidth="100.0" text="Value" AnchorPane.topAnchor="30.0" />
+      <Label layoutX="402.0" layoutY="397.0" prefHeight="38.0" prefWidth="117.0" text="Current program:" />
+      <TextField fx:id="currentSelectedProgram" editable="false" layoutX="519.0" layoutY="397.0" prefHeight="38.0" prefWidth="83.0" />
+      <Label alignment="CENTER" layoutX="614.0" layoutY="6.0" prefHeight="22.0" prefWidth="200.0" text="Latch Table" AnchorPane.leftAnchor="614.0" AnchorPane.topAnchor="6.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="714.0" layoutY="41.0" prefHeight="22.0" prefWidth="100.0" text="Value" AnchorPane.topAnchor="30.0" />
+      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="614.0" layoutY="41.0" prefHeight="22.0" prefWidth="100.0" text="Location" AnchorPane.topAnchor="30.0" />
+      <ListView fx:id="latchTableValues" layoutX="714.0" layoutY="61.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+      <ListView fx:id="latchTableLocation" layoutX="614.0" layoutY="61.0" prefHeight="124.0" prefWidth="100.0" AnchorPane.topAnchor="55.0" />
+   </children>
+</AnchorPane>
