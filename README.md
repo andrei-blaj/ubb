@@ -6,7 +6,7 @@
 > ### Misses ONE class ###
 >> 📜  The cure to cancer is created, Waldo is found, AIs took over and the second coming of Jesus Christ took place.
 
-* 📕 <br />
+* 📕  Semester 1 <br />
 	📌  [Algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
 	📌  [Computational Logic](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
 	📌  [Computer System Architecture](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
@@ -20,7 +20,7 @@
 
 <br />
 
-* - 📗 <br />
+* 📗  Semester 2 <br />
 	📌  [Data Structures & Algorithms](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
 	📌  [Dynamic Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
 	📌  [Graphs](https://github.com/andrei-blaj/ubb/tree/master/sem2/Algoritmica%20Grafelor) <br />
@@ -35,7 +35,7 @@
 
 <br />
 
-* - 📘 <br />
+* 📘  Semester 3 <br />
 	📌  [Advanced Programming Methods](https://github.com/andrei-blaj/ubb/tree/master/sem3/map) <br />
 	📌  [Functional & Logic Programming](https://github.com/andrei-blaj/ubb/tree/master/sem3/plf) <br />
 	📌  [Databases](https://github.com/andrei-blaj/ubb/tree/master/sem3/db) <br />
@@ -49,4 +49,4 @@
 
 <br />
 
-* - 📙 <br />
+* 📙  Semester 4 <br />
