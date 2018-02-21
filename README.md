@@ -47,7 +47,7 @@
 
 <br />
 
-> ### College vs. Pizza ###
+> ### Hogwarts ###
 >> ⚡️  I wish I was at Hogwarts because their final exams are always canceled...
 
 <br />
