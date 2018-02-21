@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="Author" CONTENT="Abdulmotaleb El Saddik">
+<META NAME="Generator" CONTENT="NetObjects Fusion 4.0 for Windows">
+<TITLE>Sliding Window</TITLE>
+<META NAME="Keywords" CONTENT="El Saddik, Abed, Java, research, Forschung, Teaching, multibook, publication">
+<META NAME="Description" CONTENT="Abdulmotaleb El Saddik Home Page">
+<META NAME="Author" CONTENT="Abdulmotaleb El Saddik">
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=922>
+                <TABLE ID="Tabelle5" BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH=922>
+                    <TR>
+                        <TD WIDTH=224 BGCOLOR="#E4C050" HEIGHT=80><P><A HREF="http://www.site.uottawa.ca/%7Eelsaddik/abedweb/applets/index.html"><IMG ID="Bild5" SRC="http://www.site.uottawa.ca/%7Eelsaddik/abedweb/applets/Applets/logo.jpg" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0></A>&nbsp;</TD>
+                        <TD COLSPAN=6>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#99CCCC" HEIGHT=43>&nbsp;</TD>
+                        <TD COLSPAN=3 VALIGN=BOTTOM ALIGN=LEFT><P><IMG ID="Bild3" HEIGHT=43 WIDTH=37 SRC="http://www.site.uottawa.ca/%7Eelsaddik/abedweb/applets/Applets/fleck.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0>&nbsp;</TD>
+                        <TD COLSPAN=3 VALIGN=BOTTOM><P ALIGN=LEFT><FONT COLOR="#636363" SIZE="+1" FACE="Arial,Helvetica,Univers,Zurich BT">Sliding Window Applet</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD HEIGHT=-63>&nbsp;</TD>
+                        <TD COLSPAN=6>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><BR><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Transmisson Control Protocol (TCP)</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=6>
+                            <OL TYPE="a">
+                                <B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">
+                                <LI></FONT></B><A HREF="sliding_window.html#intro"><B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">Introduction</FONT></B></A></LI>
+                                <B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">
+                                <LI></FONT></B><A HREF="sliding_window.html#stopandwait"><B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">Protocol: Stop and Wait</FONT></B></A></LI>
+                                <B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">
+                                <LI></FONT></B><A HREF="sliding_window.html#Go-Back-n"><B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">Protocol: Go-Back-n</FONT></B></A></LI>
+                                <B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">
+                                <LI></FONT></B><A HREF="sliding_window.html#Selective Repeat"><B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">Protocol: Selective Repeat</FONT></B></A></LI>
+                                <B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">
+                                <LI></FONT></B><A HREF="sliding_window.html#main"><B><FONT FACE="Tahoma,Verdana,Arial,Helvetica">Main window</FONT></B></A></LI>
+                            </OL>
+                        </TD>
+                        <TD WIDTH=319><P ALIGN=CENTER><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica"> <A HREF="sliding-window/index.html" target=new> Start the Applet </A></FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><A NAME="intro"></A><BR><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Introduction</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=5 VALIGN=TOP HEIGHT=988><P ALIGN=LEFT><FONT COLOR="#000000" FACE="Times New Roman,Times,Times NewRoman">To guarantee lossless delivery, a unique (increasing) sequence number (ID) is attached to every message. 
+                            The combination of the message's sender address and its ID identifies every message uniquely. To overcome message loss, sender and receiver agree on some start ID, e.g. TCP connection establishment involves the sender 
+                            and receiver exchanging their start sequence numbers in the SYN/ACK packets. Now the IDs of messages received from a sender S always have to monotonically increase: if message 56 was received from S, the next message 
+                            has to be 57. If a gap is detected, the receiver sends a retransmission request to the sender of the message. Upon receiving a retransmission request, the sender resends the message with the requested ID. Being able to 
+                            resend old messages requires the senders to store recently sent messages for some time, usually until it is know that the receiver(s) has/have received all messages below a certain ID. In this case the messages below 
+                            this ID may be deleted. When a receiver only sends retransmission requests when a gap is detected, the mechanism is called negative acknowledgment NAK. NAK is used in systems where message loss is infrequent, so NAKs 
+                            would only rarely have to be used to retransmit lost messages. <P ALIGN=LEFT>When communication links are noisy and loss rate high, ACK schemes are preferred: a sender has to receive an acknowledgment from each receiver 
+                            of a message. If ACKs are not received, the message is resent until an ACK has been received. <P ALIGN=LEFT>The idea of sliding windows is to keep track of the acknowledgements for each ID. However, a scheme in which a 
+                            sender send a single message (e.g. to multiple receivers in a group) and then waits for all ACKs is to slow: a sender should be able to send a number of messages and a separate thread should receive ACKs, and resend 
+                            messages with ACKs missing. <P ALIGN=LEFT>The senders and receivers each maintain a window of messages for which no ACKs have been received: a window is essentially a sequence of message IDs, starting with a low water 
+                            mark and bounded by a high water mark. Whenever an ACK is received, the low and high water marks are advanced by 1, this allows 1 more ACK to be received, therefore sliding the window 1 to the right. When the window is 
+                            full, an ACK is either discarded, or some kind of flow control is used to throttle the sender until there is more space available. <P ALIGN=LEFT>Sliding windows usually start out with a given size, however, more 
+                            sophisticated protocols will dynamically adapt the window size, trying to find an agreed-upon size between sender and receiver. <P ALIGN=LEFT>The characteristics of sliding windows used at the sender and receiver 
+                            usually involve (but do not have to !) 
+                            <OL TYPE="a">
+                                <LI>error correction (by retransmission), </LI>
+                                <LI>flow control and </LI>
+                                <LI>message ordering by sender (FIFO). </LI>
+                            </OL>
+                            <P ALIGN=LEFT>The latter property can easily be incorporated in a sliding window protocol, but sometimes, it is preferred to be implemented as a separate protocol for easier maintenance / replaceability. </FONT></TD>
+                        <TD COLSPAN=2 VALIGN=TOP>
+                            <UL>
+                                <FONT COLOR="#636363"><P ALIGN=LEFT>Sliding window is used by most connection oriented network protocol, among others, the </FONT><FONT COLOR="#636363" FACE="Times New Roman,Times,Times NewRoman">Point-to-Point 
+                                protocol (PPP) which many people use to establish their home PC as&nbsp; temporary Internet node via a phone-line connection to an existing node. In fact, TCP also uses sliding window.</FONT><P ALIGN=LEFT>&nbsp;<P
+                                 ALIGN=LEFT>&nbsp;<P ALIGN=LEFT><B><FONT COLOR="#636363" FACE="Times New Roman,Times,Times NewRoman">Sliding Window Protocols</FONT></B><FONT COLOR="#636363" FACE="Times New Roman,Times,Times NewRoman"> <BR>assumes 
+                                two-way communication (full duplex). It uses two types of frames: 
+                                <OL TYPE="1">
+                                    <LI>Data </LI>
+                                    <LI>Ack (sequence number of last correctly received frame) </LI>
+                                </OL>
+                                <P ALIGN=LEFT>The basic idea of sliding window protocol is that both sender and receiver keep a ``window'' of acknowledgment. The sender keeps the value of expected acknowledgment; while the receiver keeps the value 
+                                of expected receiving frame. When it receives an acknowledgment from the receiver, the sender advances the window. When it receives the expected frame, the receiver advances the window. </FONT>
+                            </UL>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><A NAME="stopandwait"></A><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Stop-And-Wait<BR></FONT></B>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=3><P><B><FONT FACE="Times New Roman,Times,Times NewRoman">One Bit Sliding Window Protocol</FONT></B><FONT FACE="Times New Roman,Times,Times NewRoman"> <P>One bit sliding window protocol is also called 
+                            Stop-And-Wait protocol. In this protocol, the sender sends out one frame, waits for acknowledgment before sending next frame, thus the name Stop-And-Wait. <P>Problem with Stop-And-Wait protocol is that it is very 
+                            inefficient. At any one moment, only in frame is in transition. The sender will have to wait at least one round trip time before sending next. The waiting can be long for a slow network such as satellite link. </FONT></TD>
+                        <TD COLSPAN=4>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><A NAME="Go-Back-n"></A><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Go-Back-n<BR></FONT></B>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=3><P><FONT FACE="Times New Roman,Times,Times NewRoman">If there is one frame k missing, the receiver simply discard all subsequent frames k+1, k+2, ..., sending no acknowledgments. So the sender will retransmit 
+                            frames from k onwards. Figure 3-15(a) on page 208. This effectively sets the receiver window size to be 1. <P>This can be a waste of bandwidth. </FONT></TD>
+                        <TD COLSPAN=4>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 ALIGN=RIGHT><P><IMG ID="Bild18" HEIGHT=259 WIDTH=652 SRC="sample1.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><A NAME="Selective Repeat"></A><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Selective Repeat<BR></FONT></B>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=3><P><FONT FACE="Times New Roman,Times,Times NewRoman">Another strategy is to re-send only the ones that are actually lost or damaged. The receiver buffers all the frames after the lost one. When the sender 
+                            finally noticed the problem (e.g. no ack for the lost frame is received within time-out limit), the sender retransmits the frame in question. </FONT></TD>
+                        <TD COLSPAN=4>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 ALIGN=RIGHT><P><IMG ID="Bild19" HEIGHT=273 WIDTH=679 SRC="sample2.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7 BGCOLOR="#99CCCC"><P><BR><A NAME="main"></A><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Main Window</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT><P>The main window can be subdivided roughly into four areas:
+                            <OL TYPE="1">
+                                <LI>area 1 represents the receiver</LI>
+                                <LI>area 2 the sender</LI>
+                                <LI>area number 3 represents the channel, with which the two computers are interconnected and over which the communication takes place. </LI>
+                                <LI>In the area 4, the logs of all events takes place. It also represents the History-Chart, in such a way as to enable the reconstruction of the data transfer whaich happened. </LI>
+                            </OL>
+                        </TD>
+                        <TD ROWSPAN=9 COLSPAN=5 VALIGN=MIDDLE ALIGN=CENTER><P><IMG ID="Bild7" HEIGHT=568 WIDTH=500 SRC="program.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0>&nbsp;</TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT BGCOLOR="#99CCCC"><P><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Sender (Area number 2)</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT><P>The representation assumes that the implementation of the Sliding-Window protocol takes place on Stack n. Layer n+1 represents the &quot;data-supplier&quot; for the protocol. It is 
+                            represented through the text-input-field.<P>One can hand over individual data-packages with the &quot; Step &quot; button. So that the animation speed can be adjusted.<P ALIGN=LEFT><FONT COLOR="#330099"
+                             FACE="Times New Roman,Times,Times NewRoman">By clicking on it with the right mouse button one can choose the protocol to be simulated</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT BGCOLOR="#99CCCC"><P><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Receiver (Area number 1)</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT><P>It is similar to the sender. The only difference is that the step button here controls the data transfer from the layer n+1 to the layer n.&nbsp; The received Packetes is presented in 
+                            the&nbsp; input text field. <P ALIGN=LEFT><FONT COLOR="#330099" FACE="Times New Roman,Times,Times NewRoman">By clicking on it with the right mouse button one can choose the protocol to be simulated</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT BGCOLOR="#99CCCC"><P><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">Channel (Area number 3)</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT><P><FONT FACE="Times New Roman,Times,Times NewRoman">Represent the network channel. By clicking on it with the right mouse button. One can simulate errors.</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT BGCOLOR="#99CCCC"><P><B><FONT COLOR="#636363" FACE="Tahoma,Verdana,Arial,Helvetica">History-Chart (Area number 4)</FONT></B></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=2 VALIGN=TOP ALIGN=LEFT><P><FONT FACE="Times New Roman,Times,Times NewRoman">One can adjust the number of messages to be displayed in this area. </FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN=7>&nbsp;</TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=596>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=596 HEIGHT=73><IMG SRC="http://www.site.uottawa.ca/%7Eelsaddik/abedweb/applets/clearpixel.gif" WIDTH=596 HEIGHT=1 BORDER=0></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=596>
+                <UL>
+                    <P>If you have any question, please do not hesitate to contact me @:<BR><A HREF="mailto:Abdulmotaleb.El-Saddik@kom.tu-darmstadt.de">Abdulmotaleb.El-Saddik@kom.tu-darmstadt.de</A> 
+                </UL>
+            </TD>
+        </TR>
+    </TABLE>
+</BODY>
+</HTML>
+ 

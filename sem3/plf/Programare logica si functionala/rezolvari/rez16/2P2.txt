@@ -1,0 +1,23 @@
+%aranjamente de N care au suma elementelor S
+
+
+sum([],0):-!.
+sum([H|T],S):-
+    sum(T,S2),
+    S is S2 + H.
+
+candidat([H|_],H).
+candidat([_|T],R):-
+    candidat(T,R).
+
+%gen(L,N,S,R,C)
+gen(_,N,S,C,C):-length(C,X),
+    X = N,
+    sum(C,Su),
+    Su = S.
+gen(L,N,S,C,R):-
+    candidat(L,E),
+    not(candidat(C,E)),
+    gen(L,N,S,[E|C],R).
+sol(L,N,S,R):-
+    findall(R1,gen(L,N,S,[],R1),R).

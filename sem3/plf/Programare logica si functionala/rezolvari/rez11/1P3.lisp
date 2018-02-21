@@ -1,0 +1,11 @@
+(defun f(L)
+	(funcall #'(lambda(LL)
+					(cond
+						( (null L) 0)
+						((> LL 2 ) (+ (car L)( f (cdr L))))
+						(t LL)
+					)
+				)
+		(f (car L))
+	)
+)

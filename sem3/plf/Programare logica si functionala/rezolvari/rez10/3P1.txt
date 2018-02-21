@@ -1,0 +1,20 @@
+%transform a list to a set
+
+exist([H|_],H).
+exist([_|T],R):-
+    exist(T,R).
+
+%tr1(L,R)
+tr1([],[]).
+tr1([H|T],[H|R]):-
+    not(exist(T,H)),!,
+    tr1(T,R).
+tr1([_|T],R):-
+    tr1(T,R).
+
+tr2([],C,C).
+tr2([H|T],R,C):-
+    not(exist(T,H)),!,
+    tr2(T,R,[H|C]).
+tr2([_|T],R,C):-
+    tr2(T,R,C).

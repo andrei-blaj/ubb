@@ -1,0 +1,16 @@
+
+%pow1(X,N,R)
+pow1(_,0,1).
+pow1(X,N,R):-
+    N2 is N-1,
+    pow1(X,N2,R2),
+    R is R2 * X.
+
+%pow2(X,N,R,C).
+pow2(_,0,C,C).
+pow2(X,N,R,C):-
+    N2 is N - 1,
+    C2 is C * X,
+    pow2(X,N2,R,C2).
+power2(X,N,R):-
+    pow2(X,N,R,1).

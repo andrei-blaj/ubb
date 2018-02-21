@@ -1,0 +1,24 @@
+% Permutari in care elementele consecutive au valoarea abs a diferentei <= 3
+
+
+candidat([H|_],H).
+candidat([_|T],R):-
+    candidat(T,R).
+
+generate(L,R,R):-length(R,LL),
+    length(L,LR),
+    LL = LR.
+generate(L,R,[H|C]):-
+    candidat(L,E),
+    not(candidat([H|C],E)),
+    abs(H-E)>=3,
+    generate(L,R,[E,H|C]).
+    
+
+sol(L,R):-
+    candidat(L,E),
+    generate(L,R,[E]).
+
+
+perm(L,R):-
+    findall(R1,sol(L,R1),R).

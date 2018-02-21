@@ -1,0 +1,21 @@
+candidat([H|_],H).
+candidat([_|T],R):-
+    candidat(T,R).
+sum([],0):-!.
+sum([H|T],S):-
+    sum(T,S2),
+    S is S2 +H.
+
+%gen(L,S,K,R,C)
+
+gen(_,S,K,C,C):-length(C,L),
+    L = K,
+    sum(C,SS),
+    SS = S.
+gen(L,S,K,R,C):-
+    candidat(L,E),
+    not(candidat(C,E)),
+    gen(L,S,K,R,[E|C]).
+
+solve(L,S,K,R):-
+    findall(R1,gen(L,S,K,R1,[]),R).

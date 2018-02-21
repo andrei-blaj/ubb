@@ -1,0 +1,11 @@
+sum1(0,0):-!.
+sum1(N,S):-
+    N2 is N - 1,
+    sum1(N2,S2),
+    S is S2 + N.
+
+sum2(0,C,C):-!.
+sum2(N,R,C):-
+    N2 is N - 1,
+    C2 is C + N,
+    sum2(N2,R,C2).
