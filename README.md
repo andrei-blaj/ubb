@@ -6,6 +6,8 @@
 > ### Misses ONE class ###
 >> 📜  The cure to cancer is created, Waldo is found, AIs took over and the second coming of Jesus Christ took place.
 
+<br />
+
 * 📕  Volume 1 <br />
 
 	📌  [Algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
