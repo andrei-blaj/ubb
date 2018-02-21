@@ -8,8 +8,6 @@
 
 * 📕  Volume 1 <br />
 
-<br />
-
 	📌  [Algebra](https://github.com/andrei-blaj/ubb/tree/master/sem1/algebra) <br />
 	📌  [Computational Logic](https://github.com/andrei-blaj/ubb/tree/master/sem1/cl) <br />
 	📌  [Computer System Architecture](https://github.com/andrei-blaj/ubb/tree/master/sem1/csa) <br />
@@ -24,8 +22,6 @@
 <br />
 
 * 📗  Volume 2 <br />
-
-<br />
 
 	📌  [Data Structures & Algorithms](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
 	📌  [Dynamic Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
@@ -42,8 +38,6 @@
 <br />
 
 * 📘  Volume 3 <br />
-
-<br />
 
 	📌  [Advanced Programming Methods](https://github.com/andrei-blaj/ubb/tree/master/sem3/map) <br />
 	📌  [Functional & Logic Programming](https://github.com/andrei-blaj/ubb/tree/master/sem3/plf) <br />
