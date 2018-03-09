@@ -10,3 +10,94 @@
     border: 3px solid darkslategrey;
     border-radius: 10px;
 }
+
+#menu * { 
+    font: 12px georgia; 
+    list-style-type: none;
+}
+
+#menu {
+    line-height: 10px; 
+    margin: auto;
+    width:900px;
+}
+
+#menu a { 
+    display: block; 
+    text-decoration: none; 
+    color: #fff;
+}
+
+#menu a:hover { 
+    background: #fb6414;
+}
+
+#menu ul li ul li a:hover { 
+    background: #fb6414; 
+    padding-left: 9px;
+    border-left: solid 1px #000;
+}
+
+#menu ul li ul li {
+    width: 170px; 
+    border: none; 
+    color: #B0BD97;  
+    padding-top: 3px; 
+    padding-bottom:3px; 
+    padding-left: 3px; 
+    padding-right: 3px; 
+    background: #fd855a;
+    z-index:1;
+}
+
+#menu ul li ul li a { 
+    font: 11px arial; 
+    font-weight: normal; 
+    font-variant: small-caps; 
+    padding: 15px 10px;
+}
+
+#menu ul li {
+    float: left; 
+    width: 170px; 
+    font-weight: bold;
+    background: #fd855a;
+}
+
+#menu ul li a { 
+    font-weight: bold;
+    padding: 15px 10px;
+}
+
+#menu li { 
+    position:relative; 
+    float:left;
+}
+
+#menu ul li ul, #menu:hover ul li ul, #menu:hover ul li:hover ul li ul{ 
+    display:none;
+    list-style-type:none; 
+    width: 140px;
+}
+
+#menu:hover ul, #menu:hover ul li:hover ul, #menu:hover ul li:hover ul li:hover ul { 
+    display:block;
+}
+
+#menu:hover ul li:hover ul li:hover ul { 
+    position: absolute;
+    margin-left: 145px;
+    margin-top: -22px;
+    font: 10px;
+}
+
+#menu:hover ul li:hover ul { 
+    position: absolute;
+    margin-top: 1px;
+    font: 10px;
+}
+
+#menu>ul>li:hover>ul { 
+    bottom:100%;
+    border-bottom: 1px solid transparent
+}
