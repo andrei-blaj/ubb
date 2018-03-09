@@ -56,4 +56,10 @@
 
 * 📙  Volume 4 <br />
 
+	📌  [Web Programming](https://github.com/andrei-blaj/ubb/tree/master/sem4/web) <br />
+	📌  [Artificial Intelligence](https://github.com/andrei-blaj/ubb/tree/master/sem4/ai) <br />
+	📌  [Database Management Systems](https://github.com/andrei-blaj/ubb/tree/master/sem4/db) <br />
+	📌  [Software Engineering](https://github.com/andrei-blaj/ubb/tree/master/sem4/iss) <br />
+	📌  [Systems for Design and Implementation](https://github.com/andrei-blaj/ubb/tree/master/sem4/mpp) <br />
+
 <br />
