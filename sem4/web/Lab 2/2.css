@@ -89,25 +89,57 @@
     border: 1px solid #1779ba;
     background: linear-gradient(#2196e3, #1779ba 70%);
   }
+
+  .bar-graph .bar.primary:hover {
+    border: 3px solid #1779ba;
+    background: linear-gradient(#2196e3, #1779ba 100%);
+    cursor:pointer;
+  }
   
   .bar-graph .bar.secondary {
     border: 1px solid #767676;
     background: linear-gradient(#909090, #767676 70%);
+  }
+
+  .bar-graph .bar.secondary:hover {
+    border: 3px solid #767676;
+    background: linear-gradient(#909090, #767676 100%);
+    cursor:pointer;
   }
   
   .bar-graph .bar.success {
     border: 1px solid #3adb76;
     background: linear-gradient(#65e394, #3adb76 70%);
   }
+
+  .bar-graph .bar.success:hover {
+    border: 3px solid #3adb76;
+    background: linear-gradient(#65e394, #3adb76 100%);
+    cursor:pointer;
+  }
   
   .bar-graph .bar.warning {
     border: 1px solid #ffae00;
     background: linear-gradient(#ffbe33, #ffae00 70%);
+  }
+
+  .bar-graph .bar.warning:hover {
+    border: 3px solid #ffae00;
+    background: linear-gradient(#ffbe33, #ffae00 100%);
+    cursor:pointer;
   }
   
   .bar-graph .bar.alert {
     border: 1px solid #cc4b37;
     background: linear-gradient(#d67060, #cc4b37 70%);
   }
+
+  .bar-graph .bar.alert:hover {
+    border: 3px solid #cc4b37;
+    background: linear-gradient(#d67060, #cc4b37 100%);
+    cursor:pointer;
+  }
+
+  
   
   

@@ -32,6 +32,10 @@
     background: #fb6414;
 }
 
+#menu .active {
+    background: #fb6414;
+}
+
 #menu ul li ul li a:hover { 
     background: #fb6414; 
     padding-left: 9px;
@@ -101,3 +105,4 @@
     bottom:100%;
     border-bottom: 1px solid transparent
 }
+
