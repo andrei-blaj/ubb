@@ -1,0 +1,6 @@
+framework module Pods_Sudoku_AI {
+  umbrella header "Pods-Sudoku AI-umbrella.h"
+
+  export *
+  module * { export * }
+}
