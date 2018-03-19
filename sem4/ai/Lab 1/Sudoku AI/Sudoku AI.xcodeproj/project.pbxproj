@@ -13,6 +13,7 @@
 		E4AEB739205ECB6C0026C059 /* Sudoku_AI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4AEB737205ECB6C0026C059 /* Sudoku_AI.xcdatamodeld */; };
 		E4AEB73B205ECB6C0026C059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AEB73A205ECB6C0026C059 /* Assets.xcassets */; };
 		E4AEB73E205ECB6C0026C059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4AEB73C205ECB6C0026C059 /* LaunchScreen.storyboard */; };
+		E4E1BD8B205F938E0001E77F /* SudokuCellOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1BD8A205F938E0001E77F /* SudokuCellOperations.swift */; };
 		F742E5372AE4DB5C2AE7A68E /* Pods_Sudoku_AI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E5F205F7A0AEBB4DB0760F /* Pods_Sudoku_AI.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		E4AEB73A205ECB6C0026C059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4AEB73D205ECB6C0026C059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4AEB73F205ECB6C0026C059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E1BD8A205F938E0001E77F /* SudokuCellOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuCellOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				E4AEB730205ECB6C0026C059 /* AppDelegate.swift */,
 				E4AEB732205ECB6C0026C059 /* ViewController.swift */,
+				E4E1BD8A205F938E0001E77F /* SudokuCellOperations.swift */,
 				E4AEB734205ECB6C0026C059 /* Main.storyboard */,
 				E4AEB73A205ECB6C0026C059 /* Assets.xcassets */,
 				E4AEB73C205ECB6C0026C059 /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E1BD8B205F938E0001E77F /* SudokuCellOperations.swift in Sources */,
 				E4AEB733205ECB6C0026C059 /* ViewController.swift in Sources */,
 				E4AEB739205ECB6C0026C059 /* Sudoku_AI.xcdatamodeld in Sources */,
 				E4AEB731205ECB6C0026C059 /* AppDelegate.swift in Sources */,
