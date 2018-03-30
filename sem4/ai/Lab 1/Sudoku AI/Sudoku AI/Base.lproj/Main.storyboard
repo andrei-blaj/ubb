@@ -1061,25 +1061,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="T9p-N2-Pig">
                                 <rect key="frame" x="16" y="28" width="343" height="144"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEk-9O-emA">
-                                <rect key="frame" x="16" y="555.5" width="36" height="37"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <state key="normal" title="Load"/>
-                                <connections>
-                                    <action selector="onLoadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PcK-7C-heI"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTk-jx-dcX">
+                                <rect key="frame" x="112.5" y="607" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4AC-f7-cl9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CCb-uf-3Kp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6JL-ue-1yU"/>
                             <constraint firstItem="T9p-N2-Pig" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7Pn-qS-idR"/>
                             <constraint firstItem="T9p-N2-Pig" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="9wF-mt-uxM"/>
-                            <constraint firstItem="oEk-9O-emA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Co2-4F-pwr"/>
                             <constraint firstItem="buY-9X-zoi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DjE-vB-dhD"/>
                             <constraint firstItem="jcQ-Ag-5Bn" firstAttribute="centerY" secondItem="CCb-uf-3Kp" secondAttribute="centerY" id="Jh7-Vh-bf2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T9p-N2-Pig" secondAttribute="trailing" constant="16" id="JoX-oU-5F5"/>
-                            <constraint firstItem="oEk-9O-emA" firstAttribute="centerY" secondItem="CCb-uf-3Kp" secondAttribute="centerY" id="KVO-xJ-WCP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fTk-jx-dcX" secondAttribute="bottom" constant="30" id="LYJ-0s-ZDo"/>
+                            <constraint firstItem="fTk-jx-dcX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z1v-0P-SEV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jcQ-Ag-5Bn" secondAttribute="trailing" constant="16" id="gPu-ZI-09U"/>
                             <constraint firstItem="buY-9X-zoi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mGh-Ik-mhp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CCb-uf-3Kp" secondAttribute="bottom" constant="70" id="p2M-v0-gkq"/>
@@ -1088,6 +1089,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="exampleField" destination="fTk-jx-dcX" id="Kvg-Mm-hdT"/>
                         <outlet property="sudoku00" destination="FNI-7f-En1" id="cUf-eL-Jqc"/>
                         <outlet property="sudoku01" destination="lzt-uz-R3r" id="1uA-Zb-CLt"/>
                         <outlet property="sudoku02" destination="OTB-Sj-rlV" id="ab4-nc-EhT"/>

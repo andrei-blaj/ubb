@@ -15,6 +15,13 @@ class ViewController: UIViewController {
     var solutionsCount: [Int] = [0,0,0,0,0,0,0,0,0,0]
     var numberOfEmptySquares = 0
     
+    var missingNumbers = [0,0,0,0,0,0,0,0,0,0]
+    var existingNumbers = [0,0,0,0,0,0,0,0,0,0]
+    
+    var examples = ["Default", "Very Easy", "Easy", "Medium", "Hard", "Very Hard"]
+    
+    @IBOutlet weak var exampleField: UITextField!
+    
     // Line 1
     @IBOutlet weak var sudoku00: UITextField!
     @IBOutlet weak var sudoku01: UITextField!
@@ -117,6 +124,19 @@ class ViewController: UIViewController {
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createExamplePicker()
+    }
+    
+    func createExamplePicker() {
+        let examplePicker = UIPickerView()
+        examplePicker.delegate = self
+        
+        exampleField.inputView = examplePicker
+        
+        // customizations
+        examplePicker.backgroundColor = .white
+        
     }
     
     @IBAction func onLoadButtonPressed(_ sender: Any) {
@@ -140,8 +160,14 @@ class ViewController: UIViewController {
             for j in 0..<9 {
                 if sudoku[i][j] == 0 {
                     numberOfEmptySquares += 1
+                } else {
+                    existingNumbers[sudoku[i][j]] += 1
                 }
             }
+        }
+        
+        for i in 1..<10 {
+            missingNumbers[i] = 9 - existingNumbers[i]
         }
     }
     
@@ -152,7 +178,7 @@ class ViewController: UIViewController {
         var cnt = 0
         
         while numberOfEmptySquares > 0 {
-            
+        
             for i in 0..<9 {
                 for v in 1..<10 {
                     for s in 1..<10 {
@@ -194,7 +220,7 @@ class ViewController: UIViewController {
             
             cnt += 1
             
-            if cnt == 64 {
+            if cnt == 81 {
                 break
             }
         
@@ -335,8 +361,5 @@ class ViewController: UIViewController {
         
         return false
     }
-    
-    
-    
-    
+
 }

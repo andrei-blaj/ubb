@@ -10,7 +10,274 @@ import UIKit
 
 extension ViewController {
     
+    func loadVeryEasy() {
+        clearCells()
+        
+        sudoku00.text = ""
+        sudoku01.text = ""
+        sudoku02.text = "1"
+        sudoku02.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku03.text = ""
+        sudoku04.text = "9"
+        sudoku04.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku05.text = "5"
+        sudoku05.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku06.text = ""
+        sudoku07.text = "6"
+        sudoku07.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku08.text = "8"
+        sudoku08.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku10.text = ""
+        sudoku11.text = "5"
+        sudoku11.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku12.text = "8"
+        sudoku12.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku13.text = "7"
+        sudoku13.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku14.text = "6"
+        sudoku14.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku15.text = ""
+        sudoku16.text = "9"
+        sudoku16.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku17.text = ""
+        sudoku18.text = ""
+        
+        sudoku20.text = ""
+        sudoku21.text = "3"
+        sudoku21.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku22.text = "6"
+        sudoku22.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku23.text = ""
+        sudoku24.text = "1"
+        sudoku24.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku25.text = ""
+        sudoku26.text = "5"
+        sudoku26.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku27.text = ""
+        sudoku28.text = "2"
+        sudoku28.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku30.text = "5"
+        sudoku30.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku31.text = ""
+        sudoku32.text = "9"
+        sudoku32.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku33.text = ""
+        sudoku34.text = "4"
+        sudoku34.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku35.text = ""
+        sudoku36.text = ""
+        sudoku37.text = "3"
+        sudoku37.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku38.text = "7"
+        sudoku38.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku40.text = "7"
+        sudoku40.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku41.text = "6"
+        sudoku41.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku42.text = ""
+        sudoku43.text = "5"
+        sudoku43.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku44.text = ""
+        sudoku45.text = "9"
+        sudoku45.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku46.text = ""
+        sudoku47.text = ""
+        sudoku48.text = "1"
+        sudoku48.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku50.text = "3"
+        sudoku50.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku51.text = ""
+        sudoku52.text = ""
+        sudoku53.text = "1"
+        sudoku53.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku54.text = ""
+        sudoku55.text = "6"
+        sudoku55.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku56.text = ""
+        sudoku57.text = "9"
+        sudoku57.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku58.text = "5"
+        sudoku58.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku60.text = "8"
+        sudoku60.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku61.text = "4"
+        sudoku61.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku62.text = "3"
+        sudoku62.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku63.text = ""
+        sudoku64.text = ""
+        sudoku65.text = ""
+        sudoku66.text = "7"
+        sudoku66.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku67.text = "2"
+        sudoku67.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku68.text = ""
+        
+        sudoku70.text = "1"
+        sudoku70.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku71.text = ""
+        sudoku72.text = ""
+        sudoku73.text = "6"
+        sudoku73.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku74.text = ""
+        sudoku75.text = "7"
+        sudoku75.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku76.text = "4"
+        sudoku76.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku77.text = "8"
+        sudoku77.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku78.text = ""
+        
+        sudoku80.text = ""
+        sudoku81.text = "2"
+        sudoku81.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku82.text = ""
+        sudoku83.text = "3"
+        sudoku83.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku84.text = "8"
+        sudoku84.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku85.text = "4"
+        sudoku85.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku86.text = "1"
+        sudoku86.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku87.text = ""
+        sudoku88.text = ""
+    }
+    
+    func loadEasy() {
+        clearCells()
+        
+        sudoku00.text = "5"
+        sudoku00.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku01.text = "9"
+        sudoku01.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku02.text = "3"
+        sudoku02.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku03.text = ""
+        sudoku04.text = ""
+        sudoku05.text = ""
+        sudoku06.text = ""
+        sudoku07.text = ""
+        sudoku08.text = "8"
+        sudoku08.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku10.text = ""
+        sudoku11.text = ""
+        sudoku12.text = ""
+        sudoku13.text = ""
+        sudoku14.text = "6"
+        sudoku14.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku15.text = "9"
+        sudoku15.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku16.text = ""
+        sudoku17.text = ""
+        sudoku18.text = "5"
+        sudoku18.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku20.text = ""
+        sudoku21.text = ""
+        sudoku22.text = ""
+        sudoku23.text = ""
+        sudoku24.text = "8"
+        sudoku24.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku25.text = "1"
+        sudoku25.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku26.text = "4"
+        sudoku26.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku27.text = ""
+        sudoku28.text = ""
+        
+        sudoku30.text = "7"
+        sudoku30.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku31.text = ""
+        sudoku32.text = ""
+        sudoku33.text = "9"
+        sudoku33.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku34.text = ""
+        sudoku35.text = ""
+        sudoku36.text = ""
+        sudoku37.text = "1"
+        sudoku37.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku38.text = "4"
+        sudoku38.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku40.text = "6"
+        sudoku40.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku41.text = ""
+        sudoku42.text = "1"
+        sudoku42.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku43.text = ""
+        sudoku44.text = ""
+        sudoku45.text = "2"
+        sudoku45.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku46.text = ""
+        sudoku47.text = "7"
+        sudoku47.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku48.text = ""
+        
+        sudoku50.text = "3"
+        sudoku50.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku51.text = ""
+        sudoku52.text = ""
+        sudoku53.text = ""
+        sudoku54.text = "7"
+        sudoku54.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku55.text = ""
+        sudoku56.text = "8"
+        sudoku56.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku57.text = ""
+        sudoku58.text = "2"
+        sudoku58.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku60.text = ""
+        sudoku61.text = "5"
+        sudoku61.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku62.text = ""
+        sudoku63.text = "6"
+        sudoku63.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku64.text = ""
+        sudoku65.text = ""
+        sudoku66.text = "2"
+        sudoku66.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku67.text = ""
+        sudoku68.text = ""
+        
+        sudoku70.text = ""
+        sudoku71.text = "7"
+        sudoku71.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku72.text = "2"
+        sudoku72.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku73.text = ""
+        sudoku74.text = ""
+        sudoku75.text = ""
+        sudoku76.text = ""
+        sudoku77.text = "3"
+        sudoku77.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku78.text = ""
+        
+        sudoku80.text = ""
+        sudoku81.text = ""
+        sudoku82.text = ""
+        sudoku83.text = "2"
+        sudoku83.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku84.text = "4"
+        sudoku84.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku85.text = ""
+        sudoku86.text = "5"
+        sudoku86.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku87.text = "8"
+        sudoku87.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku88.text = ""
+    }
+    
     func loadDefault() {
+        clearCells()
+        
         sudoku00.text = ""
         sudoku01.text = "2"
         sudoku01.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
@@ -134,6 +401,369 @@ extension ViewController {
         sudoku86.text = ""
         sudoku87.text = "9"
         sudoku87.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku88.text = ""
+    }
+    
+    func loadMedium() {
+        clearCells()
+        
+        sudoku00.text = ""
+        sudoku01.text = ""
+        sudoku02.text = "7"
+        sudoku02.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku03.text = ""
+        sudoku04.text = ""
+        sudoku05.text = "8"
+        sudoku05.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku06.text = ""
+        sudoku07.text = ""
+        sudoku08.text = "2"
+        sudoku08.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku10.text = "1"
+        sudoku10.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku11.text = ""
+        sudoku12.text = ""
+        sudoku13.text = ""
+        sudoku14.text = ""
+        sudoku15.text = "6"
+        sudoku15.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku16.text = ""
+        sudoku17.text = "5"
+        sudoku17.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku18.text = ""
+        
+        sudoku20.text = ""
+        sudoku21.text = ""
+        sudoku22.text = "4"
+        sudoku22.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku23.text = "5"
+        sudoku23.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku24.text = ""
+        sudoku25.text = ""
+        sudoku26.text = ""
+        sudoku27.text = "8"
+        sudoku27.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku28.text = ""
+        
+        sudoku30.text = ""
+        sudoku31.text = "3"
+        sudoku31.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku32.text = "8"
+        sudoku32.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku33.text = ""
+        sudoku34.text = "9"
+        sudoku34.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku35.text = ""
+        sudoku36.text = ""
+        sudoku37.text = "7"
+        sudoku37.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku38.text = ""
+        
+        sudoku40.text = "7"
+        sudoku40.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku41.text = ""
+        sudoku42.text = ""
+        sudoku43.text = ""
+        sudoku44.text = "6"
+        sudoku44.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku45.text = ""
+        sudoku46.text = "5"
+        sudoku46.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku47.text = "3"
+        sudoku47.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku48.text = ""
+        
+        sudoku50.text = ""
+        sudoku51.text = "9"
+        sudoku51.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku52.text = ""
+        sudoku53.text = "4"
+        sudoku53.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku54.text = ""
+        sudoku55.text = "7"
+        sudoku55.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku56.text = ""
+        sudoku57.text = ""
+        sudoku58.text = ""
+        
+        sudoku60.text = "8"
+        sudoku60.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku61.text = ""
+        sudoku62.text = ""
+        sudoku63.text = ""
+        sudoku64.text = "1"
+        sudoku64.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku65.text = ""
+        sudoku66.text = "6"
+        sudoku66.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku67.text = ""
+        sudoku68.text = ""
+        
+        sudoku70.text = ""
+        sudoku71.text = "1"
+        sudoku71.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku72.text = "9"
+        sudoku72.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku73.text = "6"
+        sudoku73.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku74.text = ""
+        sudoku75.text = ""
+        sudoku76.text = ""
+        sudoku77.text = ""
+        sudoku78.text = ""
+        
+        sudoku80.text = ""
+        sudoku81.text = ""
+        sudoku82.text = ""
+        sudoku83.text = "2"
+        sudoku83.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku84.text = ""
+        sudoku85.text = "9"
+        sudoku85.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku86.text = "1"
+        sudoku86.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku87.text = ""
+        sudoku88.text = "8"
+        sudoku88.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+    }
+    
+    func loadHard() {
+        clearCells()
+        
+        sudoku00.text = ""
+        sudoku01.text = ""
+        sudoku02.text = "5"
+        sudoku02.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku03.text = ""
+        sudoku04.text = ""
+        sudoku05.text = "8"
+        sudoku05.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku06.text = ""
+        sudoku07.text = "7"
+        sudoku07.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku08.text = ""
+        
+        sudoku10.text = ""
+        sudoku11.text = "1"
+        sudoku11.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku12.text = ""
+        sudoku13.text = "9"
+        sudoku13.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku14.text = ""
+        sudoku15.text = "3"
+        sudoku15.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku16.text = ""
+        sudoku17.text = "2"
+        sudoku17.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku18.text = ""
+        
+        sudoku20.text = "8"
+        sudoku20.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku21.text = ""
+        sudoku22.text = "3"
+        sudoku22.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku23.text = ""
+        sudoku24.text = ""
+        sudoku25.text = ""
+        sudoku26.text = ""
+        sudoku27.text = "5"
+        sudoku27.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku28.text = "1"
+        sudoku28.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku30.text = "9"
+        sudoku30.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku31.text = ""
+        sudoku32.text = ""
+        sudoku33.text = "7"
+        sudoku33.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku34.text = ""
+        sudoku35.text = ""
+        sudoku36.text = ""
+        sudoku37.text = ""
+        sudoku38.text = "6"
+        sudoku38.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku40.text = "1"
+        sudoku40.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku41.text = ""
+        sudoku42.text = "4"
+        sudoku42.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku43.text = ""
+        sudoku44.text = "8"
+        sudoku44.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku45.text = ""
+        sudoku46.text = "5"
+        sudoku46.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku47.text = ""
+        sudoku48.text = ""
+        
+        sudoku50.text = ""
+        sudoku51.text = ""
+        sudoku52.text = ""
+        sudoku53.text = ""
+        sudoku54.text = ""
+        sudoku55.text = ""
+        sudoku56.text = "1"
+        sudoku56.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku57.text = ""
+        sudoku58.text = "7"
+        sudoku58.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku60.text = ""
+        sudoku61.text = "8"
+        sudoku61.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku62.text = ""
+        sudoku63.text = "4"
+        sudoku63.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku64.text = "9"
+        sudoku64.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku65.text = ""
+        sudoku66.text = ""
+        sudoku67.text = ""
+        sudoku68.text = ""
+        
+        sudoku70.text = ""
+        sudoku71.text = ""
+        sudoku72.text = "1"
+        sudoku72.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku73.text = ""
+        sudoku74.text = ""
+        sudoku75.text = ""
+        sudoku76.text = ""
+        sudoku77.text = ""
+        sudoku78.text = ""
+        
+        sudoku80.text = "5"
+        sudoku80.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku81.text = ""
+        sudoku82.text = ""
+        sudoku83.text = "1"
+        sudoku83.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku84.text = ""
+        sudoku85.text = ""
+        sudoku86.text = "4"
+        sudoku86.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku87.text = ""
+        sudoku88.text = ""
+    }
+    
+    func loadVeryHard() {
+        clearCells()
+        
+        sudoku00.text = "2"
+        sudoku00.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku01.text = ""
+        sudoku02.text = ""
+        sudoku03.text = ""
+        sudoku04.text = ""
+        sudoku05.text = "6"
+        sudoku05.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku06.text = ""
+        sudoku07.text = ""
+        sudoku08.text = ""
+        
+        sudoku10.text = ""
+        sudoku11.text = "5"
+        sudoku11.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku12.text = ""
+        sudoku13.text = ""
+        sudoku14.text = "9"
+        sudoku14.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku15.text = "1"
+        sudoku15.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku16.text = ""
+        sudoku17.text = "3"
+        sudoku17.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku18.text = ""
+        
+        sudoku20.text = "3"
+        sudoku20.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku21.text = ""
+        sudoku22.text = ""
+        sudoku23.text = ""
+        sudoku24.text = ""
+        sudoku25.text = ""
+        sudoku26.text = ""
+        sudoku27.text = ""
+        sudoku28.text = "6"
+        sudoku28.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku30.text = ""
+        sudoku31.text = "9"
+        sudoku31.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku32.text = ""
+        sudoku33.text = ""
+        sudoku34.text = "7"
+        sudoku34.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku35.text = ""
+        sudoku36.text = ""
+        sudoku37.text = ""
+        sudoku38.text = ""
+        
+        sudoku40.text = ""
+        sudoku41.text = ""
+        sudoku42.text = ""
+        sudoku43.text = ""
+        sudoku44.text = "8"
+        sudoku44.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku45.text = ""
+        sudoku46.text = "9"
+        sudoku46.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku47.text = "5"
+        sudoku47.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku48.text = ""
+        
+        sudoku50.text = ""
+        sudoku51.text = ""
+        sudoku52.text = "4"
+        sudoku52.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku53.text = ""
+        sudoku54.text = ""
+        sudoku55.text = ""
+        sudoku56.text = ""
+        sudoku57.text = "2"
+        sudoku57.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku58.text = ""
+        
+        sudoku60.text = ""
+        sudoku61.text = ""
+        sudoku62.text = ""
+        sudoku63.text = ""
+        sudoku64.text = "4"
+        sudoku64.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku65.text = ""
+        sudoku66.text = "7"
+        sudoku66.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku67.text = ""
+        sudoku68.text = "3"
+        sudoku68.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku70.text = ""
+        sudoku71.text = ""
+        sudoku72.text = "3"
+        sudoku72.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku73.text = "5"
+        sudoku73.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku74.text = ""
+        sudoku75.text = ""
+        sudoku76.text = "4"
+        sudoku76.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku77.text = ""
+        sudoku78.text = "8"
+        sudoku78.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        
+        sudoku80.text = ""
+        sudoku81.text = "1"
+        sudoku81.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku82.text = ""
+        sudoku83.text = "8"
+        sudoku83.textColor = #colorLiteral(red: 1, green: 0.5226528049, blue: 0, alpha: 1)
+        sudoku84.text = ""
+        sudoku85.text = ""
+        sudoku86.text = ""
+        sudoku87.text = ""
         sudoku88.text = ""
     }
     

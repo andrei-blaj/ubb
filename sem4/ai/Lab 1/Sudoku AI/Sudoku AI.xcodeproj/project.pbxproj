@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40AB025205FD3A400D865C6 /* ExamplePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AB024205FD3A400D865C6 /* ExamplePicker.swift */; };
 		E4AEB731205ECB6C0026C059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AEB730205ECB6C0026C059 /* AppDelegate.swift */; };
 		E4AEB733205ECB6C0026C059 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AEB732205ECB6C0026C059 /* ViewController.swift */; };
 		E4AEB736205ECB6C0026C059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4AEB734205ECB6C0026C059 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		2497CF7354C1D1C7E1CA5D0D /* Pods-Sudoku AI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sudoku AI.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sudoku AI/Pods-Sudoku AI.release.xcconfig"; sourceTree = "<group>"; };
 		52B3D8F9FEB0C092400ABDA8 /* Pods-Sudoku AI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sudoku AI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sudoku AI/Pods-Sudoku AI.debug.xcconfig"; sourceTree = "<group>"; };
 		98E5F205F7A0AEBB4DB0760F /* Pods_Sudoku_AI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sudoku_AI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40AB024205FD3A400D865C6 /* ExamplePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePicker.swift; sourceTree = "<group>"; };
 		E4AEB72D205ECB6C0026C059 /* Sudoku AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sudoku AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AEB730205ECB6C0026C059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4AEB732205ECB6C0026C059 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				E4AEB730205ECB6C0026C059 /* AppDelegate.swift */,
 				E4AEB732205ECB6C0026C059 /* ViewController.swift */,
 				E4E1BD8A205F938E0001E77F /* SudokuCellOperations.swift */,
+				E40AB024205FD3A400D865C6 /* ExamplePicker.swift */,
 				E4AEB734205ECB6C0026C059 /* Main.storyboard */,
 				E4AEB73A205ECB6C0026C059 /* Assets.xcassets */,
 				E4AEB73C205ECB6C0026C059 /* LaunchScreen.storyboard */,
@@ -225,6 +228,7 @@
 			files = (
 				E4E1BD8B205F938E0001E77F /* SudokuCellOperations.swift in Sources */,
 				E4AEB733205ECB6C0026C059 /* ViewController.swift in Sources */,
+				E40AB025205FD3A400D865C6 /* ExamplePicker.swift in Sources */,
 				E4AEB739205ECB6C0026C059 /* Sudoku_AI.xcdatamodeld in Sources */,
 				E4AEB731205ECB6C0026C059 /* AppDelegate.swift in Sources */,
 			);
