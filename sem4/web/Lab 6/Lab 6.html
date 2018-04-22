@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <style>
+        
+        #wrapper {
+            width:100%;
+            height:auto;
+        }
+
+        #table {
+
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 100px;
+
+            /* Centering the div */
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+        }
+
+        .td {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#table').on('click', '.del', function(){
+                $(this).closest('tr').remove();
+            });
+
+            $('#table').on('click', '.add', function() {
+
+                var new_row = '<tr>'
+                new_row += '<td class="td"> <button class="del"> x </button> </td>'
+                new_row += '<td class="td"> <input type="text" placeholder="Enter text here..."> </td>'
+                new_row += '<td class="td"> <input type="text" placeholder="Enter text here..."> </td>'
+                new_row += '<td class="td"> <input type="text" placeholder="Enter text here..."> </td>'
+                new_row += '<td class="td"> <input type="text" placeholder="Enter text here..."> </td>'
+                new_row += '<td class="td"> <input type="text" placeholder="Enter text here..."> </td>'
+                new_row += '<td class="td"> <button class="add"> + </button> </td>'
+                new_row += '</tr>'
+
+                $(new_row).insertAfter(this.closest('tr'));
+
+            });
+
+            $('#table').on('click', 'input', function(){
+
+                var concerning_table_row = $(this).parent().parent();
+                var canBeReadOnly = true;
+
+                $(concerning_table_row).find('input').each(function() {
+                    if($(this).val().length == 0) {
+                        canBeReadOnly = false;
+                    }
+                });
+
+                if (canBeReadOnly) {
+                    $(concerning_table_row).find('input').each(function(){
+                        $(this).prop('disabled', true);
+                    });
+                }
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <table id="table">
+
+            <tr>
+                <td class="td"> <button class="del"> x </button> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here... 1"> </td>
+                <td class="td"> <button class="add"> + </button> </td>
+            </tr>
+
+            <tr>
+                <td class="td"> <button class="del"> x </button> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here... 2"> </td>
+                <td class="td"> <button class="add"> + </button> </td>
+            </tr>
+
+            <tr>
+                <td class="td"> <button class="del"> x </button> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here... 3"> </td>
+                <td class="td"> <button class="add"> + </button> </td>
+            </tr>
+
+            <tr>
+                <td class="td"> <button class="del"> x </button> </td>
+                <div>
+
+                </div>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here... 4"> </td>
+                <td class="td"> <button class="add"> + </button> </td>
+            </tr>
+
+            <tr>
+                <td class="td"> <button class="del"> x </button> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here..."> </td>
+                <td class="td"> <input type="text" placeholder="Enter text here... 5"> </td>
+                <td class="td"> <button class="add"> + </button> </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
