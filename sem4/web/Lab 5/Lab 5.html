@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    <title>Lab 5</title>
+
+    <style>
+
+        .statement {
+            padding: 15px;
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            width: 600px;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+
+        .dropdown {
+            margin-top: 130px;
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            width: 200px;
+        }
+
+        .dropdown select
+        {
+            width: 100%;
+        }
+        .dropdown > * {
+            box-sizing: border-box;
+            height: 1.5em;
+        }
+        .dropdown select {
+
+        }
+        .dropdown input {
+            position: absolute;
+            width: calc(100% - 20px);
+        }
+    </style>
+
+    <script>
+        
+    </script>
+
+</head>
+
+<body>
+    
+    <div class="statement">
+        <p>Using JavaScript, the HTML input tag having the text type and a select tag (combo box), create an editable combo box.</p>
+    </div>
+
+    <div class="dropdown">
+        <input type="text"/>
+        <select onchange="this.previousElementSibling.value=this.value; this.previousElementSibling.focus()">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+            <option>Option 4</option>
+            <option>Option 5</option>
+        </select>
+    </div>
+
+</body>
+
+</html>
