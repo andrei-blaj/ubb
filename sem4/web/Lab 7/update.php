@@ -67,8 +67,7 @@
 
         <input type="text" placeholder="title" name="title" value="<?= $title ?>" required/>
         <input type="text" placeholder="description" name="description" value="<?= $description ?>" required/>
-        <input type="text" placeholder="producer" name="producer" value="<?= $producer ?>" required/>
-        <input type="text" placeholder="category" name="category" value="<?= $category ?>" required/>
+        <input type="text" placeholder="producer" name="proregory" value="<?= $category ?>" required/>
 
         <input class="submit" type="submit" name="create" value="Update News">
 
