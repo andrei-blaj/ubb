@@ -52,11 +52,29 @@
       $('.filter-by-category').click(function() {
         var filter_by_category = $('#category-filter').find(':selected').text();
         // alert(filter_by_category);
-        $('#news').load("filter.php", {
+        $('#news').load("category-filter.php", {
           selected_category: filter_by_category
         });
       });
+
+      $('.filter-by-date').click(function() {
+        var filter_by_date = $('#date-filter').find(':selected').text();
+        // alert(filter_by_category);
+        $('#news').load("date-filter.php", {
+          selected_date: filter_by_date
+        });
+      });
+
     });
+
+    function setDateAsPrevious() {
+      document.getElementById("previous-filter").innerHTML = "Previously used: Date filter";
+    }
+
+    function setCategoryAsPrevious() {
+      document.getElementById("previous-filter").innerHTML = "Previously used: Category filter";
+    }
+
   </script>
 
 </head>
@@ -66,6 +84,9 @@
 
   <div style="float: left;">
     <?= $_SESSION['message'] ?>
+    <div id="previous-filter">
+  
+    </div>
   </div>
 
   <div style="float: right;">
@@ -91,32 +112,50 @@
       <div style="float: left;">
 
         <select id="category-filter">
-          <option>politics</option>
-          <option>society</option>
-          <option>health</option>
-          <option>Star Wars</option>
-          <option>gta</option>
-          <option>australia</option>
+        <?php 
+          
+          $sql = "SELECT DISTINCT category FROM News";
+          $result = mysqli_query($mysqli, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)){
+              $category = ''. $row['category'] .'';
+
+              echo '<option>'. $category .'</option>';
+            }
+          }
+
+        ?>
         </select>
 
-        <button class="filter-by-category"> Filter </button>
+        <button class="filter-by-category" onclick="setCategoryAsPrevious()"> Filter </button>
 
       </div> 
 
-      <!-- <div style="float: right;">
+      <div style="float: right;">
 
-        <select id="category-filter">
-          <option>politics</option>
-          <option>society</option>
-          <option>health</option>
-          <option>Star Wars</option>
-          <option>gta</option>
-          <option>australia</option>
+        <select id="date-filter">
+
+          <?php 
+          
+            $sql = "SELECT DISTINCT date FROM News";
+            $result = mysqli_query($mysqli, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)){
+                $date = ''. $row['date'] .'';
+
+                echo '<option>'. $date .'</option>';
+              }
+            }
+
+          ?>
+
         </select>
 
-        <button class="filter-by-category"> Filter </button>
+        <button class="filter-by-date" onclick="setDateAsPrevious()"> Filter </button>
 
-      </div>  -->
+      </div> 
 
       <br />
       <br />
@@ -125,7 +164,7 @@
 
         <?php
           
-          $sql = "SELECT * FROM News";
+          $sql = "SELECT * FROM News ORDER BY date DESC";
           $response = mysqli_query($mysqli, $sql);
 
           while($row = mysqli_fetch_array($response)){
