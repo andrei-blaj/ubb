@@ -1,0 +1,11 @@
+Mamdani model:
+
+
+It generally represents an estimation of COA by using a sample of n points, namely (xi,i = (1,2,3,4,5..n)
+
+The input parameters will be the temperature and the humidity
+For an input of 0(between very cold and cold) temperature and 100(wet) humidity, the output type will be short.
+
+In this model, output variables belong to a fuzzy set. Therefore, result of evaluation is applied for the membership
+function of the consequence.
+The Madmani model consists of the rule evaluations, namely, evaluation of consequence.
