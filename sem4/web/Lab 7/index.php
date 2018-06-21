@@ -1,41 +1,40 @@
 <?php 
   session_start();
 
-  $mysqli = new mysqli('localhost', 'root', '', 'NewsService');
-
-  $_SESSION['selected_news_id'] = '';
+  $mysqli = new mysqli('localhost', 'root', '', 'examen');
 
   if ($_SESSION['logged_in'] == 'false') {
     $_SESSION['login'] = 'Log in';
     $_SESSION['user_id'] = '';
+    header("location: login.php");
   } else {
     $_SESSION['login'] = 'Log out';
   }
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (isset($_POST['logout'])) {
+  //   if (isset($_POST['logout'])) {
 
-      if ($_SESSION['logged_in'] == 'true') {
-        $_SESSION['logged_in'] = 'false';
-        $_SESSION['message'] = '';
+  //     if ($_SESSION['logged_in'] == 'true') {
+  //       $_SESSION['logged_in'] = 'false';
+  //       $_SESSION['message'] = '';
         
-        header("location: index.php");
-      } else {
-        header("location: login.php");
-      }
-    }
+  //       header("location: index.php");
+  //     } else {
+  //       header("location: login.php");
+  //     }
+  //   }
 
-    if (isset($_POST['new'])) {
-      header("location: new.php");
-    }
+  //   if (isset($_POST['new'])) {
+  //     header("location: new.php");
+  //   }
     
-    if (isset($_POST['edit'])) {
-      $_SESSION['selected_news_id'] = $_POST['edit'];
-      header("location: update.php");
-    }
+  //   if (isset($_POST['edit'])) {
+  //     $_SESSION['selected_news_id'] = $_POST['edit'];
+  //     header("location: update.php");
+  //   }
 
-  }
+  // }
 
 ?>
 

@@ -15,14 +15,17 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $sql = "SELECT * FROM User WHERE username='" . $username . "' AND password='" . $password . "' LIMIT 1";
+    $sql = "SELECT * FROM Person WHERE user='" . $username . "' AND secretNumber='" . $password . "' LIMIT 1";
 
     $response = mysqli_query($mysqli, $sql);
 
     if (mysqli_num_rows($response) == 1) {
 
       while($row = mysqli_fetch_array($response)){
-        $_SESSION['user_id'] = ''. $row['ID'] .'';
+        $_SESSION['user_id'] = ''. $row['id'] .'';
+        $_SESSION['name'] = ''. $row['name'] .'';
+        $_SESSION['url'] = ''.$row['pictureFile'] .'';
+        $_SESSION['family_members'] = ''.$row['familyMembers'] .'';
       }
 
       $_SESSION['message'] = 'Welcome, '. $username .'!';
@@ -38,7 +41,7 @@
 <html>
 
 <head>
-  <title>News Service</title>
+  <title> Examen </title>
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
@@ -47,16 +50,12 @@
   <div class="login-page">
     <div class="form">
 
-      <? echo(md5('password')) ?>
-
       <form class="login-form" method="POST" action="login.php">
 
         <input type="text" placeholder="username" name="username" required/>
         <input type="password" placeholder="secret number" name="password" required/>
 
         <input class="submit" type="submit" name="login" value="Login">
-
-        <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
       </form>
 

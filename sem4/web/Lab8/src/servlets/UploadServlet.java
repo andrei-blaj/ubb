@@ -23,7 +23,7 @@ import java.sql.*;
 public class UploadServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String imagesFolderPath = "/Users/blaj/IdeaProjects/Lab8/web/images";
+        String imagesFolderPath = "/Users/andreiblaj/Documents/Github/ubb/sem4/web/Lab8/web/images";
 
         response.setContentType("text/html;charset=UTF-8");
 
