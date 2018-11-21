@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b06a4f3-e4b0-4e47-823b-0619ffde56e9" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1949263532">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="2833" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="2833" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1395450551">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="234" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="234" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ppd_lab2/Matrix.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <folding>
+                <marker date="1540911611952" expanded="true" signature="53:605" ph="{...}" />
+                <marker date="1540911611952" expanded="true" signature="82:603" ph="{...}" />
+                <marker date="1540911611952" expanded="true" signature="124:335" ph="{...}" />
+                <marker date="1540911611952" expanded="true" signature="254:325" ph="{...}" />
+                <marker date="1540911611952" expanded="true" signature="495:596" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ppd_lab2/Operations.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+              <folding>
+                <marker date="1540911717865" expanded="false" signature="6:139" ph="..." />
+                <marker date="1540911717865" expanded="true" signature="159:3366" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="196:3364" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="250:438" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="296:426" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="537:1382" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="688:1162" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="853:978" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="999:1148" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="1213:1277" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="1476:2299" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="1627:2079" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="1792:1906" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="1927:2065" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2130:2194" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2395:2562" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2447:2552" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2669:2963" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2721:2953" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="2824:2939" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="3022:3358" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="3164:3320" ph="{...}" />
+                <marker date="1540911717865" expanded="true" signature="3222:3306" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ppd_lab2/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+              <folding>
+                <marker date="1540911995425" expanded="false" signature="6:47" ph="..." />
+                <marker date="1540911995425" expanded="true" signature="67:754" ph="{...}" />
+                <marker date="1540911995425" expanded="true" signature="96:752" ph="{...}" />
+                <marker date="1540911995425" expanded="true" signature="149:746" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>doLineSum</find>
+      <find>mult</find>
+      <find>Mult</find>
+    </findStrings>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ppd_lab2/Matrix.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ppd_lab2/Operations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ppd_lab2/Program.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ppd_lab2/Matrix.cs" />
+        <option value="$PROJECT_DIR$/ppd_lab2/Operations.cs" />
+        <option value="$PROJECT_DIR$/ppd_lab2/Program.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="413" />
+    <option name="width" value="1680" />
+    <option name="height" value="974" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="ppd_lab2" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="ppd_lab2" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ppd_lab2" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/ppd_lab2/bin/Debug/ppd_lab2.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ppd_lab2/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/ppd_lab2/ppd_lab2.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.1" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b06a4f3-e4b0-4e47-823b-0619ffde56e9" name="Default Changelist" comment="" />
+      <created>1540231935163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540231935163</updated>
+      <workItem from="1540231937230" duration="7691000" />
+      <workItem from="1540300539642" duration="3048000" />
+      <workItem from="1540304396226" duration="16000" />
+      <workItem from="1540304551300" duration="838000" />
+      <workItem from="1540902659092" duration="875000" />
+      <workItem from="1540909393134" duration="2367000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14835000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="413" width="1680" height="974" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26617828" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.861678" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.32838285" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.32838285" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3276644" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="14" weight="0.8174603" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="DotNetProject">
+        <watch expression="Items" language="C#" custom="RiderImportsList:" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>Items</expression-string>
+        <language-id>C#</language-id>
+        <custom-info>RiderImportsList:</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3833A6ED-F207-4B95-9D3D-AB898627F0AC/36/917f5421/ThrowHelper.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3833A6ED-F207-4B95-9D3D-AB898627F0AC/a4/f0ff208f/_ThreadPoolWaitCallback.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3833A6ED-F207-4B95-9D3D-AB898627F0AC/78/1d304ac9/Task.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3833A6ED-F207-4B95-9D3D-AB898627F0AC/db/0b5d5476/List`1.cs" />
+    <entry file="file://$PROJECT_DIR$/ppd_lab2/Matrix.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <marker date="1540911611952" expanded="true" signature="53:605" ph="{...}" />
+            <marker date="1540911611952" expanded="true" signature="82:603" ph="{...}" />
+            <marker date="1540911611952" expanded="true" signature="124:335" ph="{...}" />
+            <marker date="1540911611952" expanded="true" signature="254:325" ph="{...}" />
+            <marker date="1540911611952" expanded="true" signature="495:596" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ppd_lab2/Operations.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding>
+            <marker date="1540911717865" expanded="false" signature="6:139" ph="..." />
+            <marker date="1540911717865" expanded="true" signature="159:3366" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="196:3364" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="250:438" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="296:426" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="537:1382" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="688:1162" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="853:978" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="999:1148" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="1213:1277" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="1476:2299" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="1627:2079" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="1792:1906" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="1927:2065" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2130:2194" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2395:2562" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2447:2552" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2669:2963" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2721:2953" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="2824:2939" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="3022:3358" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="3164:3320" ph="{...}" />
+            <marker date="1540911717865" expanded="true" signature="3222:3306" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ppd_lab2/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding>
+            <marker date="1540911995425" expanded="false" signature="6:47" ph="..." />
+            <marker date="1540911995425" expanded="true" signature="67:754" ph="{...}" />
+            <marker date="1540911995425" expanded="true" signature="96:752" ph="{...}" />
+            <marker date="1540911995425" expanded="true" signature="149:746" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

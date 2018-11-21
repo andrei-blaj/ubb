@@ -1,0 +1,33 @@
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.deps.json
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.json
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.dev.json
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.pdb
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csprojAssemblyReference.cache
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csproj.CoreCompileInputs.cache
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfoInputs.cache
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfo.cs
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/tamasf/RiderProjects/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.pdb
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.deps.json
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.json
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.dev.json
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.pdb
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csprojAssemblyReference.cache
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csproj.CoreCompileInputs.cache
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfoInputs.cache
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfo.cs
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/andreiblaj/Downloads/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.pdb
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.deps.json
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.json
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.runtimeconfig.dev.json
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/bin/Debug/netcoreapp2.1/PPD_Lab4.pdb
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csprojAssemblyReference.cache
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.csproj.CoreCompileInputs.cache
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfoInputs.cache
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.AssemblyInfo.cs
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.dll
+/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/Debug/netcoreapp2.1/PPD_Lab4.pdb

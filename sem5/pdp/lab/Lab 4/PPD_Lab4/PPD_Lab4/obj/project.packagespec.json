@@ -1,0 +1,43 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/PPD_Lab4.csproj",
+    "projectName": "PPD_Lab4",
+    "projectPath": "/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/PPD_Lab4.csproj",
+    "outputPath": "/Users/andreiblaj/Documents/ubb/An 3/pdp/lab/Lab 4/PPD_Lab4/PPD_Lab4/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

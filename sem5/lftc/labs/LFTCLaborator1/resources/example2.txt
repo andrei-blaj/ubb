@@ -1,0 +1,7 @@
+main() {
+    int ba;
+    char b;
+    b = 'c';
+    a = 10;
+    std::cout b;
+}

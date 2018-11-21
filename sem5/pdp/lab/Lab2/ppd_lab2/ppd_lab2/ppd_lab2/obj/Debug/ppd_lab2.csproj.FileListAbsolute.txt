@@ -1,0 +1,12 @@
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/bin/Debug/ppd_lab2.exe
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/bin/Debug/ppd_lab2.pdb
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.csprojAssemblyReference.cache
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.csproj.CoreCompileInputs.cache
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.exe
+/home/bogdanboboc97/RiderProjects/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.pdb
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/bin/Debug/ppd_lab2.exe
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/bin/Debug/ppd_lab2.pdb
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.csprojAssemblyReference.cache
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.csproj.CoreCompileInputs.cache
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.exe
+/Users/andreiblaj/Documents/ubb/pdp/lab/Lab2/ppd_lab2/ppd_lab2/ppd_lab2/obj/Debug/ppd_lab2.pdb

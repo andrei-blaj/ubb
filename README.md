@@ -63,3 +63,18 @@
 	📌  [Systems for Design and Implementation](https://github.com/andrei-blaj/ubb/tree/master/sem4/mpp) <br />
 
 <br />
+
+> ### ... ###
+>>  Guess it's too late to change my mind now...
+
+<br />
+
+* 📘  Volume 5 <br />
+
+📌  [Pragmatic Issues in Programming](https://github.com/andrei-blaj/ubb/tree/master/sem5/app) <br />
+📌  [Microcontrollers](https://github.com/andrei-blaj/ubb/tree/master/sem5/microcontrollers) <br />
+📌  [Mobile Applications](https://github.com/andrei-blaj/ubb/tree/master/sem5/mobile) <br />
+📌  [Formal Languages and Compiler Design](https://github.com/andrei-blaj/ubb/tree/master/sem5/lftc) <br />
+📌  [Parallel and Distributed Programming](https://github.com/andrei-blaj/ubb/tree/master/sem5/pdp) <br />
+
+<br />

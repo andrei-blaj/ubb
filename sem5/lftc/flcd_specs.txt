@@ -1,0 +1,91 @@
+//Lexical rules
+Separators: [ ] { } : ; space tab newline
+Reserved words: array while if read write array int real char 
+
+letter = "a" | ... | "z" | "A" | ... | "Z" //(max 250)
+non_zero_digit = "1" | ... | "9"
+digit = "0" | non_zero_digit
+special_symbol = "_"
+identifier = ( letter | special_symbol ) , { letter | digit | special_symbol }
+sign = "+" | "-"
+non_zero_natural_number = non_zero_digit , { digit }
+natural_number = non_zero_natural_number | "0"
+integer_number = ( [ sign ] , non_zero_natural_number ) | "0"
+real_number = integer_number , "." , { digit }
+character = "'" , ( letter | digit | special_symbol ) , "'" )
+string = """ , ( letter | digit | special_symbol ) , """
+constant = integer_number | real_number | character | string
+operator = arithmetic_operator | boolean_operator
+high_priority_arithmentic_operator = "*" | "/" | "%"
+low_priority_arithmetic_operator = "+" | "-"
+arithmetic_operator = high_priority_arithmentic_operator | low_priority_arithmetic_operator 
+boolean_operator = "==" | "!=" | "<" | "<=" | ">" | ">="
+
+//Syntactic rules
+
+program = compound_statement
+type = "int" | "real"  | "char" | "string"
+compound_statement = "{" , statements , "}"
+statements = statement , "," , { statement , "," }
+statement = ( declaration_statement | assignment_statement | io_statement | while_statement | if_statement )
+declaration_statement = var_declaration_statement | array_declaration_statement | struct_declaration_statement
+var_declaration_statement = type , identifier
+struct_declaration_statement = "struct" , identifier
+array_declaration_statement = "array" , [" , type , "," , non_zero_natural_number , "]" , identifier
+assignment_statement = var_assignment_statement | array_assignment_statement
+var_assignment_statement = identifier , "=" , expression
+array_assignment_statement = identifier , "[" , non_zero_natural_number , "]" , "=" , expression
+struct_assignment_statement = identifier , "~" , identifier , "=" , expression
+while_statement = "while", "(" , condition , ")" , compound_statement
+if_statement = "if" , "(" , condition , ")" , compound_statement , [ "else" , compound_statement ]
+io_statement = input | output
+input = "read" , "(" , identifier , ")"
+output = "write", "(" , expression , ")"
+condition = expression , boolean_operator , expression
+expression = ( expression , low_priority_arithmetic_operator , term ) | term
+term = ( term , high_priority_arithmentic_operator , fact ) | fact
+fact = identifier | ( identifier , "[" , non_zero_natural_number , "]" ) | constant | ( identifier , "~" , identifier )
+
+//Codification
+identifier -> 0
+constant -> 1
+program -> 2
+array -> 3
+int -> 4
+real -> 5
+char -> 6
+read -> 7
+write -> 8
+if -> 9
+else -> 10
+while -> 11
+; -> 13
+= -> 14
++ -> 15
+- -> 16
+== -> 17
+!= -> 18
+< -> 19
+> -> 20
+<= -> 21
+>= -> 22
+/ -> 23
+* -> 24
+% -> 25
+] -> 26
+[ -> 27
+{ -> 28
+} -> 29
+( -> 30
+) -> 31
+. -> 32
+struct -> 33
+string -> 34
+" -> 35
+~ -> 36
+
+
+
+
+
+

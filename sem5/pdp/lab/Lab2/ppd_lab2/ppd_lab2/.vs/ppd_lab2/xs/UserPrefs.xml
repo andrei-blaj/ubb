@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{9AEC487D-FF97-4A46-8D0D-7FA8370C3637}|Default">
+  <MonoDevelop.Ide.ItemProperties.ppd__lab2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ppd_lab2/Program.cs">
+    <Files>
+      <File FileName="ppd_lab2/Program.cs" Line="49" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

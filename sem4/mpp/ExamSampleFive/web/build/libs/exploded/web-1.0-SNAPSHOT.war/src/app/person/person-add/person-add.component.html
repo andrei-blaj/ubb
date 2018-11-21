@@ -1,0 +1,48 @@
+<div *ngIf="isPressed">
+  <table>
+
+    <tr>
+      <td>
+        <label> NAME </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input #personName placeholder="Name">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label> Social Security Number </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input #personSSN placeholder="SSN">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button (click)="save(personName.value, personSSN.value)" style="width:100%; background-color: green; color: orange;">Save</button>
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+
+<div *ngIf="!isPressed && person.name?.length > 0 && init">
+  <app-person-addcheck></app-person-addcheck>
+</div>
+
+<div *ngIf="!isPressed && person.name?.length == 0 && init">
+  <label (click)="goError()"> e </label>
+</div>
+
+<div *ngIf="!isPressed && !init">
+  <button (click)="isPressed = true">New</button>
+</div>
+

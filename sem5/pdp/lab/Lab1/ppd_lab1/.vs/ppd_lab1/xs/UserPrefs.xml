@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{0A3BE50D-1DFC-4685-B1EC-119129A87364}|Default">
+  <MonoDevelop.Ide.ItemProperties.ppd__lab1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ppd_lab1/Models/ProductModel.cs">
+    <Files>
+      <File FileName="ppd_lab1/Models/ProductModel.cs" Line="17" Column="2" />
+      <File FileName="ppd_lab1/Models/BillModel.cs" Line="19" Column="13" />
+      <File FileName="ppd_lab1/Program.cs" Line="30" Column="2" />
+      <File FileName="ppd_lab1/Controllers/OperationsController.cs" Line="5" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

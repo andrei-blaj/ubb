@@ -1,0 +1,8 @@
+main(){
+char i;
+char b;
+i = 'a';
+b = 'c';
+b = 'd';
+std::cout b;
+}
