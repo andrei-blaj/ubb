@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d4655333-8af9-4c77-ab80-3f36d85e6663" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../sem4/mpp/ExamSampleFive/web/src/main/webapp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../sem4/mpp/ExamSampleFive/web/src/main/webapp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../sem5/app/app" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../sem5/app/app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../sem5/mobile/projectidea-gr931-2-932-2-933-2-934-2-935-1-936-1-andrei-blaj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../sem5/mobile/projectidea-gr931-2-932-2-933-2-934-2-935-1-936-1-andrei-blaj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Calcul Numeric/Lab 2 Calcul Numeric/lab2_1.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Calcul Numeric/Lab 2 Calcul Numeric/lab2_2.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Calcul Numeric/Lab 2 Calcul Numeric/lab2_3.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Calcul Numeric/Lab 2 Calcul Numeric/lab2_4.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Calcul Numeric/Lab 2 Calcul Numeric/lab2_5.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab01_Files/2019_SSVV_AssignmentLab01.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab01_Files/2019_SSVV_AssignmentLab01.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/console/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/console/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/HasID.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/HasID.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Nota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Nota.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Pair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Tema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/domain/Tema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractCRUDRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractCRUDRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractXMLRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/AbstractXMLRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/CRUDRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/CRUDRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaXMLRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/NotaXMLRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentXMLRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/StudentXMLRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaXMLRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/repository/TemaXMLRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/service/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/service/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/NotaValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/NotaValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/StudentValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/StudentValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/TemaValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/TemaValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/ValidationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/ValidationException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitorizareTemeLaboratorV01/validation/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/console/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/studenti.txt" beforeDir="false" afterPath="$PROJECT_DIR$/studenti.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/studenti.xml" beforeDir="false" afterPath="$PROJECT_DIR$/studenti.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/teme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teme.xml" beforeDir="false" afterPath="$PROJECT_DIR$/teme.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/console/UI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="207" column="24" selection-start-line="207" selection-start-column="24" selection-end-line="207" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/Tema.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/repository/NotaFileRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/repository/TemaFileRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/Service.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/repository/StudentFileRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>21</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/domain/HasID.java" />
+        <option value="$PROJECT_DIR$/src/domain/Nota.java" />
+        <option value="$PROJECT_DIR$/src/domain/Pair.java" />
+        <option value="$PROJECT_DIR$/src/domain/Student.java" />
+        <option value="$PROJECT_DIR$/src/domain/Tema.java" />
+        <option value="$PROJECT_DIR$/src/repository/CRUDRepository.java" />
+        <option value="$PROJECT_DIR$/src/validation/NotaValidator.java" />
+        <option value="$PROJECT_DIR$/src/validation/StudentValidator.java" />
+        <option value="$PROJECT_DIR$/src/validation/TemaValidator.java" />
+        <option value="$PROJECT_DIR$/src/validation/ValidationException.java" />
+        <option value="$PROJECT_DIR$/src/validation/Validator.java" />
+        <option value="$PROJECT_DIR$/src/service/Service.java" />
+        <option value="$PROJECT_DIR$/src/repository/StudentXMLRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/AbstractXMLRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/AbstractCRUDRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/TemaXMLRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/NotaXMLRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/TemaRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/NotaRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/StudentRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/AbstractFileRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/NotaFileRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/TemaFileRepository.java" />
+        <option value="$PROJECT_DIR$/src/repository/StudentFileRepository.java" />
+        <option value="$PROJECT_DIR$/src/console/UI.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="413" />
+    <option name="width" value="1680" />
+    <option name="height" value="973" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="console" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabAssiAsseProjectV01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabAssiAsseProjectV01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="validation" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553075865893" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PopPriscilaLab6" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MonitorizareTemeLaboratorV01" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4655333-8af9-4c77-ab80-3f36d85e6663" name="Default Changelist" comment="" />
+      <created>1550871485222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550871485222</updated>
+      <workItem from="1550871488147" duration="1456000" />
+      <workItem from="1552926583808" duration="1917000" />
+      <workItem from="1552995000837" duration="3473000" />
+      <workItem from="1553070789692" duration="21000" />
+      <workItem from="1553074302379" duration="822000" />
+      <workItem from="1553762874311" duration="459000" />
+      <workItem from="1554276262381" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8161000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="973" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26129428" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Designer" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5425653" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.329429" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3295129" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Maven-2 Build" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/repository/CRUDRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation/NotaValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation/StudentValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation/TemaValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation/ValidationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/StudentXMLRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/AbstractXMLRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/AbstractCRUDRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/TemaXMLRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/NotaXMLRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/TemaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/NotaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/AbstractFileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/HasID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Nota.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MODULES/mdl-MonitorizareTemeLaboratorV01">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-MonitorizareTemeLaboratorV01</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-MonitorizareTemeLaboratorV01</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="140.0" y="15.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/andrei/Documents/Github/ubb/sem6/SSVV/Labs/Lab 1/LabAssiAsseProjectV01/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/console">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>console</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">console.UI</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-339.0" y="-122.0" />
+          <SelectedNodes>
+            <node>console.UI</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Flash/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Flash</ID>
+          <OriginalElement />
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="610.0" y="377.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>PRIVATE</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="0.0" y="523.0">com</node>
+            <node x="0.0" y="375.0">console</node>
+            <node x="384.0" y="301.0">netscape</node>
+            <node x="0.0" y="449.0">oracle</node>
+            <node x="469.0" y="523.0">org</node>
+            <node x="0.0" y="301.0">resources</node>
+            <node x="278.0" y="153.0">toolbarButtonGraphics</node>
+            <node x="0.0" y="79.0">repository</node>
+            <node x="314.0" y="523.0">sun</node>
+            <node x="463.0" y="227.0">META-INF</node>
+            <node x="0.0" y="597.0">jdk</node>
+            <node x="337.0" y="449.0">apple</node>
+            <node x="233.0" y="227.0">groovyjarjarasm</node>
+            <node x="158.0" y="523.0">java</node>
+            <node x="355.0" y="375.0">groovy</node>
+            <node x="502.0" y="449.0">javax</node>
+            <node x="180.0" y="375.0">service</node>
+            <node x="9.0" y="0.0">domain</node>
+            <node x="0.0" y="153.0">groovyjarjarcommonscli</node>
+            <node x="169.0" y="449.0">javafx</node>
+            <node x="0.0" y="227.0">groovyjarjarantlr</node>
+            <node x="195.0" y="0.0">Main</node>
+            <node x="193.0" y="301.0">validation</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="repository" target="domain">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-65.0" y="177.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="207" column="24" selection-start-line="207" selection-start-column="24" selection-end-line="207" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Tema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/NotaFileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/TemaFileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/StudentFileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

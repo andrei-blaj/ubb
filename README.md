@@ -77,4 +77,16 @@
 📌  [Formal Languages and Compiler Design](https://github.com/andrei-blaj/ubb/tree/master/sem5/lftc) <br />
 📌  [Parallel and Distributed Programming](https://github.com/andrei-blaj/ubb/tree/master/sem5/pdp) <br />
 
+> ### ... ###
+>>  ⌛️ Part of the journey is the end.
+
 <br />
+
+* 📕   Volume 6 <br />
+
+📌  [Metrici Soft](https://github.com/andrei-blaj/ubb/tree/master/sem6/metrici) <br />
+📌  [Design Patterns](https://github.com/andrei-blaj/ubb/tree/master/sem6/dp) <br />
+📌  [History of Computer Science](https://github.com/andrei-blaj/ubb/tree/master/sem6/istorie) <br />
+📌  [Numerical Calculus](https://github.com/andrei-blaj/ubb/tree/master/sem6/numeric) <br />
+📌  [Preparation of Bachelor Thesis](https://github.com/andrei-blaj/ubb/tree/master/sem6/ell) <br />
+📌  [Software Systems Verification and Validation](https://github.com/andrei-blaj/ubb/tree/master/sem6/vvss) <br />
